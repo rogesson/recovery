@@ -1,4 +1,5 @@
 Recovery::Application.routes.draw do
+  resources :main
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
