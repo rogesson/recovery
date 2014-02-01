@@ -1,1 +1,13 @@
-Hello Mundo!
+<center>
+<%=form_for :user do |u|%>
+	<b>Login</b><br />
+	<%= text_field_tag :login, nil, :placeholder => "Login"%><br /><br />
+	<b>Email</b><br />
+	<%= text_field_tag :login, nil, :placeholder => "Email"%><br /><br />
+	<b>Password</b><br />
+	<%= text_field_tag :login, nil, :placeholder => "Password"%><br /><br />
+	<b>Confirm Password</b><br />
+	<%= text_field_tag :password_conf, nil, :placeholder => "Password"%><br /><br />
+	<%= u.button "Confirm"%>
+<%end%>
+</center>
