@@ -32,7 +32,7 @@ class MainController < ApplicationController
 		Credential.create(:login => params[:login],
 		 :password => params[:password],
 		 :site => params[:site],
-		 :user_id => 1
+		 :user_id => params[:id].to_i
 		 )
 		redirect_to :back
 	end
