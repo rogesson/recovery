@@ -20,10 +20,11 @@ function requestTo(){
 </script>
 
 <div style='color:#fff;background-color: red; position:absolute; left: 850px; top: 17px;'>
-	<%= form_for :user_login do |log|%>
-	Login <%= text_field_tag :login, nil, :placeholder => "Login", :id => "log_login"%>  Password <%= text_field_tag :password, nil, placeholder: "Password", :id => "log_password"%>
+	<%= form_tag('/main/1/home_page') do %>
+		Login <%= text_field_tag :login, nil, :placeholder => "Login", :id => "log_login"%>  Password <%= text_field_tag :password, nil, placeholder: "Password", :id => "log_password"%>
+		<%= submit_tag "Sign in" %>
 	<%end%>
-	<%= button_tag :Login, :onclick => "requestTo()"%>
+
 
 </div>
 

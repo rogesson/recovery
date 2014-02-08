@@ -2,6 +2,7 @@ class MainController < ApplicationController
 	require 'json'
 	def index
 
+
 	end
 
 	def create
@@ -16,10 +17,7 @@ class MainController < ApplicationController
 		end
 	end
 
-	def show
-		debugger
-		respond_to do |format|
-			format.json {render :json => "test"}
-		end
+	def home_page
+
 	end
 end
