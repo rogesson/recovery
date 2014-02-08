@@ -27,6 +27,12 @@ class MainController < ApplicationController
 	end
 
 	def new_password
-		
+		Credential.create(:login => params[:login],
+		 :password => params[:password],
+		 :site => params[:site],
+		 :user_id => 1
+		 )
+
+		redirect_to '/main/1/home_page'
 	end
 end
