@@ -1,11 +1,11 @@
 New Password<br /><br />
 <%= form_tag('/main/1/new_password', :remote=> true ) do%>
-Login<br />
-<%= text_field_tag :login, nil, placeholder: "Login"%><br /><br />
-Password<br />
-<%= password_field_tag :password, nil, placeholder: "Password"%><br /><br />
-Site<br />
-<%= text_field_tag :site, nil, placeholder: "Site"%><br/>
-<%= submit_tag "Save"%>
+	Login<br />
+	<%= text_field_tag :login, nil, placeholder: "Login"%><br /><br />
+	Password<br />
+	<%= password_field_tag :password, nil, placeholder: "Password"%><br /><br />
+	Site<br />
+	<%= text_field_tag :site, nil, placeholder: "Site"%><br/>
+	<%= submit_tag "Save"%>
 
 <%end%>
