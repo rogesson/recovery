@@ -19,7 +19,7 @@ function requestTo(){
 }
 </script>
 
-<div style='color:#fff;background-color: red; position:absolute; left: 850px; top: 17px;'>
+<div style='color:#fff;background-color: blue; position:absolute; left: 850px; top: 17px;'>
 	<%= form_tag('/main/1/home_page') do %>
 		Login <%= text_field_tag :login, nil, :placeholder => "Login" %>  Password <%= password_field_tag :password, nil, placeholder: "Password" %>
 		<%= submit_tag "Sign in" %>
@@ -29,7 +29,7 @@ function requestTo(){
 	<%end%>
 </div>
 
-<div style='color:#fff;background-color: red; position:absolute; left: 50px; top: 40px;'>
+<div style='color:#fff;background-color: blue; position:absolute; left: 50px; top: 40px;'>
 <%=form_for :user do |u|%>
 	<b>Login</b><br />
 	<%= text_field_tag :login, nil, :placeholder => "Login"%><br /><br />
