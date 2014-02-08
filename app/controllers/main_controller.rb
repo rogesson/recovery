@@ -18,6 +18,11 @@ class MainController < ApplicationController
 	end
 
 	def home_page
+		if User.where(:login => params[:login], :password => params[:password]) != []
+			
+		else
+			redirect_to '/main?bad_login=1'
+		end
 
 	end
 end
