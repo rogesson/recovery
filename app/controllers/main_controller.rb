@@ -17,6 +17,7 @@ class MainController < ApplicationController
 	end
 
 	def show
+		debugger
 		respond_to do |format|
 			format.json {render :json => "test"}
 		end

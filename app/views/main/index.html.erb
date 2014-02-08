@@ -1,21 +1,30 @@
 <style>
 
 </style>
+
+<%# TODO Change the code bellow to a global js file%>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script>
+function getValue(id){
+	return $("#"+id)[0].value 
+}
+
 function requestTo(){
-	var xdp = { name: $("#weq")[0].value, location: "Boston" }
+	var value = { login: getValue('log_login'), password: getValue('log_password') }
 	$.ajax({
 	  type: "GET",
 	  url: "main/1",
-	  data: xdp
+	  data: value
 	})
 }
 </script>
+
 <div style='color:#fff;background-color: red; position:absolute; left: 850px; top: 17px;'>
 	<%= form_for :user_login do |log|%>
-	Login <%= text_field_tag :login, nil, :placeholder => "Login", :id => "weq"%>  Password <%= text_field_tag :password, nil, placeholder: "Password", :onclick => "requestTo()"%> <%= log.button :Login%>
+	Login <%= text_field_tag :login, nil, :placeholder => "Login", :id => "log_login"%>  Password <%= text_field_tag :password, nil, placeholder: "Password", :id => "log_password"%>
 	<%end%>
+	<%= button_tag :Login, :onclick => "requestTo()"%>
+
 </div>
 
 <div style='color:#fff;background-color: red; position:absolute; left: 50px; top: 40px;'>
