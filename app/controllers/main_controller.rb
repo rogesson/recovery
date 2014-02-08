@@ -34,5 +34,6 @@ class MainController < ApplicationController
 		 :site => params[:site],
 		 :user_id => 1
 		 )
+		redirect_to :back
 	end
 end
