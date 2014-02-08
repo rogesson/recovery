@@ -1,4 +1,11 @@
-<center>
+<style>
+
+</style>
+<div style='color:#fff;background-color: red; position:absolute; left: 1000px; top: 17px;'>
+	Form login
+</div>
+
+<div style='color:#fff;background-color: red; position:absolute; left: 50px; top: 40px;'>
 <%=form_for :user do |u|%>
 	<b>Login</b><br />
 	<%= text_field_tag :login, nil, :placeholder => "Login"%><br /><br />
@@ -10,4 +17,4 @@
 	<%= text_field_tag :password_conf, nil, :placeholder => "Password"%><br /><br />
 	<%= u.button "Confirm"%>
 <%end%>
-</center>
+</div>
