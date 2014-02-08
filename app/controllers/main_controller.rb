@@ -25,4 +25,8 @@ class MainController < ApplicationController
 		end
 
 	end
+
+	def new_password
+		
+	end
 end
