@@ -1,8 +1,21 @@
 <style>
 
 </style>
-<div style='color:#fff;background-color: red; position:absolute; left: 1000px; top: 17px;'>
-	Form login
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script>
+function requestTo(){
+	var xdp = { name: $("#weq")[0].value, location: "Boston" }
+	$.ajax({
+	  type: "GET",
+	  url: "main/1",
+	  data: xdp
+	})
+}
+</script>
+<div style='color:#fff;background-color: red; position:absolute; left: 850px; top: 17px;'>
+	<%= form_for :user_login do |log|%>
+	Login <%= text_field_tag :login, nil, :placeholder => "Login", :id => "weq"%>  Password <%= text_field_tag :password, nil, placeholder: "Password", :onclick => "requestTo()"%> <%= log.button :Login%>
+	<%end%>
 </div>
 
 <div style='color:#fff;background-color: red; position:absolute; left: 50px; top: 40px;'>
