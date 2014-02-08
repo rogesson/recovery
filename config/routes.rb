@@ -1,4 +1,5 @@
 Recovery::Application.routes.draw do
+  resources :user
   resources :main do
     post 'home_page', on: :member
     post 'new_password', on: :member
