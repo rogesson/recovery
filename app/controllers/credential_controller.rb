@@ -14,7 +14,9 @@ class CredentialController < ApplicationController
 
 	#DELETE credential/:id
 	def destroy
-		#params[:id]
-		
+		credential = Credential.find(params[:id]).delete
+		respond_to do |format|
+  			format.json { render :json => "test" }
+		end
 	end
 end
