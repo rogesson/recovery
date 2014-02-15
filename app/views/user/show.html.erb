@@ -24,7 +24,7 @@ function getValue(id){
 }
 
 
-function alterpassword(id_password){
+function alterPassword(id_password){
 	var value = { password: getValue('password'+ id_password) }
 	$.ajax({
 	  type: "PUT",
@@ -33,6 +33,18 @@ function alterpassword(id_password){
 	})
 	//TODO get code of response
 	alert("Password Changed!");
+
+}
+
+function deleteData(id_password){
+	var value = { password: getValue('password'+ id_password) }
+	$.ajax({
+	  type: "DELETE",
+	  url: "/credential/"+ id_password,
+	  data: value
+	})
+	//TODO get code of response
+	alert("Deleted!");
 
 }
 </script>
@@ -94,7 +106,7 @@ New Password<br /><br />
 		</tr>
 		<% @passwords.each do |p|%>
 			<tr>
-				<td><%= p.site%></td><td><%= p.login%></td><td><%= text_field_tag :password_edit,nil , :style => "color: white; text-shadow: 1px 2px 3px rgba(0,0,0,0.2);", :value => p.password, :id => "password#{p.id}" %><input type="button" value="Edit" onclick="alterpassword('<%=p.id%>');"></td> 
+				<td><%= p.site%></td><td><%= p.login%></td><td><%= text_field_tag :password_edit,nil , :style => "color: white; text-shadow: 1px 2px 3px rgba(0,0,0,0.2);", :value => p.password, :id => "password#{p.id}" %><input type="button" value="Edit" onclick="alterPassword('<%=p.id%>');"> <input type="button" value="Delete" onclick="deleteData('<%=p.id%>');"></td> 
 			</tr>
 		<%end%>
 	</table>
