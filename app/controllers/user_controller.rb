@@ -11,6 +11,8 @@ class UserController < ActionController::Base
   		#type 1 is search by login
   		@passwords = Credential.find_by_sql "select * from credentials where user_id = #{params["id"]} and login like '%#{params[:search]}%'" 
   	elsif params[:type] == "3"
+  		#type 1 is search by password
+  		#needed?
   		@passwords = Credential.find_by_sql "select * from credentials where user_id = #{params["id"]} and password like '%#{params[:search]}%'"
   	end
 
