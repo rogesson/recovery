@@ -79,9 +79,14 @@ table.altrowstable td {
 	background-color:#c3dde0;
 }
 </style>
+<br />
+<%= form_tag("/user/#{params[:id]}", :method => :get) do%>
+	<%= text_field_tag :search, nil, placeholder: "Site"%>
+	<%= hidden_field_tag :type, nil, :value => "1"%>
+	<%= submit_tag "SEARCH!"%>
+<%end%>
 
-
-<div style='color:#fff;background-color: a9c6c9; position:absolute; left: 20px; top: 17px;'>
+<div style='color:#fff;background-color: a9c6c9; position:absolute; left: 20px; top: 65px;'>
 New Password<br /><br />
 <%= form_tag('/main/1/new_password', :remote=> true ) do%>
 	Login<br />

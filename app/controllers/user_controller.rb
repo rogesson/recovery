@@ -1,10 +1,10 @@
 class UserController < ActionController::Base
   def show
-  	if params[:search].nil?
+  		
+  	#if params[:search].nil?
   	 #@user = User.find(params["id"].to_i)
-  	 @passwords = Credential.find_all_by_user_id(params["id"].to_i)
-  	
-  	elsif params[:type] == "1"
+  	 #@passwords = Credential.find_all_by_user_id(params["id"].to_i)
+  	if params[:type] == "1"
   		#type 1 is search by site name ;D
   		@passwords = Credential.find_by_sql "select * from credentials where user_id = #{params["id"]} and site like '%#{params[:search]}%'" 
   	elsif params[:type] == "2"
@@ -14,6 +14,8 @@ class UserController < ActionController::Base
   		#type 1 is search by password
   		#needed?
   		@passwords = Credential.find_by_sql "select * from credentials where user_id = #{params["id"]} and password like '%#{params[:search]}%'"
+  	else
+  		 @passwords = Credential.find_all_by_user_id(params["id"].to_i)
   	end
 
   end
