@@ -9,7 +9,7 @@ class MainController < ApplicationController
 		if params[:password_conf] == params[:password]
 			User.create(
 				:login => params[:login],
-			 	:password => params[:password],
+			 	:password => Digest::MD5.hexdigest(params[:password]),
 			 	:email => params[:email]
 			 	)
 		else
