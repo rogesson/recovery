@@ -80,6 +80,7 @@ table.altrowstable td {
 }
 </style>
 <br />
+
 <%= form_tag("/user/#{params[:id]}", :method => :get) do%>
 	<select name="type">
 		<option value="0">Search By</option>
@@ -94,7 +95,7 @@ table.altrowstable td {
 
 <div style='color:#fff;background-color: a9c6c9; position:absolute; left: 20px; top: 65px;'>
 New Password<br /><br />
-<%= form_tag('/main/1/new_password', :remote=> true ) do%>
+<%= form_tag("/main/#{params[:id]}/new_password", :remote=> true ) do%>
 	Login<br />
 	<%= text_field_tag :login, nil, placeholder: "Login"%><br /><br />
 	Password<br />
