@@ -4,6 +4,7 @@ Recovery::Application.routes.draw do
   resources :main do
     post 'home_page', on: :member
     post 'new_password', on: :member
+    post 'logout', on: :collection
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.
