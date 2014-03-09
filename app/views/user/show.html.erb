@@ -81,6 +81,10 @@ table.altrowstable td {
 </style>
 <br />
 
+<div style=" position:absolute; left: 1250px; top: 30px;" >
+	<%= button_to :logout, controller: :main, action: :logout %>
+</div>
+
 <%= form_tag("/user/#{params[:id]}", :method => :get) do%>
 	<select name="type">
 		<option value="0">Search By</option>
