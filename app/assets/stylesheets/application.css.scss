@@ -28,6 +28,33 @@ acronym {
   cursor: help;
 }
 
+.center-content-credentials{
+  left: 500px;
+  top: 150px;
+  position:absolute;
+  border: solid;
+  width: 500px;
+  height: auto;
+  padding: 20px;
+}
+
+.top-img{
+  width: 1500px;
+  height: 100px;
+  border: solid;  
+}
+
+.new_content {
+  width: 300px;
+  height: 300px;
+  padding-top:60px;
+  background-color: a9c6c9;
+  position:absolute;
+  left: 9px;
+  top: 150px;
+  border: solid;
+}
+
 .login_form {
   width: 580px;
   height: 70px;
