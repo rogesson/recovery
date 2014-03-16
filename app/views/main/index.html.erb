@@ -18,7 +18,7 @@ function requestTo(){
 
 <html>
 	<body>
-		<div id="header" style=' position:absolute; left: 850px; top: 17px;'>
+		<div class="login_form">
 			<%= form_tag('/main/1/home_page') do %>
 				<b>Login</b> <%= text_field_tag :login, nil, :placeholder => "Login" %>  <b>Password</b> <%= password_field_tag :password, nil, placeholder: "Password" %>
 				<%= submit_tag "Sign in" %>
