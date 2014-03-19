@@ -35,7 +35,7 @@ class MainController < ApplicationController
 		Credential.create(:login => params[:login],
 		 :password => params[:password],
 		 :site => params[:site],
-		 :user_id => params[:id].to_i
+		 :user_id => session[:user_id]
 		 )
 		redirect_to :back
 	end
