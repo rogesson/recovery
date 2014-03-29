@@ -6,17 +6,10 @@ class CredentialController < ApplicationController
 		credential = Credential.find(params[:id])
 		credential.password = params[:password]
 		credential.save
-
-		respond_to do |format|
-  			format.json { render :json => "test" }
-		end
 	end
 
 	#DELETE credential/:id
 	def destroy
 		credential = Credential.find(params[:id]).delete
-		respond_to do |format|
-  			format.json { render :json => "test" }
-		end
 	end
 end
