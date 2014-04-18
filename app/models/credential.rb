@@ -20,7 +20,7 @@ class Credential < ActiveRecord::Base
 
    		if self.tainted? == true
 
-	   		if self.user_id == 5 #session[:user_id]
+	   		if self.user_id == session[:user_id]
 	   			status = false
 	   			self.untaint
 	   			if self.tainted? == false
