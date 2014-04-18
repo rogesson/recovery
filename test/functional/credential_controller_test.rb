@@ -10,7 +10,8 @@ class CredentialControllerTest < ActionController::TestCase
 	end
 
 	test "should update credential" do
-		put(:update, id: 56, :password => "xxxx")
+		put(:update, id: 56, :password => "newpass")
+		
 		assert_equal @response.body, {response: 200}.to_json
 	end
 end
