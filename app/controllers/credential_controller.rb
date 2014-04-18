@@ -10,9 +10,7 @@ class CredentialController < ApplicationController
 			@response = {:response => 500}
 		end
 
-		respond_to do |format|
-		 format.js { render "alert('asodkaoskdoaksd!')" }
-		end
+		render :json => @response.to_json
 	end
 
 	#DELETE credential/:id
