@@ -13,10 +13,19 @@
 
 ActiveRecord::Schema.define(:version => 20140201113241) do
 
+  create_table "credentials", :force => true do |t|
+    t.string  "login",    :limit => 100
+    t.string  "password", :limit => 30
+    t.string  "site",     :limit => 200
+    t.integer "user_id",  :limit => 15
+  end
+
   create_table "users", :force => true do |t|
     t.string   "login"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.string   "password",   :limit => 30
+    t.string   "email",      :limit => 100, :null => false
   end
 
 end

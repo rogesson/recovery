@@ -11,7 +11,11 @@ class CredentialControllerTest < ActionController::TestCase
 
 	test "should update credential" do
 		put(:update, id: 56)
+		puts @response.body
 		#puts Credential.last.password
 		#puts params[:password]
 	end
 end
+
+
+ 952568767
