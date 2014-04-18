@@ -18,14 +18,18 @@ class Credential < ActiveRecord::Base
    		
    		status = false
 
-   		if self.user_id == 5 #session[:user_id]
-   			status = false
-   			self.untaint
-   			if self.tainted? == false
-	   			self.password = new_password
-	   			self.save
-	   			status = true
-   			end
+   		if self.tainted? == true
+
+	   		if self.user_id == 5 #session[:user_id]
+	   			status = false
+	   			self.untaint
+	   			if self.tainted? == false
+		   			self.password = new_password
+		   			self.save
+		   			status = true
+	   			end
+	   		end
+
    		end
 	    
 	    status
