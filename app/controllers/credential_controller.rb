@@ -2,9 +2,9 @@ class CredentialController < ApplicationController
 	require 'json'
 	#PUT credential/:id
 	def update
-		credential = Credential.find(params[:id])
-		credential.password = params[:password]
-		if credential.save
+		credential = Credential.find(params[:id]).taint
+		 
+		if credential.change_password params[:password]
 			@response = {:response => 200}
 		else
 			@response = {:response => 500}

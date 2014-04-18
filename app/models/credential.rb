@@ -15,9 +15,8 @@ class Credential < ActiveRecord::Base
 	end
 
 	def change_password  new_password
-
+   		
    		status = false
-   		self.taint
 
    		if self.user_id == 5 #session[:user_id]
    			status = false
