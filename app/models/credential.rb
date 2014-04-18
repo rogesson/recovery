@@ -13,4 +13,23 @@ class Credential < ActiveRecord::Base
 	def decript
 
 	end
+
+	def change_password  new_password
+
+   		status = false
+   		self.taint
+
+   		if self.user_id == 5 #session[:user_id]
+   			status = false
+   			self.untaint
+   			if self.tainted? == false
+	   			self.password = new_password
+	   			self.save
+	   			status = true
+   			end
+   		end
+	    
+	    status
+	end
+
 end

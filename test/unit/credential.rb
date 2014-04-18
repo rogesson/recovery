@@ -2,10 +2,8 @@ require File.expand_path("../../test_helper", __FILE__)
 
 class CredentialTest < ActiveSupport::TestCase
 	setup do
-	#session[:user_id] = 5
-
+		@session_id =  1
 	end
-
    
    	test "the truth" do
     	assert true
@@ -13,23 +11,10 @@ class CredentialTest < ActiveSupport::TestCase
 
    	test "should change password" do
    		
-   		status = false
-   		id = 56
-   		credential = Credential.find(id).taint
+   		rand_pass = Random.rand 92983
 
-   		password = "npass"
+   		Credential.last.change_password "#{rand_pass.to_s}"
    		
-
-   		if credential.user_id == 5
-   			status = false
-   			credential.untaint
-   			if credential.tainted? == false
-   				status = true
-	   			credential.password = password
-	   			credential.save
-   			end
-   		end
-
-   		puts status
+   		assert_equal Credential.last.password, rand_pass.to_s
    	end
 end
