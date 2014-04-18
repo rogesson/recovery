@@ -19,7 +19,8 @@ class CredentialTest < ActiveSupport::TestCase
    	end
 
    	test "should not change my password" do
-		rand_pass = Random.rand 92983   		
-			
+		rand_pass = Random.rand 92983
+		Credential.where(:user_id => 1).last.change_password "#{rand_pass.to_s}"   		
+		assert_equal Credential.where(:user_id => 5).last.password, Credential.where(:user_id => 5).last.password	
 	end
 end
