@@ -5,17 +5,6 @@ class MainController < ApplicationController
 
 	end
 
-	def create
-		if params[:password_conf] == params[:password]
-			User.create(
-				:login 	  => params[:login],
-			 	:password => Digest::SHA256.hexdigest(params[:password]),
-			 	:email    => params[:email]
-			)
-		else
-			redirect_to :back			
-		end
-	end
 
 	def logout
 		session.delete :session_id 

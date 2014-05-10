@@ -1,4 +1,17 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
+	skip_before_filter :verify_active_session, only: :create
+	
+	def create
+		if params[:password_conf] == params[:password]
+			User.create(
+				:login 	  => params[:login],
+			 	:password => Digest::SHA256.hexdigest(params[:password]),
+			 	:email    => params[:email]
+			)
+		else
+			redirect_to :back			
+		end
+	end
 
 	def show
 	  	if params[:type] == "1"
