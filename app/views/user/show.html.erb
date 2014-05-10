@@ -11,7 +11,7 @@ function alterPassword(id_password){
 	var value = { password: getValue('password'+ id_password) }
 	$.ajax({
 	  type: "PUT",
-	  url: "/credential/"+ id_password,
+	  url: "/credentials/"+ id_password,
 	  data: value
 	})
 
@@ -21,7 +21,7 @@ function deleteData(id_password){
 	var value = { password: getValue('password'+ id_password) }
 	$.ajax({
 	  type: "DELETE",
-	  url: "/credential/"+ id_password,
+	  url: "/credentials/"+ id_password,
 	  data: value
 	})
 }
@@ -69,7 +69,7 @@ table.altrowstable td {
 
 		<div class="new_content">
 		<b>New Credential</b><br /><br />
-		<%= form_tag("/credential/", method: :post, action: :create) do%>
+		<%= form_tag("/credentials/", method: :post, action: :create) do%>
 			<b>Login</b><br />
 			<%= text_field_tag :login, nil, placeholder: "Login"%><br /><br />
 			<b>Password</b><br />

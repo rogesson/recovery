@@ -1,5 +1,5 @@
 Recovery::Application.routes.draw do
-  resources :credential
+  resources :credentials
   resources :user
   resources :sessions do
     post "create"

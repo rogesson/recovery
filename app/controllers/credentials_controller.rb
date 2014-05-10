@@ -1,4 +1,4 @@
-class CredentialController < ApplicationController
+class CredentialsController < ApplicationController
 	
 
 	def create
