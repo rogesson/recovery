@@ -1,8 +1,8 @@
 require File.expand_path("../../test_helper", __FILE__)
 
-class CredentialControllerTest < ActionController::TestCase
+class CredentialsControllerTest < ActionController::TestCase
 	setup do
-		@controller = CredentialController.new
+		@controller = CredentialsController.new
 	end
 
 	test "the truth" do
