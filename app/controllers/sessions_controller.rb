@@ -2,7 +2,11 @@ class SessionsController < ApplicationController
 	skip_before_filter :verify_active_session
 
 	def create
-		user = User.where(:login => params[:login], :password => Digest::SHA256.hexdigest(params[:password]))
+		user = User.where(
+			:login 	  => params[:login],
+			:password => Digest::SHA256.hexdigest(params[:password])
+		)
+
 		if  user != []
 
 			session[:session_id] = Random.rand(19999283)
