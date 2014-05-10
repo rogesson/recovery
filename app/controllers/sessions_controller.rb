@@ -17,4 +17,11 @@ class SessionsController < ApplicationController
 			redirect_to '/main?bad_login=1'
 		end
 	end
+
+	
+	def logout
+		session.delete :session_id 
+		session.delete :user_id
+		redirect_to '/main?'
+	end
 end

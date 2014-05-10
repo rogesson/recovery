@@ -4,11 +4,4 @@ class MainController < ApplicationController
 	def index
 
 	end
-
-
-	def logout
-		session.delete :session_id 
-		session.delete :user_id
-		redirect_to '/main?'
-	end
 end
