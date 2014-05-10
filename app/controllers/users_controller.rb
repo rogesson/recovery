@@ -18,42 +18,19 @@ class UsersController < ApplicationController
 	def show
 	  	if params[:type] == "1"
 	  		#type 1 is search by site name ;D
-	  		@passwords = Credential.find_by_sql "
-	  		SELECT * FROM
-	  			credentials
-	  		WHERE 
-	  			user_id = #{session[:user_id]}
-	  		AND 
-	  			site 
-	  		LIKE 
-	  			'%#{params[:search]}%'" 
+	  		search_query = "AND site LIKE '%#{params[:search]}%'" 
 	  	elsif params[:type] == "2"
 	  		#type 1 is search by login
-	  		@passwords = Credential.find_by_sql "
-	  		SELECT * FROM 
-	  			credentials 
-	  		WHERE 
-	  			user_id = #{session[:user_id]}
-	  		AND 
-	  			login
-	  		LIKE 
-	  			'%#{params[:search]}%'" 
+	  		search_query = "AND login LIKE '%#{params[:search]}%'"
+	  		 
 	  	elsif params[:type] == "3"
 	  		#type 1 is search by password
 	  		#needed?
-	  		@passwords = Credential.find_by_sql "
-	  		SELECT * FROM 
-	  			credentials 
-	  		WHERE 
-	  			user_id = #{session[:user_id]}
-	  		AND 
-	  			password 
-	  		LIKE 
-	  			'%#{params[:search]}%'"
-	  	else
-	  		#search all
-	  		@passwords = Credential.find_all_by_user_id(session[:user_id])
+	  		search_query = "AND password LIKE '%#{params[:search]}%'"
 	  	end
+
+	  	@passwords = Credential.where("user_id = #{session[:user_id]} #{search_query}")
+	  	
 	end
 
 end
