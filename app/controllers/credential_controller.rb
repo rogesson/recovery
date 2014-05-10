@@ -1,5 +1,17 @@
 class CredentialController < ApplicationController
-	require 'json'
+	
+
+	def create
+		Credential.create(
+			:login    => params[:login],
+			:password => params[:password],
+			:site     => params[:site],
+			:user_id  => session[:user_id]
+		)
+		redirect_to :back
+	end
+
+
 	#PUT credential/:id
 	def update
 		credential = Credential.find(params[:id]).taint

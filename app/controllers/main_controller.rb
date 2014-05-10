@@ -17,16 +17,6 @@ class MainController < ApplicationController
 		end
 	end
 
-	def new_password
-		Credential.create(
-			:login    => params[:login],
-			:password => params[:password],
-			:site     => params[:site],
-			:user_id  => session[:user_id]
-		)
-		redirect_to :back
-	end
-
 	def logout
 		session.delete :session_id 
 		session.delete :user_id

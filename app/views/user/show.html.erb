@@ -69,7 +69,7 @@ table.altrowstable td {
 
 		<div class="new_content">
 		<b>New Password</b><br /><br />
-		<%= form_tag("/main/#{params[:id]}/new_password") do%>
+		<%= form_tag("/credential/", method: :post, action: :create) do%>
 			<b>Login</b><br />
 			<%= text_field_tag :login, nil, placeholder: "Login"%><br /><br />
 			<b>Password</b><br />
