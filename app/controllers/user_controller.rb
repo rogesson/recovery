@@ -1,7 +1,6 @@
 class UserController < ApplicationController
 
   	before_filter :verify_active_session
-  	
 	def show
 	  	if params[:type] == "1"
 	  		#type 1 is search by site name ;D

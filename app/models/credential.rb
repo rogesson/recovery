@@ -1,8 +1,9 @@
 class Credential < ActiveRecord::Base
 	self.table_name = "credentials"
 
-	attr_accessible :login, :password, :site, :user_id
 
+	attr_accessible :login, :password, :site, :user_id
+=begin  [Deprecated] 09/5/2014
 	def encrypt
 		@salt = "123"
 		Digest::SHA1.hexdigest("--#{@salt}--#{self.password}--")
@@ -13,9 +14,8 @@ class Credential < ActiveRecord::Base
 	def decript
 
 	end
-
+=end
 	def change_password  new_password
-   		
    		status = false
 
    		if self.tainted? == true
