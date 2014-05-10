@@ -19,7 +19,7 @@ function requestTo(){
 <html>
 	<body>
 		<div class="login_form">
-			<%= form_tag('/main/1/home_page') do %>
+			<%= form_tag('/sessions', :action => "create") do %>
 				<b>Login</b> <%= text_field_tag :login, nil, :placeholder => "Login" %>  <b>Password</b> <%= password_field_tag :password, nil, placeholder: "Password" %>
 				<%= submit_tag "Sign in" %>
 			<%end%>

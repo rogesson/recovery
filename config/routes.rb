@@ -1,6 +1,9 @@
 Recovery::Application.routes.draw do
   resources :credential
   resources :user
+  resources :sessions do
+    post "create"
+  end
   resources :main do
     post 'home_page', on: :member
     post 'new_password', on: :member
