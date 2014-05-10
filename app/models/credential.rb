@@ -1,6 +1,8 @@
 class Credential < ActiveRecord::Base
 	self.table_name = "credentials"
 
+	belongs_to :user
+
 
 	attr_accessible :login, :password, :site, :user_id
 
