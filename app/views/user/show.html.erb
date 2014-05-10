@@ -128,17 +128,7 @@ table.altrowstable td {
 					</tr>
 					<% @passwords.each do |p|%>
 						<tr>
-							<td><%= p.site%></td><td><%= p.login%></td><td>
-							<%=
-							form_tag("/credential/#{p.id}", method: :put) do
-							 	text_field_tag :password_edit,nil , :style => "color: white; text-shadow: 1px 2px 3px rgba(0,0,0,0.2);", :value => p.password, :id => "password#{p.id}"
-								
-							end
-							%>
-
-							<%= button_to "x", "/credential/#{p.id}", :method => :delete, remote: true %></td> 
-						
-
+							<td><%= p.site%></td><td><%= p.login%></td><td><%= text_field_tag :password_edit,nil , :style => "color: white; text-shadow: 1px 2px 3px rgba(0,0,0,0.2);", :value => p.password, :id => "password#{p.id}" %> <input type="button" value="Edit" onclick="alterPassword('<%=p.id%>');"> <input type="button" value="Delete" onclick="deleteData('<%=p.id%>');"></td>
 						</tr>
 					<%end%>
 				</table>
