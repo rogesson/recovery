@@ -1,5 +1,4 @@
 class CredentialController < ApplicationController
-	before_filter :verify_active_session
 	
 	#PUT credential/:id
 	def update
