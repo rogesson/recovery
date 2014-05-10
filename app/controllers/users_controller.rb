@@ -16,18 +16,15 @@ class UsersController < ApplicationController
 
 	#get /users/:id
 	def show
-	  	if params[:type] == "1"
-	  		#type 1 is search by site name ;D
-	  		search_query = "AND site LIKE '%#{params[:search]}%'" 
-	  	elsif params[:type] == "2"
-	  		#type 1 is search by login
-	  		search_query = "AND login LIKE '%#{params[:search]}%'"
-	  		 
-	  	elsif params[:type] == "3"
-	  		#type 1 is search by password
-	  		#needed?
-	  		search_query = "AND password LIKE '%#{params[:search]}%'"
-	  	end
+		#type 1 is search by site name ;D
+	  	search_query = "AND site LIKE '%#{params[:search]}%'" if params[:type] == "1"
+	  		
+  		#type 1 is search by login
+  		search_query = "AND login LIKE '%#{params[:search]}%'" if params[:type] == "2"
+	  		   	
+  		#type 1 is search by password
+  		search_query = "AND password LIKE '%#{params[:search]}%'" if params[:type] == "3"
+	  	
 
 	  	@passwords = Credential.where("user_id = #{session[:user_id]} #{search_query}")
 	  	
