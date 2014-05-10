@@ -3,18 +3,7 @@ class Credential < ActiveRecord::Base
 
 
 	attr_accessible :login, :password, :site, :user_id
-=begin  [Deprecated] 09/5/2014
-	def encrypt
-		@salt = "123"
-		Digest::SHA1.hexdigest("--#{@salt}--#{self.password}--")
-		e = Encode.new("abc")
-		pas1 = e.encrypt
-	end
-	
-	def decript
 
-	end
-=end
 	def change_password  new_password
    		status = false
 
