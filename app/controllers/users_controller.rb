@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 	skip_before_filter :verify_active_session, only: :create
 	
+	#post /users
 	def create
 		if params[:password_conf] == params[:password]
 			User.create(
@@ -13,6 +14,7 @@ class UsersController < ApplicationController
 		end
 	end
 
+	#get /users/:id
 	def show
 	  	if params[:type] == "1"
 	  		#type 1 is search by site name ;D
