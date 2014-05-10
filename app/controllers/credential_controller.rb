@@ -10,7 +10,12 @@ class CredentialController < ApplicationController
 			@response = {:response => 500}
 		end
 
+		
 		#render :json => @response.to_json
+
+		respond_to do |format|
+ 			format.json { render :json => "qweqwe" }
+		end
 	end
 
 	#DELETE credential/:id
