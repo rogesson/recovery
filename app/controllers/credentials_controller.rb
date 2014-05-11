@@ -32,8 +32,8 @@ class CredentialsController < ApplicationController
 
 	#DELETE credential/:id
 	def destroy
-		
-		if Credential.find(params[:id]).delete
+		credenetial = Credential.find(params[:id])
+		if credenetial.safe_delete 
 			@response = "Deleted!"
 		else
 			@response = "Try Again"

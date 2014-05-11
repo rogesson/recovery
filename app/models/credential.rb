@@ -30,4 +30,14 @@ class Credential < ActiveRecord::Base
 	    status
 	end
 
+	def safe_delete
+		if self.user_id == session[:user_id]
+			self.delete
+			true
+		else
+			false
+		end
+		
+	end
+
 end
