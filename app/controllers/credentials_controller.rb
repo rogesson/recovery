@@ -2,13 +2,17 @@ class CredentialsController < ApplicationController
 	
 
 	def create
-		Credential.create(
+		credential = Credential.new(
 			:login    => params[:login],
 			:password => params[:password],
 			:site     => params[:site],
 			:user_id  => session[:user_id]
 		)
-		redirect_to :back
+
+		credential.save
+		
+		@error_credential = credential.errors.full_messages[0]
+		redirect_to :back, :flash => {:notice => @error_credential}
 	end
 
 

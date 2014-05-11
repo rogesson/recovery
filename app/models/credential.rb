@@ -3,6 +3,8 @@ class Credential < ActiveRecord::Base
 
 	belongs_to :user
 
+	validates :login, presence: true 
+
 
 	attr_accessible :login, :password, :site, :user_id
 

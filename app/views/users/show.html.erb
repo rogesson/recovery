@@ -68,17 +68,23 @@ table.altrowstable td {
 		
 
 		<div class="new_content">
-		<b>New Credential</b><br /><br />
-		<%= form_tag("/credentials/", method: :post, action: :create) do%>
-			<b>Login</b><br />
-			<%= text_field_tag :login, nil, placeholder: "Login"%><br /><br />
-			<b>Password</b><br />
-			<%= password_field_tag :password, nil, placeholder: "Password"%><br /><br />
-			<b>Site</b><br />
-			<%= text_field_tag :site, nil, placeholder: "Site"%><br/>
-			<%= submit_tag "Save"%>
-		<%end%>
+			<b>New Credential</b><br /><br />
+			<%= form_tag("/credentials/", method: :post, action: :create) do%>
+				<b>Login</b><br />
+				<%= text_field_tag :login, nil, placeholder: "Login"%><br /><br />
+				<b>Password</b><br />
+				<%= password_field_tag :password, nil, placeholder: "Password"%><br /><br />
+				<b>Site</b><br />
+				<%= text_field_tag :site, nil, placeholder: "Site"%><br/>
+				<%= submit_tag "Save"%>
+			<%end%>
+
+			<%if flash[:notice]%>
+				<%= flash[:notice]%>
+			<%end%>
+		
 		</div>
+		
 		<div style='color:#fff;background-color: red; position:absolute; left: 550px; top: 17px;'>
 
 			<br />
