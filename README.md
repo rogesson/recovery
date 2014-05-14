@@ -1,4 +1,4 @@
-recovery
+Recovery
 ========
 
 Password Manager Sistem.
