@@ -3,18 +3,19 @@ class UsersController < ApplicationController
 	
 	#post /users
 	def create
-		
 		user = User.new(
 			:login 	  => params[:login],
 		 	:password => Digest::SHA256.hexdigest(params[:password]),
 		 	:email    => params[:email]
 		)
-		
+
 		if user.save
-			redirect_to "/users/#{user.id}"
+			notice = "User created!"
 		else
-			redirect_to :back, :flash => {:notice => user.errors.full_messages[0]}			
+			notice = user.errors.full_messages[0]
 		end
+
+		redirect_to :back, :flash => {:notice => notice}
 	end
 
 	#get /users/:id
