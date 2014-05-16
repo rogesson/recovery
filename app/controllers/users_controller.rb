@@ -3,9 +3,12 @@ class UsersController < ApplicationController
 	
 	#post /users
 	def create
+
+		safe_password = Digest::SHA256.hexdigest(params[:password]).reverse[5..-1]
+
 		user = User.new(
 			:login 	  => params[:login],
-		 	:password => Digest::SHA256.hexdigest(params[:password]),
+		 	:password => safe_password,
 		 	:email    => params[:email]
 		)
 
