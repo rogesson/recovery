@@ -3,5 +3,7 @@ class User < ActiveRecord::Base
 
 	has_many :credential
 
+	validates :login, uniqueness: true
+
 	attr_accessible :login, :password, :email
 end

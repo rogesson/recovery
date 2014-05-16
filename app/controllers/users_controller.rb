@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 		 	:password => Digest::SHA256.hexdigest(params[:password]),
 		 	:email    => params[:email]
 		)
-
+		
 		if user.save
 			redirect_to "/users/#{user.id}"
 		else

@@ -40,6 +40,9 @@ function requestTo(){
 					<%= password_field_tag :password_conf, nil, :placeholder => "Password"%><br /><br />
 				<%= submit_tag "Save"%>
 			<%end%>
+			<%if flash[:notice]%>
+				<%= flash[:notice]%>
+			<%end%>
 		</div>
 	<body>
 </html>
