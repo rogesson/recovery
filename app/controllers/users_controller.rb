@@ -3,14 +3,17 @@ class UsersController < ApplicationController
 	
 	#post /users
 	def create
-		if params[:password_conf] == params[:password]
-			User.create(
-				:login 	  => params[:login],
-			 	:password => Digest::SHA256.hexdigest(params[:password]),
-			 	:email    => params[:email]
-			)
+		
+		user = User.new(
+			:login 	  => params[:login],
+		 	:password => Digest::SHA256.hexdigest(params[:password]),
+		 	:email    => params[:email]
+		)
+
+		if user.save
+			redirect_to "/users/#{user.id}"
 		else
-			redirect_to :back			
+			redirect_to :back, :flash => {:notice => user.errors.full_messages[0]}			
 		end
 	end
 
