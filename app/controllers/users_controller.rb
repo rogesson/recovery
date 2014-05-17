@@ -23,6 +23,8 @@ class UsersController < ApplicationController
 
 	#get /users/:id
 	def show
+
+		debugger
 		#type 1 is search by site name
 	  	search_query = "AND site LIKE '%#{params[:search]}%'" if params[:type] == "1"
 	  		
