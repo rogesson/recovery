@@ -13,7 +13,7 @@
  */
 
  html,body {
-  background: #bdfae7;
+  background-color: white;
   font-family: Trebuchet MS, Verdana, Arial, sans-serif;
   font-size: 10pt;
   text-align:center;
@@ -39,17 +39,19 @@ acronym {
   top: 152px;
   position:absolute;
   border-style:double;
-  border-radius: 7.5em 5em;
+  -webkit-border-radius: 12px 21px 32px 12px;
+  border-radius: 12px 21px 32px 12px;
   width: 500px;
   height: auto;
   padding: 40px;
 }
 
 .top-img{
-  width: 1328px;
+  width: 1345px;
   height: 100px;
   border: double;  
-  border-radius: 7.5em 5em;
+  -webkit-border-radius: 12px 21px 32px 12px;
+  border-radius: 12px 21px 32px 12px;
 }
 
 .new_content {
@@ -61,7 +63,8 @@ acronym {
   left: 9px;
   top: 150px;
   border: double;
-  border-radius: 7.5em 7em;
+  -webkit-border-radius: 12px 21px 32px 12px;
+  border-radius: 12px 21px 32px 12px;
 }
 
 .login_form {
@@ -72,7 +75,8 @@ acronym {
   left: 740px;
   top: 40px;
   border: double;
-  border-radius: 7.5em 5em;
+  -webkit-border-radius: 12px 21px 32px 12px;
+  border-radius: 12px 21px 32px 12px;
 }
 
 .register {
@@ -83,7 +87,8 @@ acronym {
   left: 50px;
   top: 40px;
   border: double;
-  border-radius: 7.5em 5em;
+  -webkit-border-radius: 12px 21px 32px 12px;
+  border-radius: 12px 21px 32px 12px;
 }
 
 pre {
