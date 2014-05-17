@@ -4,7 +4,7 @@
 		<div class="top-img">
 		</div>
 		<div class="button-logout" >
-			<%= button_to "Logout", controller: :sessions, action: :logout %>
+			<%= button_to("Logout", {controller: :sessions, action: :logout}, :class=>"Button" )%>
 		</div>
 
 		
@@ -18,7 +18,7 @@
 				<%= password_field_tag :password, nil, placeholder: "Password", required: true%><br /><br />
 				<b>Site</b><br />
 				<%= text_field_tag :site, nil, placeholder: "Site", required: true%><br/>
-				<%= submit_tag "Save"%>
+				<%= submit_tag "Save", :class => "Button"%>
 			<%end%>
 
 			<%if flash[:notice]%>
@@ -44,7 +44,7 @@
 					</select>
 					<%= text_field_tag :search, nil, placeholder: "Search"%>
 					<% hidden_field_tag :type, nil, :value => "1"%>
-					<%= submit_tag "SEARCH!"%>
+					<%= submit_tag "SEARCH!", :class => "Button" %>
 				<%end%>
 				<br/><br/>
 				<table class="altrowstable" id="alternatecolor">
@@ -53,7 +53,7 @@
 					</tr>
 					<% @passwords.each do |p|%>
 						<tr id="cred-<%= p.id %>">
-							<td><%= p.site%></td><td><%= p.login%></td><td><%= text_field_tag :password_edit,nil , :style => "color: white; text-shadow: 1px 2px 3px rgba(0,0,0,0.2);", :value => p.password, :id => "password#{p.id}" %> <input type="button" value="Edit" onclick="alterPassword('<%=p.id%>');"> <input type="button" value="Delete" onclick="deleteData('<%=p.id%>');"></td>
+							<td><%= p.site%></td><td><%= p.login%></td><td><%= text_field_tag :password_edit,nil , :style => "color: white; text-shadow: 1px 2px 3px rgba(0,0,0,0.2);", :value => p.password, :id => "password#{p.id}" %> <input type="button" value="Edit" onclick="alterPassword('<%=p.id%>');" class="Button"> <input type="button" value="Delete" onclick="deleteData('<%=p.id%>');" class="Button"></td>
 						</tr>
 					<%end%>
 				</table>
