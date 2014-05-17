@@ -27,6 +27,7 @@ function alterPassword(id_password){
 	  	url: "/credentials/"+ id_password,
 	  	data: value,
 	    success: function (data) {
+	    	alert(data.message)
 	    	console.log(data);
         }
 	})
