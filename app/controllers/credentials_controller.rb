@@ -1,5 +1,5 @@
 class CredentialsController < ApplicationController
-	
+	before_filter :digest_secure, only: :create
 
 	def create
 		credential = Credential.new(
@@ -25,7 +25,7 @@ class CredentialsController < ApplicationController
 		else
 			@response = {:message => "Password not changed", code: 500}
 		end
-		
+
 		render :json => @response.to_json
 	end
 
@@ -39,5 +39,10 @@ class CredentialsController < ApplicationController
 		end
 
 		render :json => @response.to_json
+	end
+
+	private
+	def digest_secure
+		Gibberish::AES.new(session[:c_key])
 	end
 end
