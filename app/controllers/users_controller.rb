@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
 	skip_before_filter :verify_active_session, only: :create
-	
+	before_filter      :digest_secure, only: :show
 	#post /users
 	def create
 
+		#TODO  move save_password to private method
 		safe_password = Digest::SHA256.hexdigest(params[:password]).reverse[5..-1]
 
 		user = User.new(
@@ -35,7 +36,17 @@ class UsersController < ApplicationController
 	  	
 
 	  	@passwords = Credential.where("user_id = #{session[:user_id]} #{search_query}")
+
 	  	
+	  	@passwords.each do |p|
+	  		p.password = digest_secure.dec(p.password) 
+	  	end
+	  	
+	end
+
+	private
+	def digest_secure
+		Gibberish::AES.new(session[:c_key])
 	end
 
 end
