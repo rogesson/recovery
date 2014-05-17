@@ -13,7 +13,8 @@
  */
 
  html,body {
-  background-color: #d0e4fe;
+  background-image: url("ZenBG-1.png"), url("ZenBG-2.png");
+  background-repeat: repeat-x, repeat;
   font-family: Trebuchet MS, Verdana, Arial, sans-serif;
   font-size: 10pt;
   text-align:center;
@@ -42,7 +43,7 @@ acronym {
   border-radius: 7.5em 5em;
   width: 500px;
   height: auto;
-  padding: 20px;
+  padding: 40px;
 }
 
 .top-img{
@@ -236,3 +237,6 @@ table.altrowstable td {
   position:relative;
   top:1px;
 }
+
+
+
