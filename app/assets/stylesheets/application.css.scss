@@ -158,3 +158,32 @@ div.footer {
   margin-left:auto;
   margin-right:auto;
 }
+
+/*GRID*/
+table.altrowstable {
+  font-family: verdana,arial,sans-serif;
+  font-size:11px;
+  color:#333333;
+  border-width: 1px;
+  border-color: #161919;
+  border-collapse: collapse;
+}
+table.altrowstable th {
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+  border-color:#161919;
+}
+table.altrowstable td {
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+  border-color: #161919;
+}
+.oddrowcolor{
+  background-color:#d4e3e5;
+}
+.evenrowcolor{
+  background-color:#c3dde0;
+}
+/*GRID*/

@@ -13,3 +13,31 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+
+function getValue(id){
+	return $("#"+id)[0].value 
+}
+
+
+function alterPassword(id_password){
+	var value = { password: getValue('password'+ id_password) }
+	$.ajax({
+		type: "PUT",
+	  	url: "/credentials/"+ id_password,
+	  	data: value,
+	    success: function (data) {
+	    	console.log(data);
+        }
+	})
+
+}
+
+function deleteData(id_password){
+	var value = { password: getValue('password'+ id_password) }
+	$.ajax({
+	  type: "DELETE",
+	  url: "/credentials/"+ id_password,
+	  data: value
+	})
+}
