@@ -4,7 +4,7 @@ class CredentialsController < ApplicationController
 	def create
 		credential = Credential.new(
 			:login    => params[:login],
-			:password => params[:password],
+			:password => digest_secure.enc(params[:password]),
 			:site     => params[:site],
 			:user_id  => session[:user_id]
 		)
