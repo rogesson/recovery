@@ -36,7 +36,7 @@
 		<center>
 			<div class="center-content-credentials">
 				<%= form_tag("/users/#{params[:id]}", :method => :get) do%>
-					<select name="type">
+					<select name="type" class="textox-combo">
 						<option value="0">Search By</option>
 						<option value="1">Site</option>
 						<option value="2">Login</option>

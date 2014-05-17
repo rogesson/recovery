@@ -14,7 +14,7 @@
 
  html,body {
   background-color: white;
-  font-family: Trebuchet MS, Verdana, Arial, sans-serif;
+  font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
   font-size: 10pt;
   text-align:center;
 }
@@ -255,17 +255,45 @@ table.altrowstable td {
    background-color: #FFFFFF;
    outline: none;
    color: #474747;
-  }
+}
 .textox:hover  {
    border: 2px solid #474747;
-  }
+}
 .textox:focus  {
    border: solid 2px #474747;
    box-shadow: inset 0px 1px 2px 0px #9C9C9C;
-  }
+}
 .textox:active  {
    border: solid 2px #474747;
-  }
+}
+
+
+/*combobox*/
+.textox-combo {
+   width: 93px;
+   height: 28px;
+   border: solid 2px #0061a7 5%;
+   padding: 2px;
+   border-radius: 5px;
+   font-size: 12px;
+   box-shadow: 0px 1px 2px 0px #9C9C9C;
+   background-color: #FFFFFF;
+   outline: none;
+   color: #474747;
+}
+.textox-combo:hover  {
+   border: 2px solid #474747;
+}
+.textox-combo:focus  {
+   border: solid 2px #474747;
+   box-shadow: inset 0px 1px 2px 0px #9C9C9C;
+}
+.textox-combo:active  {
+   border: solid 2px #474747;
+}
+
+
+
 
 
 
