@@ -25,9 +25,7 @@ class CredentialsController < ApplicationController
 		else
 			@response = {:message => "Password not changed", code: 500}
 		end
-
 		
-		#render :js => "alert('#{@response}');"
 		render :json => @response.to_json
 	end
 
