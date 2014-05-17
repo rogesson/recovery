@@ -35,12 +35,11 @@ class CredentialsController < ApplicationController
 	def destroy
 		credenetial = Credential.find(params[:id])
 		if credenetial.safe_delete 
-			@response = "Deleted!"
+			@response = {:message => "success", code: 200}
 		else
-			@response = "Try Again"
+			response = {:message => "error", code: 500}
 		end
 
-		
-		render :js => "alert('#{@response}'); window.location.reload();"
+		render :json => @response.to_json
 	end
 end
