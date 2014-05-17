@@ -1,5 +1,5 @@
 class CredentialsController < ApplicationController
-	before_filter :digest_secure, only: :create
+	before_filter :digest_secure, only: [:create, :update]
 
 	def create
 		credential = Credential.new(
@@ -20,7 +20,7 @@ class CredentialsController < ApplicationController
 	def update
 		credential = Credential.find(params[:id]).taint
 
-		if credential.change_password params[:password]
+		if credential.change_password digest_secure.enc(params[:password])
 			@response = {:message => "Password Changed!", code: 200}
 		else
 			@response = {:message => "Password not changed", code: 500}
