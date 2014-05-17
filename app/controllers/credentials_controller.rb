@@ -21,13 +21,14 @@ class CredentialsController < ApplicationController
 		credential = Credential.find(params[:id]).taint
 
 		if credential.change_password params[:password]
-			@response = "Password Changed!"
+			@response = {:message => "Password Changed!", code: 200}
 		else
-			@response = "Password not changed, try again."
+			@response = {:message => "Password not changed", code: 500}
 		end
 
 		
-		render :js => "alert('#{@response}');"
+		#render :js => "alert('#{@response}');"
+		render :json => @response.to_json
 	end
 
 	#DELETE credential/:id

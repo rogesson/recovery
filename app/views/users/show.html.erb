@@ -10,9 +10,12 @@ function getValue(id){
 function alterPassword(id_password){
 	var value = { password: getValue('password'+ id_password) }
 	$.ajax({
-	  type: "PUT",
-	  url: "/credentials/"+ id_password,
-	  data: value
+		type: "PUT",
+	  	url: "/credentials/"+ id_password,
+	  	data: value,
+	    success: function (data) {
+	    	console.log(data);
+        }
 	})
 
 }
