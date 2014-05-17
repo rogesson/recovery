@@ -89,6 +89,7 @@ acronym {
   border: double;
   -webkit-border-radius: 12px 21px 32px 12px;
   border-radius: 12px 21px 32px 12px;
+  padding: 40px;
 }
 
 pre {
@@ -241,6 +242,30 @@ table.altrowstable td {
   position:relative;
   top:1px;
 }
+
+/*textbox*/
+.textox {
+   width: 200px;
+   height: 20px;
+   border: solid 2px #0061a7 5%;
+   padding: 2px;
+   border-radius: 5px;
+   font-size: 12px;
+   box-shadow: 0px 1px 2px 0px #9C9C9C;
+   background-color: #FFFFFF;
+   outline: none;
+   color: #474747;
+  }
+.textox:hover  {
+   border: 2px solid #474747;
+  }
+.textox:focus  {
+   border: solid 2px #474747;
+   box-shadow: inset 0px 1px 2px 0px #9C9C9C;
+  }
+.textox:active  {
+   border: solid 2px #474747;
+  }
 
 
 

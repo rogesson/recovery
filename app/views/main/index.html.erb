@@ -20,7 +20,8 @@ function requestTo(){
 	<body>
 		<div class="login_form">
 			<%= form_tag('/sessions', :action => "create") do %>
-				<b>Login</b> <%= text_field_tag :login, nil, :placeholder => "Login", required: true %>  <b>Password</b> <%= password_field_tag :password, nil, placeholder: "Password", required: true %>
+				<%= text_field_tag :login, nil, :placeholder => "Login", required: true, :class => "textox"%>
+				<%= password_field_tag :password, nil, placeholder: "Password", required: true, :class => "textox" %>
 				<%= submit_tag "Sign in", :class => "Button" %>
 			<%end%>
 			<%if params[:bad_login] == "1"%>
@@ -31,13 +32,13 @@ function requestTo(){
 		<div class="register">
 			<%=form_tag('/users', action: :create) do %>
 					<b>Login</b><br />
-					<%= text_field_tag :login, nil, :placeholder => "Login", required: true %><br /><br />
+					<%= text_field_tag :login, nil, :placeholder => "Login", required: true, :class => "textox" %><br /><br />
 					<b>Email</b><br />
-					<%= text_field_tag :email, nil, :placeholder => "Email", required: true %><br /><br />
+					<%= text_field_tag :email, nil, :placeholder => "Email", required: true, :class => "textox" %><br /><br />
 					<b>Password</b><br />
-					<%= password_field_tag :password, nil, :placeholder => "Password", required: true %><br /><br />
+					<%= password_field_tag :password, nil, :placeholder => "Password", required: true, :class => "textox" %><br /><br />
 					<b>Confirm Password</b><br />
-					<%= password_field_tag :password_conf, nil, :placeholder => "Password", required: true %><br /><br />
+					<%= password_field_tag :password_conf, nil, :placeholder => "Password", required: true, :class => "textox"%><br /><br />
 				<%= submit_tag "Save", :class => "Button"%>
 			<%end%>
 			<%if flash[:notice]%>

@@ -13,11 +13,11 @@
 			<b>New Credential</b><br /><br />
 			<%= form_tag("/credentials/", method: :post, action: :create) do%>
 				<b>Login</b><br />
-				<%= text_field_tag :login, nil, placeholder: "Login", required: true%><br /><br />
+				<%= text_field_tag :login, nil, placeholder: "Login", required: true, :class => "textox" %><br /><br />
 				<b>Password</b><br />
-				<%= password_field_tag :password, nil, placeholder: "Password", required: true%><br /><br />
+				<%= password_field_tag :password, nil, placeholder: "Password", required: true, :class => "textox" %><br /><br />
 				<b>Site</b><br />
-				<%= text_field_tag :site, nil, placeholder: "Site", required: true%><br/>
+				<%= text_field_tag :site, nil, placeholder: "Site", required: true, :class => "textox" %><br /><br />
 				<%= submit_tag "Save", :class => "Button"%>
 			<%end%>
 
@@ -42,7 +42,7 @@
 						<option value="2">Login</option>
 						<option value="3">Password</option>
 					</select>
-					<%= text_field_tag :search, nil, placeholder: "Search"%>
+					<%= text_field_tag :search, nil, placeholder: "Search", :class => "textox" %>
 					<% hidden_field_tag :type, nil, :value => "1"%>
 					<%= submit_tag "SEARCH!", :class => "Button" %>
 				<%end%>
