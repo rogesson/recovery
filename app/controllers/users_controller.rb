@@ -23,13 +23,13 @@ class UsersController < ApplicationController
 
 	#get /users/:id
 	def show
-		#type 1 is search by site name ;D
+		#type 1 is search by site name
 	  	search_query = "AND site LIKE '%#{params[:search]}%'" if params[:type] == "1"
 	  		
-  		#type 1 is search by login
+  		#type 2 is search by login
   		search_query = "AND login LIKE '%#{params[:search]}%'" if params[:type] == "2"
 	  		   	
-  		#type 1 is search by password
+  		#type 3 is search by password
   		search_query = "AND password LIKE '%#{params[:search]}%'" if params[:type] == "3"
 	  	
 
