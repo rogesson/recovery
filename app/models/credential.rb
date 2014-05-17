@@ -10,6 +10,8 @@ class Credential < ActiveRecord::Base
 
 	attr_accessible :login, :password, :site, :user_id
 
+	default_scope order "id desc"
+
 	def change_password  new_password
    		status = false
 
@@ -24,7 +26,6 @@ class Credential < ActiveRecord::Base
 		   			status = true
 	   			end
 	   		end
-
    		end
 	    
 	    status
@@ -37,7 +38,6 @@ class Credential < ActiveRecord::Base
 		else
 			false
 		end
-		
 	end
 
 end
