@@ -13,7 +13,7 @@
  */
 
  html,body {
-  background-color: #D3E9D0;
+  background-color: #d0e4fe;
   font-family: Trebuchet MS, Verdana, Arial, sans-serif;
   font-size: 10pt;
   text-align:center;
@@ -38,7 +38,8 @@ acronym {
   left: 500px;
   top: 152px;
   position:absolute;
-  border: solid;
+  border-style:double;
+  border-radius: 7.5em 5em;
   width: 500px;
   height: auto;
   padding: 20px;
@@ -47,7 +48,8 @@ acronym {
 .top-img{
   width: 1500px;
   height: 100px;
-  border: solid;  
+  border: double;  
+  border-radius: 7.5em 5em;
 }
 
 .new_content {
@@ -58,7 +60,8 @@ acronym {
   position:absolute;
   left: 9px;
   top: 150px;
-  border: solid;
+  border: double;
+  border-radius: 7.5em 7em;
 }
 
 .login_form {
@@ -68,7 +71,8 @@ acronym {
   position:absolute;
   left: 740px;
   top: 40px;
-  border: solid;
+  border: double;
+  border-radius: 7.5em 5em;
 }
 
 .register {
@@ -78,7 +82,8 @@ acronym {
   position:absolute;
   left: 50px;
   top: 40px;
-  border: solid;
+  border: double;
+  border-radius: 7.5em 5em;
 }
 
 pre {
