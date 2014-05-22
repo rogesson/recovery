@@ -30,13 +30,8 @@ class UsersController < ApplicationController
 	  		@passwords = Credential.where("user_id = ? AND site LIKE ?", session[:user_id], "%#{params[:search]}%")
   		
   		elsif params[:type] == "2"
+  			#type 2 is search by login
   			@passwords = Credential.where("user_id = ? AND login LIKE ?", session[:user_id], "%#{params[:search]}%")
-	  	
-	  	elsif params[:type] == "3"
-	  		#type 3 is search by password
-	  		search_query = "AND password LIKE '%#{params[:search]}%'" if params[:type] == "3"
-	  		@passwords = Credential.where("user_id = #{session[:user_id]} #{search_query}")
-	  	
 	  	else
 	  		@passwords = Credential.where("user_id = ?", session[:user_id])
 	  	end
@@ -45,8 +40,7 @@ class UsersController < ApplicationController
 	  		p.password = digest_secure.dec(p.password) 
 	  	end
 	  	
-	end
-
+	end  
 	private
 	def digest_secure
 		Gibberish::AES.new(session[:c_key])
