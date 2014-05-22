@@ -31,6 +31,6 @@ class SessionsController < ApplicationController
 	private
 	def generated_key
 		safe_credential = "#{params[:password]}#{params[:login]}^]+^@".reverse[1..-1]
-		safe_credential = Digest::SHA1.hexdigest safe_credential
+		safe_credential = Digest::SHA256.hexdigest safe_credential
 	end 
 end
