@@ -24,19 +24,21 @@ class UsersController < ApplicationController
 	#get /users/:id
 	def show
 
-		#type 1 is search by site name
-	  	search_query = "AND site LIKE '%#{params[:search]}%'" if params[:type] == "1"
-	  		
-  		#type 2 is search by login
-  		search_query = "AND login LIKE '%#{params[:search]}%'" if params[:type] == "2"
-	  		   	
-  		#type 3 is search by password
-  		search_query = "AND password LIKE '%#{params[:search]}%'" if params[:type] == "3"
-	  	
+		
+		if params[:type] == "1"
+	  		#type 1 is search by site name
+	  		@passwords = Credential.where("user_id = ? AND site LIKE ?", session[:user_id], "%#{params[:search]}%")
+  		elsif params[:type] == "2"
+  			search_query = "AND login LIKE '%#{params[:search]}%'" if params[:type] == "2"
+	  		@passwords = Credential.where("user_id = #{session[:user_id]} #{search_query}")
+	  	elsif params[:type] == "3"
+	  		#type 3 is search by password
+	  		search_query = "AND password LIKE '%#{params[:search]}%'" if params[:type] == "3"
+	  		@passwords = Credential.where("user_id = #{session[:user_id]} #{search_query}")
+	  	else
+	  		@passwords = Credential.where("user_id = ?", session[:user_id])
+	  	end
 
-	  	@passwords = Credential.where("user_id = #{session[:user_id]} #{search_query}")
-
-	  	
 	  	@passwords.each do |p|
 	  		p.password = digest_secure.dec(p.password) 
 	  	end
