@@ -46,3 +46,7 @@ function deleteData(id_password){
       	}
 	})
 }
+
+function switchPass(id_password){
+	alert('hi');
+}
