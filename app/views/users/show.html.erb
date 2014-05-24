@@ -60,7 +60,7 @@
 							</td>
 							<td>
 								<%= password_field_tag :password_edit, nil, :class => "stextox",  :value => p.password, :id => "password#{p.id}" %>
-								<input type="button" value="Show" data-type="show" class="Button" onclick="switchPass()">
+								<input type="button" id="spassword" value="Show" class="Button" onclick="switchPass(<%= "#{p.id}" %>);">
 								<input type="button" value="Edit" onclick="alterPassword('<%=p.id%>');" class="Button"> 
 								<input type="button" value="Delete" onclick="deleteData('<%=p.id%>');" class="Button">
 							</td>

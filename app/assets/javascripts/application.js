@@ -48,5 +48,10 @@ function deleteData(id_password){
 }
 
 function switchPass(id_password){
-	alert('hi');
+	console.log(id_password)
+	if ($("#spassword")[0].value == "Show") {
+		$("#spassword")[0].value = "Hide";
+	} else {
+		$("#spassword")[0].value = "Show";
+	}
 }
