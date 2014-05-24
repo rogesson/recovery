@@ -18,8 +18,6 @@ class Credential < ActiveRecord::Base
    		if self.tainted? == true
 
 	   		if self.user_id == session[:user_id]
-	   			#needed?
-	   			status = false
 	   			self.untaint
 	   			if self.tainted? == false
 		   			self.password = new_password
