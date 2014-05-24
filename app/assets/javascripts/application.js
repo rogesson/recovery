@@ -36,15 +36,17 @@ function alterPassword(id_password){
 
 function deleteData(id_password){
 	var value = { password: getValue('password'+ id_password) }
-	$.ajax({
-	  	type: "DELETE",
-	  	url: "/credentials/"+ id_password,
-	  	data: value,
-	  	success: function (data) {
-	    	$("#cred-"+ id_password)[0].remove();
-	    	console.log(data);
-      	}
-	})
+	if (window.confirm("Are you sure?")) { 
+		$.ajax({
+		  	type: "DELETE",
+		  	url: "/credentials/"+ id_password,
+		  	data: value,
+		  	success: function (data) {
+		    	$("#cred-"+ id_password)[0].remove();
+		    	console.log(data);
+	      	}
+		})
+	}
 }
 
 function switchPass(id_password){
