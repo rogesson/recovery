@@ -24,8 +24,8 @@ function requestTo(){
 				<%= password_field_tag :password, nil, placeholder: "Password", required: true, :class => "textox" %>
 				<%= submit_tag "Sign in", :class => "Button" %>
 			<%end%>
-			<%if params[:bad_login] == "1"%>
-				Wrong login or password, please try again.
+			<%if flash[:bad_login]%>
+				<b>Wrong login or password, please try again.</b>
 			<%end%>
 		</div>
 

@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
 
 			redirect_to "/users/#{user[0].id}"
 		else
-			redirect_to '/main?bad_login=1'
+			redirect_to '/main', :flash => {:bad_login => "invalid login"}
 		end
 	end
 
