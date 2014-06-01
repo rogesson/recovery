@@ -11,8 +11,8 @@ class SessionsController < ApplicationController
 		if  user != []
 			#create session
 			session[:session_id] = Random.rand(19999283)
-			session[:user_id] = user[0].id
-			session[:c_key] = generated_key
+			session[:user_id]    = user[0].id
+			session[:c_key]      = generated_key
 
 			redirect_to "/users/#{user[0].id}"
 		else
@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
 		session.delete :session_id 
 		session.delete :user_id
 		session.delete :c_key
-		redirect_to '/main?'
+		redirect_to    '/main?'
 	end
 
 	private
