@@ -7,8 +7,6 @@
 			<%= button_to("Logout", {controller: :sessions, action: :logout}, :class=>"Button" )%>
 		</div>
 
-		
-
 		<div class="new_content">
 			<b>New Credential</b><br /><br />
 			<%= form_tag("/credentials/", method: :post, action: :create) do%>
