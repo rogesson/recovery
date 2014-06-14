@@ -11,6 +11,8 @@ class Credential < ActiveRecord::Base
 	attr_accessible :login, :password, :site, :user_id
 
 	default_scope order "id desc"
+	default_scope limit 10
+	
 
 	def change_password  new_password
    		status = false
