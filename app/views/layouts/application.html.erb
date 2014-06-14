@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Recovery</title>
-   <%= stylesheet_link_tag    "application", :media => "all" %>
-   <%= javascript_include_tag "application" %>
-   <%= csrf_meta_tags %>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ 	<!-- <title>Recovery</title> -->
+ 	<title>respo - Free CSS Template by ZyPOP</title>
+
+ 	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<!--
+	respo, a free CSS web template by ZyPOP (zypopwebtemplates.com/)
+
+	Download: http://zypopwebtemplates.com/
+
+	License: Creative Commons Attribution
+	//-->
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+   	<%= stylesheet_link_tag    "application", :media => "all" %>
+   	<%= javascript_include_tag "application" %>
+   	<%= csrf_meta_tags %>
 </head>
-<body>
-
-<%= yield %>
-
-</body>
+	<body>
+		<div id="container">
+			<%= render "/layouts/header" %>
+			<%= render "/layouts/nav" %>
+			<div id="body" class="width">
+				<section id="content">
+					<article>
+						<%= yield %>
+					</article>
+				</section>
+				<%= render "layouts/sidebar" %>
+				<%= render "/layouts/footer" %>
+			</div>
+		</div>
+	</body>
 </html>

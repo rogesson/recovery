@@ -1,32 +1,15 @@
-
-<%# TODO Change the code bellow to a global js file%>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script>
-function getValue(id){
-	return $("#"+id)[0].value 
-}
-
-function requestTo(){
-	var value = { login: getValue('log_login'), password: getValue('log_password') }
-	$.ajax({
-	  type: "GET",
-	  url: "main/1",
-	  data: value
-	})
-}
-</script>
-
+<%= stylesheet_link_tag "login_page" %>
 <html>
 	<body>
 		<div class="login_form">
-			<%= form_tag('/sessions', :action => "create") do %>
-				<%= text_field_tag :login, nil, :placeholder => "Login", required: true, :class => "textox"%>
-				<%= password_field_tag :password, nil, placeholder: "Password", required: true, :class => "textox" %>
-				<%= submit_tag "Sign in", :class => "Button" %>
-			<%end%>
-			<%if flash[:bad_login]%>
-				<b>Wrong login or password, please try again.</b>
-			<%end%>
+				<%= form_tag('/sessions', :action => "create") do %>
+					<%= text_field_tag :login, nil, :placeholder => "Login", required: true, :class => "textox"%>
+					<%= password_field_tag :password, nil, placeholder: "Password", required: true, :class => "textox" %>
+					<%= submit_tag "Sign in", :class => "Button" %>
+				<%end%>
+				<%if flash[:bad_login]%>
+					<b>Wrong login or password, please try again.</b>
+				<%end%>
 		</div>
 
 		<div class="register">
@@ -41,6 +24,7 @@ function requestTo(){
 					<%= password_field_tag :password_conf, nil, :placeholder => "Password", required: true, :class => "textox"%><br /><br />
 				<%= submit_tag "Save", :class => "Button"%>
 			<%end%>
+
 			<%if flash[:notice]%>
 				<%= flash[:notice]%>
 			<%end%>
