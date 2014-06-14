@@ -21,24 +21,24 @@ class CredentialsController < ApplicationController
 		credential = Credential.find(params[:id]).taint
 
 		if credential.change_password digest_secure.enc(params[:password])
-			@response = {:message => "Password Changed!", code: 200}
+			response = {:message => "Password Changed!", code: 200}
 		else
-			@response = {:message => "Password not changed", code: 500}
+			response = {:message => "Password not changed", code: 500}
 		end
 
-		render :json => @response.to_json
+		render :json => response.to_json
 	end
 
 	#DELETE credential/:id
 	def destroy
 		credenetial = Credential.find(params[:id])
 		if credenetial.safe_delete 
-			@response = {:message => "success", code: 200}
+			response = {:message => "success", code: 200}
 		else
 			response = {:message => "error", code: 500}
 		end
 
-		render :json => @response.to_json
+		render :json => response.to_json
 	end
 
 	def list
