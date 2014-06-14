@@ -25,7 +25,12 @@
 			<%= render "/layouts/header" %>
 			<%= render "/layouts/nav" %>
 			<div id="body" class="width">
-				<%= yield %>
+				<section id="content">
+					<article>
+						<%= yield %>
+					</article>
+				</section>
+				<%= render "layouts/sidebar" %>
 				<%= render "/layouts/footer" %>
 			</div>
 		</div>
