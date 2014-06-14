@@ -6,9 +6,28 @@
    <%= javascript_include_tag "application" %>
    <%= csrf_meta_tags %>
 </head>
-<body>
+	<body>
+		<div class="top-img">
+		</div>
+		<div class="button-logout" >
+			<%= button_to("Logout", {controller: :sessions, action: :logout}, :class=>"Button" )%>
+		</div>
 
-<%= yield %>
+		<div class="new_content">
+			<ul>
+				<li><a href="/credentials">Credentials</a></li>
 
-</body>
-</html>
+				<li>Notes</li>
+			</ul>
+		</div>
+		
+		<div style='color:#fff;background-color: red; position:absolute; left: 550px; top: 17px;'>
+
+			<br />
+		</div>
+
+		<center>
+			<%= yield %>
+		</center>
+	</body>
+<html>
