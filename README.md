@@ -7,15 +7,20 @@ Ruby Version 1.9.3
 
 Rails Version 3.2.13
 
+Layout by ZyPOP
+
 **TODO**
 
 * Create credential category
 * Create credential notes
 * Create credential tags
 * Create a new Layout
-
-
+* Create a Dashboard
+* Create notes
+* Create TODO List
+* Create Password share
+* Create TODO List share
 Fork it!
 
-Send a pull request
+Send a pull request!!
 
