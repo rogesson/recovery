@@ -9,6 +9,7 @@
 	  border: double;
 	  -webkit-border-radius: 12px 21px 32px 12px;
 	  border-radius: 12px 21px 32px 12px;
+	  text-align: center ;
 	}
 
 
@@ -23,6 +24,7 @@
 	  -webkit-border-radius: 12px 21px 32px 12px;
 	  border-radius: 12px 21px 32px 12px;
 	  padding: 40px;
+	  text-align: center ;
 	}
 
 	/*button CSS*   <a href="#" class="myButton">graphicriver</a> */
@@ -94,14 +96,14 @@
 <html>
 	<body>
 		<div class="login_form">
-			<%= form_tag('/sessions', :action => "create") do %>
-				<%= text_field_tag :login, nil, :placeholder => "Login", required: true, :class => "textox"%>
-				<%= password_field_tag :password, nil, placeholder: "Password", required: true, :class => "textox" %>
-				<%= submit_tag "Sign in", :class => "Button" %>
-			<%end%>
-			<%if flash[:bad_login]%>
-				<b>Wrong login or password, please try again.</b>
-			<%end%>
+				<%= form_tag('/sessions', :action => "create") do %>
+					<%= text_field_tag :login, nil, :placeholder => "Login", required: true, :class => "textox"%>
+					<%= password_field_tag :password, nil, placeholder: "Password", required: true, :class => "textox" %>
+					<%= submit_tag "Sign in", :class => "Button" %>
+				<%end%>
+				<%if flash[:bad_login]%>
+					<b>Wrong login or password, please try again.</b>
+				<%end%>
 		</div>
 
 		<div class="register">
@@ -116,6 +118,7 @@
 					<%= password_field_tag :password_conf, nil, :placeholder => "Password", required: true, :class => "textox"%><br /><br />
 				<%= submit_tag "Save", :class => "Button"%>
 			<%end%>
+			
 			<%if flash[:notice]%>
 				<%= flash[:notice]%>
 			<%end%>
