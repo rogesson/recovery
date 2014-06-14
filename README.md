@@ -17,9 +17,10 @@ Layout by ZyPOP
 * Create a new Layout
 * Create a Dashboard
 * Create notes
-* Create TODO List
+* Create TO DO List
 * Create Password share
-* Create TODO List share
+* Create TO DO List share
+
 Fork it!
 
 Send a pull request!!
