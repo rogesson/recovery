@@ -1,11 +1,11 @@
  <aside class="sidebar">
  	<ul>
-        <% if request.fullpath == "/credentials" %>	
+        <% if request.fullpath.match /credentials/  %>	
         	<li>
         		<h4>Credentials</h4>
                 <ul>
                 	<li><a href="index.html">Find Credential</a></li>
-                    <li><a href="index.html">+ Create Credential</a></li>
+                    <li><a href="/credentials/new">+ Create Credential</a></li>
                     <li><a href="examples.html">+ Create Category</a></li>
                 </ul>
             </li>
