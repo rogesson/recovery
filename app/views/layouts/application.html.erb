@@ -7,22 +7,8 @@
    <%= csrf_meta_tags %>
 </head>
 	<body>
-		<%= render "/layouts/header"%>
-		<!--
-		<div class="top-img">
-		</div>
-		<div class="button-logout" >
-			<%= button_to("Logout", {controller: :sessions, action: :logout}, :class=>"Button" )%>
-		</div>
-		-->
-
-		<div class="new_content">
-			<ul>
-				<li><a href="/credentials">Credentials</a></li>
-
-				<li>Notes</li>
-			</ul>
-		</div>
+		<%= render "/layouts/header" %>
+		<%= render "/layouts/side_bar" %>
 		
 		<div style='color:#fff;background-color: red; position:absolute; left: 550px; top: 17px;'>
 
