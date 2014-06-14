@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
 			session[:user_id]    = user[0].id
 			session[:c_key]      = generated_key
 
-			redirect_to "/users/#{user[0].id}"
+			redirect_to "/home"
 		else
 			redirect_to '/main', :flash => {:bad_login => "invalid login"}
 		end

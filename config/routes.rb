@@ -5,9 +5,8 @@ Recovery::Application.routes.draw do
     post "create"
     get 'logout', on: :collection
   end
-  resources :main do
-    post 'home_page', on: :member
-  end
+  resources :main
+  match 'home' => 'main#home'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
