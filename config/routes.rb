@@ -3,7 +3,7 @@ Recovery::Application.routes.draw do
   resources :users
   resources :sessions do
     post "create"
-    post 'logout', on: :collection
+    get 'logout', on: :collection
   end
   resources :main do
     post 'home_page', on: :member
