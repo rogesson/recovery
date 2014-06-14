@@ -21,10 +21,11 @@
    	<%= csrf_meta_tags %>
 </head>
 	<body>
+		<div id="container">
 		<%= render "/layouts/header" %>
-		<%= render "/layouts/side_bar" %>
-		<center>
-			<%= yield %>
-		</center>
+		<%= render "/layouts/nav" %>		
+		<%= yield %>
+		</div>
 	</body>
+	
 <html>
