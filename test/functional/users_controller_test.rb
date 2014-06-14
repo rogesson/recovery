@@ -10,9 +10,17 @@ class UsersControllerTest < ActionController::TestCase
 		assert true
 	end
 
-	test "should search by site" do
-		get(:show, id: 5, type: "1", search: "google.com")
-		puts @response.body
-		#assert_equals
+	test "should create a new user" do
+		user_count = puts User.count
+		request.env["HTTP_REFERER"] = "/main"
+		params = {
+			login: "lucass",
+			password: "192083",
+			email: "lucas@gmail.com"
+		}
+		post(:create, params)
+
+		assert_not_equal user_count , User.count
 	end
+
 end
