@@ -41,6 +41,26 @@ class CredentialsController < ApplicationController
 		render :json => @response.to_json
 	end
 
+	def list
+=begin
+		if params[:type] == "1"
+	  		#type 1 is search by site name
+	  		@passwords = Credential.where("user_id = ? AND site LIKE ?", session[:user_id], "%#{params[:search]}%")
+  		
+  		elsif params[:type] == "2"
+  			#type 2 is search by login
+  			@passwords = Credential.where("user_id = ? AND login LIKE ?", session[:user_id], "%#{params[:search]}%")
+	  	else
+	  		@passwords = Credential.where("user_id = ?", session[:user_id])
+	  	end
+=end
+		@passwords = Credential.where("user_id = ?", session[:user_id])
+		
+	  	@passwords.each do |p|
+	  		p.password = digest_secure.dec(p.password) 
+	  	end
+	end
+
 	private
 	def digest_secure
 		Gibberish::AES.new(session[:c_key])

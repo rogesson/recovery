@@ -1,5 +1,7 @@
 Recovery::Application.routes.draw do
-  resources :credentials
+  resources :credentials do
+    get "list", on: :collection
+  end
   resources :users
   resources :sessions do
     post "create"
