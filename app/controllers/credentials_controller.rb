@@ -11,8 +11,8 @@ class CredentialsController < ApplicationController
 
 		credential.save
 		
-		@error_credential = credential.errors.full_messages[0]
-		redirect_to :back, :flash => {:notice => @error_credential}
+		response = credential.errors.full_messages[0] ||= "Credential Created!"
+		redirect_to :back, :flash => {:notice => response}
 	end
 
 
