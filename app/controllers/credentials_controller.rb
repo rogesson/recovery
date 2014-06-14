@@ -42,7 +42,7 @@ class CredentialsController < ApplicationController
 	end
 
 	def list
-=begin
+
 		if params[:type] == "1"
 	  		#type 1 is search by site name
 	  		@passwords = Credential.where("user_id = ? AND site LIKE ?", session[:user_id], "%#{params[:search]}%")
@@ -53,9 +53,7 @@ class CredentialsController < ApplicationController
 	  	else
 	  		@passwords = Credential.where("user_id = ?", session[:user_id])
 	  	end
-=end
-		@passwords = Credential.where("user_id = ?", session[:user_id])
-		
+
 	  	@passwords.each do |p|
 	  		p.password = digest_secure.dec(p.password) 
 	  	end
