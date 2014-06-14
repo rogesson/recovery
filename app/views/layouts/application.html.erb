@@ -22,9 +22,11 @@
 </head>
 	<body>
 		<div id="container">
-		<%= render "/layouts/header" %>
-		<%= render "/layouts/nav" %>		
-		<%= yield %>
+			<%= render "/layouts/header" %>
+			<%= render "/layouts/nav" %>
+			<div id="body" class="width">
+				<%= yield %>
+			</div>
 		</div>
 	</body>
 	
