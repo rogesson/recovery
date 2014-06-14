@@ -1,6 +1,17 @@
-<div id="header">
-	<div class="top-img"></div>
-	<div class="button-logout" >
-		<%= button_to("Logout", { controller: :sessions, action: :logout }, :class=> "Button" )%>
+<div id="container">
+    <header>
+	<div class="width">
+    		<h1><a href="/">Company<span>Name</span></a></h1>
+       	</div>
+    </header>
+    <nav>
+	<div class="width">
+    		<ul>
+        		<li class="start selected"><a href="index.html">Home</a></li>
+        	    	<li class=""><a href="examples.html">Examples</a></li>
+         	   	<li><a href="#">Products</a></li>
+          	  	<li><a href="#">Solutions</a></li>
+          	 	<li class="end"><a href="#">Contact</a></li>
+        	</ul>
 	</div>
 </div>
