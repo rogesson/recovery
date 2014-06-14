@@ -9,10 +9,10 @@ Rails Version 3.2.13
 
 **TODO**
 
-*Create credential category
-*Create credential notes
-*Create credential tags
-*Create a new Layout
+* Create credential category
+* Create credential notes
+* Create credential tags
+* Create a new Layout
 
 
 Fork it!
