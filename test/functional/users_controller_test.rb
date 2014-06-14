@@ -36,4 +36,17 @@ class UsersControllerTest < ActionController::TestCase
 		assert_equal user_count , User.count
 	end
 
+	test "shouldn't create user" do
+		user_count = User.count
+		request.env["HTTP_REFERER"] = "/main"
+		params = {
+			login: "",
+			password: "",
+			email: ""
+		}
+		post(:create, params)
+
+		assert_equal user_count , User.count
+	end
+
 end
