@@ -1,19 +1,11 @@
-<% 
-	arr = Array.new
-	url = arr.push({href: "/home", value: "Home"})
-	url = arr.push({href: "/credentials", value: "Credential"})	
-	url = arr.push({href: "/sessions/logout", value: "logout"})
-%> 
-
 <nav>
 	<div class="width">
-
     		<ul>
-          		<% arr.each do |a| %>
-          			<% if request.fullpath.match /#{a[:href]}/ %>
-          				<li class="start selected"><a href="<%= a[:href] %>"><%= a[:value] %></a></li>
+          		<% arr_url_nav.each do |url| %>
+          			<% if request.fullpath.match /#{url[:href]}/ %>
+          				<li class="start selected"><a href="<%= url[:href] %>"><%= url[:value] %></a></li>
           			<% else %>
-          				<li><a href="<%= a[:href] %>"><%= a[:value] %></a></li>
+          				<li><a href="<%= url[:href] %>"><%= url[:value] %></a></li>
           			<% end %>
           	 	<% end %>
         	</ul>

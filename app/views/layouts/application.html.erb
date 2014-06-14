@@ -1,3 +1,10 @@
+<% 
+	arr = Array.new
+	navi_item = arr.push({href: "/home", value: "Home"})
+	navi_item = arr.push({href: "/credentials", value: "Credential"})	
+	navi_item = arr.push({href: "/sessions/logout", value: "logout"})
+%> 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +30,7 @@
 	<body>
 		<div id="container">
 			<%= render "/layouts/header" %>
-			<%= render "/layouts/nav" %>
+			<%= render "/layouts/nav", arr_url_nav: navi_item  %>
 			<div id="body" class="width">
 				<section id="content">
 					<article>
