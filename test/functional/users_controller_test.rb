@@ -11,7 +11,7 @@ class UsersControllerTest < ActionController::TestCase
 	end
 
 	test "should create a new user" do
-		user_count = puts User.count
+		user_count = User.count
 		request.env["HTTP_REFERER"] = "/main"
 		params = {
 			login: "lucass",
@@ -21,6 +21,19 @@ class UsersControllerTest < ActionController::TestCase
 		post(:create, params)
 
 		assert_not_equal user_count , User.count
+	end
+
+	test "shouldn't create a new user because login already exists" do
+		user_count = User.count
+		request.env["HTTP_REFERER"] = "/main"
+		params = {
+			login: User.first.login,
+			password: "192083",
+			email: "lucas@gmail.com"
+		}
+		post(:create, params)
+
+		assert_equal user_count , User.count
 	end
 
 end
