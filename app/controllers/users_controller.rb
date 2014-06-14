@@ -23,8 +23,6 @@ class UsersController < ApplicationController
 
 	#get /users/:id
 	def show
-
-		
 		if params[:type] == "1"
 	  		#type 1 is search by site name
 	  		@passwords = Credential.where("user_id = ? AND site LIKE ?", session[:user_id], "%#{params[:search]}%")
@@ -39,8 +37,8 @@ class UsersController < ApplicationController
 	  	@passwords.each do |p|
 	  		p.password = digest_secure.dec(p.password) 
 	  	end
-	  	
 	end  
+	
 	private
 	def digest_secure
 		Gibberish::AES.new(session[:c_key])
