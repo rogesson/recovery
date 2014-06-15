@@ -12,7 +12,8 @@ class CredentialsController < ApplicationController
 		credential.save
 		
 		response = credential.errors.full_messages[0] ||= "Credential Created!"
-		redirect_to :back, :flash => {:notice => response}
+	
+		render js: %W{responseForm("#{response}")}
 	end
 
 

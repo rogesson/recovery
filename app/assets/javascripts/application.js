@@ -19,6 +19,13 @@ function getValue(id){
 	return $("#"+id)[0].value 
 }
 
+function responseForm(msg){
+  $("#response_form")[0].style.display = "block"
+  $("#response_form").append("<br /> "+ msg);
+  $("#response_form").fadeOut(3000, function(){
+  	$("#response_form").empty();
+  });
+}
 
 function alterPassword(id_password){
 	var value = { password: getValue('password'+ id_password) }
