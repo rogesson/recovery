@@ -9,7 +9,7 @@ Rails Version 3.2.13
 
 Layout by ZyPOP
 
-**TODO**
+**TO DO**
 
 * Create credential category
 * Create credential notes
