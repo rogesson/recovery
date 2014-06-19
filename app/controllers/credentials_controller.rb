@@ -7,7 +7,6 @@ class CredentialsController < ApplicationController
 			:site     => params[:site],
 			:user_id  => session[:user_id]
 		)
-
 		credential.save
 		
 		response = credential.errors.full_messages[0] ||= "Credential Created!"
@@ -45,7 +44,6 @@ class CredentialsController < ApplicationController
 		if params[:type] == "1"
 	  		#type 1 is search by site name
 	  		@passwords = Credential.where("user_id = ? AND site LIKE ?", session[:user_id], "%#{params[:search]}%")
-  		
   		elsif params[:type] == "2"
   			#type 2 is search by login
   			@passwords = Credential.where("user_id = ? AND login LIKE ?", session[:user_id], "%#{params[:search]}%")

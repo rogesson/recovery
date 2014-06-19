@@ -24,7 +24,8 @@ class SessionsController < ApplicationController
 		session.delete :session_id 
 		session.delete :user_id
 		session.delete :c_key
-		redirect_to    '/main?'
+
+		redirect_to '/main'
 	end
 
 	private
