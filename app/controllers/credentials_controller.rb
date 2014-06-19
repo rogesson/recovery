@@ -1,6 +1,5 @@
 class CredentialsController < ApplicationController
-	before_filter :digest_secure, only: [:create, :update]
-
+	
 	def create
 		credential = Credential.new(
 			:login    => params[:login],

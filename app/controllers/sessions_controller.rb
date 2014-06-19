@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
 	skip_before_filter :verify_active_session
-	before_filter      :generated_key, only: :create
 
 	def create
 		user = User.where(

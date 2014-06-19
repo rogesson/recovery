@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
 	skip_before_filter :verify_active_session, only: :create
-	before_filter      :digest_secure, only: :show
-	before_filter      :safe_password, only: :create
-	
+		
 	#post /users
 	def create
 
@@ -47,6 +45,4 @@ class UsersController < ApplicationController
 	def safe_password
 		Digest::SHA256.hexdigest(params[:password]).reverse[5..-1]
 	end
-
-
 end
