@@ -41,4 +41,14 @@ class Credential < ActiveRecord::Base
 		end
 	end
 
+	def unsafe_password
+		digest_secure = Gibberish::AES.new(session[:c_key])
+		digest_secure.dec(self.password)		
+	end
+
+	private
+	def digest_secure
+		Gibberish::AES.new(session[:c_key])
+	end
+
 end
