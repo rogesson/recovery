@@ -41,7 +41,7 @@ class NotesController < ApplicationController
   # POST /notes.json
   def create
     @note = Note.new(params[:note])
-    @note.user_id = 2
+    @note.user_id = session[:user_id]
 
     respond_to do |format|
       if @note.save
