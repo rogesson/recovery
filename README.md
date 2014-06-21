@@ -4,7 +4,7 @@ Recovery
 Recovery is a Password Manager
 
 
-** Application Test **
+**Application Test**
 
 To test our application visit: http://vast-dawn-4065.herokuapp.com/main
 *Don't use your any real password, this is a test application.*
