@@ -6,12 +6,11 @@ class CredentialsController < ApplicationController
 
 	def create
 
-		credential = Credential.new(
-			:login    => params[:credential][:login],
-			:password => digest_secure.enc(params[:credential][:password]),
-			:site     => params[:credential][:site],
-			:user_id  => session[:user_id]
-		)
+		credential = Credential.new(params[:credential].except(:password, :user_id))
+
+		credential.password = digest_secure.enc(params[:credential][:password])
+		credential.user_id  = session[:user_id]
+		
 		if credential.save
 			response = "/credentials/#{credential.id}"
 		else
