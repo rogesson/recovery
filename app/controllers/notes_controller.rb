@@ -38,7 +38,7 @@ class NotesController < ApplicationController
 
   #GET /notes/list
   def list
-    @notes = Note.all
+    @notes = Note.where user_id: session[:user_id]
   end
 
   # POST /notes
