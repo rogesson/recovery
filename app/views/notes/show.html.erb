@@ -1,5 +1,7 @@
-<p id="notice"><%= notice %></p>
+<h3><%= @note.title.capitalize %></h3><br />
 
-
-<%= link_to 'Edit', edit_note_path(@note) %> |
-<%= link_to 'Back', notes_path %>
+<center>
+	<p>
+		<%= @note.body %>
+	</p>
+</center>
