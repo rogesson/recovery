@@ -31,6 +31,11 @@ class NotesController < ApplicationController
     @note = Note.find(params[:id])
   end
 
+  #GET /notes/list
+  def list
+    @notes = Note.all
+  end
+
   # POST /notes
   # POST /notes.json
   def create
