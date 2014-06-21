@@ -21,8 +21,11 @@ ActiveRecord::Schema.define(:version => 20140621023109) do
   end
 
   create_table "notes", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.string   "title",      :limit => 50,   :null => false
+    t.text     "body",       :limit => 1000
+    t.integer  "user_id",    :limit => 19,   :null => false
   end
 
   create_table "sessions", :force => true do |t|

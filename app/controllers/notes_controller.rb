@@ -7,12 +7,17 @@ class NotesController < ApplicationController
   # GET /notes/1
   # GET /notes/1.json
   def show
-    @note = Note.find(params[:id])
+    @note = Note.where(
+      id:      params[:id],
+      user_id: session[:user_id]
+    )[0]
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @note }
+    if @note
+      @note
+    else
+      redirect_to "/notes"
     end
+    
   end
 
   # GET /notes/new
