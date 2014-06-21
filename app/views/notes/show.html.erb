@@ -1,10 +1,9 @@
 <h3><%= @note.title.capitalize %></h3><br />
 
 <a href="/notes/<%= @note.id %>/edit">Edit</a>
-<center>
-	<p>
-		<%= @note.body %>
-	</p>
-
-</center>
+	<center>
+		<div>
+			<textarea rows=12 cols=60><%= @note.body %></textarea>
+		</div>
+	</center>
 <a href="/notes/list">Back</a>
