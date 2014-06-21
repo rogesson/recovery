@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
 		user = User.new(
 			:login 	  => params[:login],
-		 	:password => Digest::SHA256.hexdigest(params[:password]).reverse[5..-1]
+		 	:password => Digest::SHA256.hexdigest(params[:password]).reverse[5..-1],
 		 	:email    => params[:email]
 		)
 
