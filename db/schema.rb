@@ -11,13 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140521232453) do
+ActiveRecord::Schema.define(:version => 20140621023109) do
 
   create_table "credentials", :force => true do |t|
     t.string  "login",    :limit => 100
     t.string  "password", :limit => 500
     t.string  "site",     :limit => 200
     t.integer "user_id",  :limit => 15
+  end
+
+  create_table "notes", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "sessions", :force => true do |t|
