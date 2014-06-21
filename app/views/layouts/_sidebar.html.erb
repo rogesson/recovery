@@ -10,6 +10,17 @@
                 </ul>
             </li>
         <% end %>
+
+         <% if request.fullpath.match /notes/  %> 
+            <li>
+                <h4>Notes</h4>
+                <ul>
+                    <li><a href="/notes/list">All Notes</a></li>
+                    <li><a href="/notes/new">+ Create Note</a></li>
+                <!--<li><a href="examples.html">+ Create Category</a></li>-->
+                </ul>
+            </li>
+        <% end %>
         <!-- 
         <li>
             <h4>About us</h4>
