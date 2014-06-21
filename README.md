@@ -3,6 +3,8 @@ Recovery
 
 Recovery is a Password Manager
 
+To test the application visit: http://vast-dawn-4065.herokuapp.com/main
+
 Ruby Version 1.9.3
 
 Rails Version 3.2.13
