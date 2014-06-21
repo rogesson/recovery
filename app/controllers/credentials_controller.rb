@@ -1,5 +1,9 @@
 class CredentialsController < ApplicationController
 	
+	def new
+		@credential = Credential.new
+	end
+
 	def create
 		credential = Credential.new(
 			:login    => params[:login],
@@ -7,11 +11,13 @@ class CredentialsController < ApplicationController
 			:site     => params[:site],
 			:user_id  => session[:user_id]
 		)
-		credential.save
+		if credential.save
+			response = "/credentials/#{credential.id}"
+		else
+			response = credential.errors.full_messages[0] ||= "Credential Created!"
+		end
 		
-		response = credential.errors.full_messages[0] ||= "Credential Created!"
-	
-		render js: %W{responseForm("#{response}")}
+		redirect_to response
 	end
 
 
