@@ -37,14 +37,9 @@ class NotesController < ApplicationController
     @note = Note.new(params[:note])
     @note.user_id = session[:user_id]
 
-    respond_to do |format|
-      if @note.save
-        format.html { redirect_to @note, notice: 'Note was successfully created.' }
-        format.json { render json: @note, status: :created, location: @note }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @note.errors, status: :unprocessable_entity }
-      end
+    
+    if @note.save
+      redirect_to "/notes/#{@note.id}"
     end
   end
 
