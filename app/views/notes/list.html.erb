@@ -1,8 +1,7 @@
 <ul id="list">
 	<% @notes.each do |note|%>
 	    <li> 
-	    	<a href="/notes/<%= note.id %>">
-	    		<%= note.title.capitalize[0..10] %><%if note.title.size > 9 %>...<% end %></a>
+	    	<a href="/notes/<%= note.id %>"><%= note.short_title %></a>
 	    </li>
     <% end %>
 </ul>
