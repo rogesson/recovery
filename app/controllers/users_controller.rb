@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
 		user = User.new(
 			:login 	  => params[:login],
-		 	:password => safe_password,
+		 	:password => Digest::SHA256.hexdigest(params[:password]).reverse[5..-1]
 		 	:email    => params[:email]
 		)
 
@@ -27,9 +27,5 @@ class UsersController < ApplicationController
 	private
 	def digest_secure
 		Gibberish::AES.new(session[:c_key])
-	end
-
-	def safe_password
-		Digest::SHA256.hexdigest(params[:password]).reverse[5..-1]
 	end
 end
