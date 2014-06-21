@@ -1,13 +1,7 @@
 class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
-  def index
-    @notes = Note.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @notes }
-    end
+  def index  
   end
 
   # GET /notes/1
