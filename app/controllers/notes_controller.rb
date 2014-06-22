@@ -70,12 +70,13 @@ class NotesController < ApplicationController
   # DELETE /notes/1
   # DELETE /notes/1.json
   def destroy
-    @note = Note.find(params[:id])
-    @note.destroy
+    @note = Note.where(
+      id: params[:id],
+      user_id: session[:user_id]
+    )[0]
+    
+    @note.destroy if @notes
 
-    respond_to do |format|
-      format.html { redirect_to notes_url }
-      format.json { head :no_content }
-    end
+    redirect_to "/notes/list"
   end
 end
