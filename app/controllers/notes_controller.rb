@@ -48,7 +48,8 @@ class NotesController < ApplicationController
     @note.user_id = session[:user_id]
 
     if @note.save
-      redirect_to "/notes/#{@note.id}"
+      #redirect_to "/notes/#{@note.id}"
+      redirect_to @note
     end
   end
 
