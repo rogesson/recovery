@@ -17,7 +17,6 @@ class NotesController < ApplicationController
     else
       redirect_to "/notes"
     end
-    
   end
 
   # GET /notes/new
