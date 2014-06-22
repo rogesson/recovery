@@ -47,7 +47,6 @@ class NotesController < ApplicationController
     @note = Note.new(params[:note])
     @note.user_id = session[:user_id]
 
-    
     if @note.save
       redirect_to "/notes/#{@note.id}"
     end
@@ -56,16 +55,16 @@ class NotesController < ApplicationController
   # PUT /notes/1
   # PUT /notes/1.json
   def update
-    @note = Note.find(params[:id])
+    @note = Note.where(
+      id:      params[:id],
+      user_id: session[:user_id]
+    )[0]
 
-    respond_to do |format|
-      if @note.update_attributes(params[:note])
-        format.html { redirect_to @note, notice: 'Note was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @note.errors, status: :unprocessable_entity }
-      end
+    if @note
+      @note.update_attributes(params[:note])
+      redirect_to @note
+    else
+      redirect_to "/home"
     end
   end
 
