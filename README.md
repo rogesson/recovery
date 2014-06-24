@@ -22,15 +22,17 @@ Layout by ZyPOP
 
 **TO DO**
 
-* Create credential category
-* Create credential notes
-* Create credential tags
-* Create a new Layout
-* Create a Dashboard
-* Create notes
-* Create TO DO List
-* Create Password share
-* Create TO DO List share
+* Credential category
+* Credential notes
+* Credential tags
+* Notes category
+* New login page
+* User Dashboard
+* Credential share
+* Groups
+* Instant Messaging services
+* Add encryption to Notes
+
 
 Fork it!
 
