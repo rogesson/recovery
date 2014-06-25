@@ -82,8 +82,8 @@ class NotesController < ApplicationController
          id: params[:id],
          user_id: session[:user_id]
       )[0]
-    
-      @note.destroy if @notes
+
+      @note.destroy if @note
 
       redirect_to "/notes/list"
    end
