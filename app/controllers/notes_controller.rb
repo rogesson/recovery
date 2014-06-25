@@ -44,9 +44,10 @@ class NotesController < ApplicationController
    # POST /notes.json
    def create
       @note = Note.new(
-         params[:note]
+         title:   params[:note][:title],
+         body:    digest_secure.enc(params[:note][:body]),
+         user_id: session[:user_id]
       )
-      @note.user_id = session[:user_id]
 
       if @note.save
          redirect_to @note
@@ -62,7 +63,12 @@ class NotesController < ApplicationController
       )[0]
 
       if @note
-         @note.update_attributes(params[:note])
+         @note.update_attributes(
+            title:   params[:note][:title],
+            body:    digest_secure.enc(params[:note][:body]),
+            user_id: session[:user_id]
+         )
+         
          redirect_to @note
       else
          redirect_to "/home"

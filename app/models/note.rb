@@ -9,6 +9,10 @@ class Note < ActiveRecord::Base
    	else
    		"#{self.title.capitalize[0..9]}..."
    	end 
+   end
 
+   def safe_body
+   	digest_secure = Gibberish::AES.new(session[:c_key])
+		digest_secure.dec(self.body)	
    end
 end
