@@ -1,82 +1,89 @@
 class NotesController < ApplicationController
-  # GET /notes
-  # GET /notes.json
-  def index  
+   # GET /notes
+   # GET /notes.json
+   def index  
+   end
+
+   # GET /notes/1
+   # GET /notes/1.json
+   def show
+      @note = Note.where(
+         id:      params[:id],
+         user_id: session[:user_id]
+      )[0]
+
+      if @note
+         @note
+      else
+         redirect_to "/notes"
+      end
   end
 
-  # GET /notes/1
-  # GET /notes/1.json
-  def show
-    @note = Note.where(
-      id:      params[:id],
-      user_id: session[:user_id]
-    )[0]
+   # GET /notes/new
+   # GET /notes/new.json
+   def new
+      @note = Note.new
 
-    if @note
-      @note
-    else
-      redirect_to "/notes"
-    end
-  end
+      respond_to do |format|
+         format.html # new.html.erb
+         format.json { render json: @note }
+      end
+   end
 
-  # GET /notes/new
-  # GET /notes/new.json
-  def new
-    @note = Note.new
+   # GET /notes/1/edit
+   def edit
+      @note = Note.find(params[:id])
+   end
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @note }
-    end
-  end
+   #GET /notes/list
+   def list
+      @notes = Note.where user_id: session[:user_id]
+   end
 
-  # GET /notes/1/edit
-  def edit
-    @note = Note.find(params[:id])
-  end
+   # POST /notes
+   # POST /notes.json
+   def create
+      @note = Note.new(
+         params[:note]
+      )
+      @note.user_id = session[:user_id]
 
-  #GET /notes/list
-  def list
-    @notes = Note.where user_id: session[:user_id]
-  end
+      if @note.save
+         redirect_to @note
+      end
+   end
 
-  # POST /notes
-  # POST /notes.json
-  def create
-    @note = Note.new(params[:note])
-    @note.user_id = session[:user_id]
+   # PUT /notes/1
+   # PUT /notes/1.json
+   def update
+      @note = Note.where(
+         id:      params[:id],
+         user_id: session[:user_id]
+      )[0]
 
-    if @note.save
-      redirect_to @note
-    end
-  end
+      if @note
+         @note.update_attributes(params[:note])
+         redirect_to @note
+      else
+         redirect_to "/home"
+      end
+   end
 
-  # PUT /notes/1
-  # PUT /notes/1.json
-  def update
-    @note = Note.where(
-      id:      params[:id],
-      user_id: session[:user_id]
-    )[0]
-
-    if @note
-      @note.update_attributes(params[:note])
-      redirect_to @note
-    else
-      redirect_to "/home"
-    end
-  end
-
-  # DELETE /notes/1
-  # DELETE /notes/1.json
-  def destroy
-    @note = Note.where(
-      id: params[:id],
-      user_id: session[:user_id]
-    )[0]
+   # DELETE /notes/1
+   # DELETE /notes/1.json
+   def destroy
+      @note = Note.where(
+         id: params[:id],
+         user_id: session[:user_id]
+      )[0]
     
-    @note.destroy if @notes
+      @note.destroy if @notes
 
-    redirect_to "/notes/list"
-  end
+      redirect_to "/notes/list"
+   end
+
+   private
+   def digest_secure
+      Gibberish::AES.new(session[:c_key])
+   end
 end
