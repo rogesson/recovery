@@ -1,8 +1,15 @@
 <h3>Editing Note</h3>
 
 <fieldset>
+	<a href="/notes/<%= @note.id %>">Back</a>
 	<center>
 		<%= render 'form' %>
 	</center>
-	<a href="/notes/<%= @note.id %>">Back</a>
 </fieldset>
+
+<script>
+$(document).ready(function(){
+	$("#note_body")[0].value = "<%= @note.safe_body%>";
+});
+	
+</script>

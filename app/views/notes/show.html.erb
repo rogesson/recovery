@@ -1,9 +1,8 @@
-<h3><%= @note.title.capitalize %></h3><br />
+<h4><%= @note.title.capitalize %></h4><br />
 
-<a href="/notes/<%= @note.id %>/edit">Edit</a>
-	<center>
-		<div>
-			<textarea rows=12 cols=60><%= @note.body %></textarea>
-		</div>
-	</center>
-<a href="/notes/list">Back</a>
+<a href="/notes/list">Back</a> <a href="/notes/<%= @note.id %>/edit">Edit</a>
+<center>
+	<div>
+		<textarea rows=12 cols=60><%= @note.body %></textarea>
+	</div>
+</center>
