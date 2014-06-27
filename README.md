@@ -20,7 +20,7 @@ Rails Version 3.2.13
 
 Layout by ZyPOP
 
-**TO DO**
+**ToDo**
 
 * Credential category
 * Credential notes
