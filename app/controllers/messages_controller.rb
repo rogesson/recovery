@@ -27,4 +27,9 @@ class MessagesController < ApplicationController
 			redirect_to :back
 		end
 	end
+
+	def index
+		user = User.find(session[:user_id])
+		@received_messages = user.received_messages
+	end
 end
