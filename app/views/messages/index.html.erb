@@ -1,3 +1,15 @@
-<% @received_messages.each do |message| %>
-	<%= message.subject %><br />
-<% end %>
+<table class="altrowstable" id="alternatecolor">
+	<tr>
+		<th>Subject</th><th>From</th><th>Date</th>
+	</tr>
+	<% @received_messages.each do |message|%>
+		<tr id="mes-<%= message.id %>">
+			<td>
+				<%= message.subject %>
+			</td>
+			<td>
+				<%= message.created_at %>
+			</td>
+		</tr>
+	<%end%>
+</table>
