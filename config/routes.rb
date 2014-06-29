@@ -12,6 +12,8 @@ Recovery::Application.routes.draw do
     get 'logout', on: :collection
   end
   resources :main
+
+  resources :messages
   match 'home' => 'main#home'
   # The priority is based upon order of creation:
   # first created -> highest priority.
