@@ -8,7 +8,11 @@
 				<%= message.subject %>
 			</td>
 			<td>
-				<%= message.created_at %>
+				<!-- Remove this and use relation -->
+				<%= User.find(message.sender_id).login.capitalize %>
+			</td>
+			<td>
+				<%= message.created_at.to_date %>
 			</td>
 		</tr>
 	<%end%>
