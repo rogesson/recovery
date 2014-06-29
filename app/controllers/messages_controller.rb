@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
 		@message = Message.new
 		@message.subject   = params[:message][:subject]
 		@message.body      = params[:message][:body]
-		@message.recipient = User.find(2)
+		@message.recipient = User.find(params[:message][:recipient])
 		@message.sender    = User.find(session[:user_id])
 
 

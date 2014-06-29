@@ -9,7 +9,8 @@
 			</td>
 			<td>
 				<!-- Remove this and use relation -->
-				<%= User.find(message.sender_id).login.capitalize %>
+				<% user = User.find(message.sender_id) %>
+				<a href="/users/<%= user.id%>"><%= user.login.capitalize %></a>
 			</td>
 			<td>
 				<%= message.created_at.to_date %>
