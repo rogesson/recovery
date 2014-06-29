@@ -30,7 +30,6 @@ Layout by ZyPOP
 * User Dashboard
 * Credential share
 * Groups
-* Instant Messaging services
 
 Fork it!
 
