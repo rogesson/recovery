@@ -24,7 +24,7 @@
 	<body>
 		<div id="container">
 			<%= render "/layouts/header" %>
-			<%= render "/layouts/nav", arr_url_nav: ApplicationHelper::nav_item  %>
+			<%= render "/layouts/nav", arr_url_nav: ApplicationHelper::nav_item(session[:user_id]) %>
 			<div id="body" class="width">
 				<section id="content">
 					<article>
