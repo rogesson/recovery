@@ -1,8 +1,16 @@
 <%= form_for(@message) do |f|%>
+	
+	<%= f.hidden_field :to_user_id, value: @recipient.id %>
+	<div class="field">
+		To<br />
+		<%= f.text_field :recipient, value: @recipient.login.capitalize, placeholder: "To" %>
+	</div>
+
 	<div class="field">
 		Subject<br />
 		<%= f.text_field :subject, placeholder: "Subject" %>
 	</div>
+
 	<div class="field">
 		Body<br />
 		<%= f.text_area :body, placeholder: "Body",  :cols => "60", :rows => "10" %>
