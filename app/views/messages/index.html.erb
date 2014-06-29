@@ -5,7 +5,7 @@
 	<% @received_messages.each do |message|%>
 		<tr id="mes-<%= message.id %>">
 			<td>
-				<%= message.subject %>
+				<a href="/messages/<%= message.id %>"><%= message.subject %></a>
 			</td>
 			<td>
 				<!-- Remove this and use relation -->
