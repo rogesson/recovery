@@ -1,1 +1,7 @@
-<%= @message.body %>
+<h3><%= @message.subject %><h3>
+
+<!-- TODO  Create relation User -> message -->
+<h4>From <%= User.find(@message.sender_id).login.capitalize %><h4>
+<center>
+	<%= @message.body %>
+<center>
