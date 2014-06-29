@@ -22,6 +22,10 @@ class UsersController < ApplicationController
 	#get /users/:id
 	def show
 	
+	end
+
+	def index
+		@users = User.all
 	end  
 	
 	private
