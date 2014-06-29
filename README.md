@@ -7,7 +7,7 @@ Recovery is a Password Manager
 **Application Test**
 
 To test our application visit: http://vast-dawn-4065.herokuapp.com/main
-*Don't use your any real password, this is a test application.*
+*Don't use any real password, this is a test application.*
 
 Create a new user or use our test account:
 Login: recovery
@@ -20,7 +20,7 @@ Rails Version 3.2.13
 
 Layout by ZyPOP
 
-**TO DO**
+**ToDo**
 
 * Credential category
 * Credential notes
@@ -31,8 +31,6 @@ Layout by ZyPOP
 * Credential share
 * Groups
 * Instant Messaging services
-* Add encryption to Notes
-
 
 Fork it!
 
