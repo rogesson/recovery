@@ -1,6 +1,6 @@
 <table class="altrowstable" id="alternatecolor">
 	<tr>
-		<th>Subject</th><th>From</th><th>Date</th>
+		<th>Subject</th><th>From</th><th>Date</th><th>Status</th>
 	</tr>
 	<% @received_messages.each do |message|%>
 		<tr id="mes-<%= message.id %>">
@@ -13,6 +13,13 @@
 			</td>
 			<td>
 				<%= message.created_at.to_date %>
+			</td>
+			<td>
+				<% if message.read_at %>
+					Read at <%= message.created_at.to_date %>
+				<% else %>
+					<b>New</b>
+				<% end %> 
 			</td>
 		</tr>
 	<%end%>
