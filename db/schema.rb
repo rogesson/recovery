@@ -11,13 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140621023109) do
+ActiveRecord::Schema.define(:version => 20140629152007) do
 
   create_table "credentials", :force => true do |t|
     t.string  "login",    :limit => 100
     t.string  "password", :limit => 500
     t.string  "site",     :limit => 200
     t.integer "user_id",  :limit => 15
+  end
+
+  create_table "messages", :force => true do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.boolean  "sender_deleted",    :default => false
+    t.boolean  "recipient_deleted", :default => false
+    t.string   "subject"
+    t.text     "body"
+    t.datetime "read_at"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
   end
 
   create_table "notes", :force => true do |t|

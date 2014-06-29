@@ -45,3 +45,5 @@ gem "awesome_print"
  gem 'debugger'
 
  gem 'gibberish'
+
+ gem 'simple-private-messages', '0.0.0', :git => 'git://github.com/jongilbraith/simple-private-messages.git'

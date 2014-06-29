@@ -8,4 +8,6 @@ class User < ActiveRecord::Base
 	validates :email, presence: true
 	validates :email, uniqueness: true
 	attr_accessible :login, :password, :email
+
+	has_private_messages
 end
