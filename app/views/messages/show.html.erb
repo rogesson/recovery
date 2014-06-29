@@ -1,7 +1,12 @@
-<h3><%= @message.subject %><h3>
+<h3><%= @message.subject %></h3>
 
-<!-- TODO  Create relation User -> message -->
-<h4>From <%= User.find(@message.sender_id).login.capitalize %><h4>
+<br />
+<a href="/messages">Back</a>
+
 <center>
+	<!-- TODO  Create relation User -> message -->
+	<h4>From <a href="/users/<%= @message.sender_id %>"><%= User.find(@message.sender_id).login.capitalize %></a><h4>
+
+	<br /><br />
 	<%= @message.body %>
-<center>
+</center>
