@@ -1,9 +1,9 @@
 <%= form_for(@message) do |f|%>
 	
-	<%= f.hidden_field :to_user_id, value: @recipient.id %>
+	<%= f.hidden_field :recipient, value: @recipient.id %>
 	<div class="field">
 		To<br />
-		<%= f.text_field :recipient, value: @recipient.login.capitalize, placeholder: "To" %>
+		<%= f.text_field :recipient_name, value: @recipient.login.capitalize, placeholder: "To" %>
 	</div>
 
 	<div class="field">
