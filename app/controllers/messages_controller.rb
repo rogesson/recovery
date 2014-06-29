@@ -19,5 +19,12 @@ class MessagesController < ApplicationController
 
 	def show
 		@message = Message.find(params[:id])
+
+		if @message.sender_id == session[:user_id] or @message.recipient_id == session[:user_id]
+			Message.read_message(@message.id, User.find(session[:user_id])) if @message.recipient_id == session[:user_id]
+			@message
+		else
+			redirect_to :back
+		end
 	end
 end
