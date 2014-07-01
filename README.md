@@ -3,8 +3,13 @@ Recovery
 
 Recovery is a Password Manager
 
+**Features**
+* Login and Session
+* Credential management with high encryption level 
+* Note Management with high encryption level 
+* Private Messaging
 
-**Application Test**
+**View Demo**
 
 To test our application [Click HERE](http://vast-dawn-4065.herokuapp.com/main)
 **Don't use any real password, this is a test application.**
