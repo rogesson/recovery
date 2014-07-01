@@ -5,8 +5,8 @@ Recovery is a Password Manager
 
 **Features**
 * Login and Session
-* Credential management with high encryption level 
-* Note Management with high encryption level 
+* Credentials management with high encryption level 
+* Notes Management with high encryption level 
 * Private Messaging
 
 **View Demo**
