@@ -7,14 +7,7 @@ Recovery is a Password Manager
 **Application Test**
 
 To test our application [Click HERE](http://vast-dawn-4065.herokuapp.com/main)
-*Don't use any real password, this is a test application.*
-
-
-
-Create a new user or use our test account: <Enter>
-Login: recovery
-Password: recovery
-
+* Don't use any real password, this is a test application. *
 
 Ruby Version 1.9.3
 
