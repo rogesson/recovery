@@ -32,4 +32,11 @@ class MessagesController < ApplicationController
 		user = User.find(session[:user_id])
 		@received_messages = user.received_messages
 	end
+
+	def destroy
+		message = Message.find(params[:id])
+
+		message.destroy if message.recipient_id == session[:user_id]
+		redirect_to "/messages"
+	end
 end
