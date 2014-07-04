@@ -27,7 +27,7 @@
                 <h4>Users</h4>
                 <ul>
                     <li><a href="/users/<%= session[:user_id] %>">My Profile</a></li>
-                <!--<li><a href="examples.html">+ Create Category</a></li>-->
+                    <li><a href="/users/<%= session[:user_id] %>/edit">Edit Profile</a></li>
                 </ul>
             </li>
         <% end %>
