@@ -3,17 +3,17 @@
 	<%= f.hidden_field :recipient, value: @recipient.id %>
 	<div class="field">
 		To<br />
-		<%= f.text_field :recipient_name, value: @recipient.login.capitalize, placeholder: "To" %>
+		<%= f.text_field :recipient_name, value: @recipient.login.capitalize, placeholder: "To", required: true %>
 	</div>
 
 	<div class="field">
 		Subject<br />
-		<%= f.text_field :subject, placeholder: "Subject" %>
+		<%= f.text_field :subject, placeholder: "Subject", required: true %>
 	</div>
 
 	<div class="field">
 		Body<br />
-		<%= f.text_area :body, placeholder: "Body",  :cols => "60", :rows => "10" %>
+		<%= f.text_area :body, placeholder: "Body",  :cols => "60", :rows => "10", required: true %>
 	</div>
 
 	<div class="field">
