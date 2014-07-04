@@ -1,5 +1,10 @@
+<h3>All Users</h3>
+<fieldset>
+<br />
 <% @users.each do |user| %>
 	<center>
 		<a href="/users/<%= user.id %>"><%= user.login.capitalize %></a><br /><br />
 	</center>
 <% end %>
+
+</fieldset>
