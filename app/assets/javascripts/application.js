@@ -66,6 +66,7 @@ function switchPass(id_password){
 	}
 }
 
+
 function logout(){
 	$("#logout")[0].click();
 	
@@ -74,6 +75,15 @@ function logout(){
 function verifyNewMsg()
 {	
 	var new_messages = "";
+	$.ajax({
+		type: "GET",
+	  	url: "/messages/verify_new_msg/",
+	  	data: null,
+	    success: function (data) {
+	    	console.log(data);
+        }
+	})
+
 	$("#messages").text("Messages"+new_messages)
 	
 }

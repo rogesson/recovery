@@ -13,7 +13,10 @@ Recovery::Application.routes.draw do
   end
   resources :main
 
-  resources :messages
+  resources :messages do
+    get 'verify_new_msg', on: :collection
+  end
+
   match 'home' => 'main#home'
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -39,4 +39,10 @@ class MessagesController < ApplicationController
 		message.destroy if message.recipient_id == session[:user_id]
 		redirect_to "/messages"
 	end
+
+	def verify_new_msg
+		response = {:message => "error", code: 500}
+
+		render :json => response.to_json
+	end
 end
