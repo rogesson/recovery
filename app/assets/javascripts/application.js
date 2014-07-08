@@ -67,7 +67,6 @@ function switchPass(id_password){
 }
 
 function logout(){
-
+	$("#logout")[0].click();
+	//setTimeout("alert('hi')", 2000);
 }
-//$("#logout")[0].click();
-//setTimeout("alert('hi')", 2000);
