@@ -71,11 +71,18 @@ function logout(){
 	
 }
 
+function verifyNewMsg()
+{	
+	var new_messages = "";
+	$("#messages").text("Messages"+new_messages)
+	
+}
+
 $( document ).ready(function() {
 	//logout 5min 
 	setTimeout("logout()",  5 * 60 * 1000);
 	
 	//Verify msg
-	//setInterval(function(){alert("new msg!")}, 3000);
+	setInterval(function(){verifyNewMsg()}, 3000);
 });
 
