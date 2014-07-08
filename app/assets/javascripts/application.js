@@ -72,5 +72,5 @@ function logout(){
 }
 
 $( document ).ready(function() {
-	setTimeout("logout()", 10000);
+	setTimeout("logout()",  5 * 60 * 1000);
 });
