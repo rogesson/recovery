@@ -65,3 +65,9 @@ function switchPass(id_password){
 		$("#spassword-"+id_password+"")[0].value = "Show";
 	}
 }
+
+function logout(){
+
+}
+//$("#logout")[0].click();
+//setTimeout("alert('hi')", 2000);

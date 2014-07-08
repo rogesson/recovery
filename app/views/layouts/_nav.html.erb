@@ -3,9 +3,9 @@
     		<ul>
           		<% arr_url_nav.each do |url| %>
           			<% if request.fullpath.match /#{url[:href]}/ %>
-          				<li class="start selected"><a href="<%= url[:href] %>"><%= url[:value] %></a></li>
+          				<li class="start selected"><a id="<%= url[:id] %>" href="<%= url[:href] %>"><%= url[:value] %></a></li>
           			<% else %>
-          				<li><a href="<%= url[:href] %>"><%= url[:value] %></a></li>
+          				<li><a id="<%= url[:id] %>" href="<%= url[:href] %>"><%= url[:value] %></a></li>
           			<% end %>
           	 	<% end %>
         	</ul>
