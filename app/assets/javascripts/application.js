@@ -80,11 +80,15 @@ function verifyNewMsg()
 	  	url: "/messages/verify_new_msg/",
 	  	data: null,
 	    success: function (data) {
-	    	console.log(data);
+	    	console.log(data["news"]);
+	    	if (data["news"] != 0){
+	    		new_messages = " ("+data["news"]+")";	
+	    	}
+	    	$("#messages").text("Messages"+new_messages)
         }
 	})
 
-	$("#messages").text("Messages"+new_messages)
+	
 	
 }
 
