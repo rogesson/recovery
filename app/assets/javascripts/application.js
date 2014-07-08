@@ -72,5 +72,10 @@ function logout(){
 }
 
 $( document ).ready(function() {
+	//logout 5min 
 	setTimeout("logout()",  5 * 60 * 1000);
+	
+	//Verify msg
+	//setInterval(function(){alert("new msg!")}, 3000);
 });
+
