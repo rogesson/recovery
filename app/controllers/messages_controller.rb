@@ -41,7 +41,15 @@ class MessagesController < ApplicationController
 	end
 
 	def verify_new_msg
-		response = {:message => "error", code: 500}
+
+		user = User.find(session[:user_id])
+		unread_count = user.unread_message_count if user.unread_message_count > 0
+		if unread_count
+			response = {:news => unread_count }
+		else
+			response = {:news => 0 }
+		end
+		
 
 		render :json => response.to_json
 	end
