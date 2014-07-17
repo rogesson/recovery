@@ -28,16 +28,16 @@
 	   text-align: center ;
 	}
 	.content{
-		border:solid;
+		border: solid;
 		min-height: 95%;
+		background-color: #7F577A;
 	}
 </style>
-
 <html>
 	<center>
-	<div class="content">here<div>
+	<div class="content">content<div>
 
-	<body bgcolor="#7F577A">
+	<body>
 		<div class="login_form">
 				<%= form_tag('/sessions', :action => "create") do %>
 					<%= text_field_tag :login, nil, :placeholder => "Login", required: true, :class => "textox"%>
