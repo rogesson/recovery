@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_filter :_set_current_session, :verify_active_session
 
     def verify_active_session
-    	if session[:user_id] == nil
+    	if session[:user_id].nil?
     		redirect_to "/main"
     	end
     end
