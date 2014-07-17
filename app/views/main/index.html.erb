@@ -40,8 +40,7 @@
 
 	.register1{
 		text-align: -webkit-left;
-		margin: 40px;
-		padding: 50px;
+		margin-left: 45px;
 	}
 </style>
 <html>
@@ -60,16 +59,6 @@
 		</div>
 		
 		<div class="register1">
-			register
-		</div>
-	<div>
-
-	<body>
-		<div class="login_form">
-				
-		</div>
-
-		<div class="register">
 			<%=form_tag('/users', action: :create) do %>
 					<b>Login</b><br />
 					<%= text_field_tag :login, nil, :placeholder => "Login", required: true, :class => "textox" %><br /><br />
@@ -85,6 +74,16 @@
 			<%if flash[:notice]%>
 				<%= flash[:notice]%>
 			<%end%>
+		</div>
+	<div>
+
+	<body>
+		<div class="login_form">
+				
+		</div>
+
+		<div class="register">
+			
 		</div>
 	<body>
 	</center>	
