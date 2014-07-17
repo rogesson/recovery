@@ -41,20 +41,23 @@
 <html>
 	<center>
 	<div class="content">
-		<div class="login">login</div>
+		<div class="login">
+			<%= form_tag('/sessions', :action => "create") do %>
+					<%= text_field_tag :login, nil, :placeholder => "Login", required: true, :class => "textox"%>
+					<%= password_field_tag :password, nil, placeholder: "Password", required: true, :class => "textox" %>
+					<%= submit_tag "Sign in", :class => "Button" %>
+			<%end%>
+			
+			<%if flash[:bad_login]%>
+				<b>Wrong login or password, please try again.</b>
+			<%end%>
+		</div>
 		content
 	<div>
 
 	<body>
 		<div class="login_form">
-				<%= form_tag('/sessions', :action => "create") do %>
-					<%= text_field_tag :login, nil, :placeholder => "Login", required: true, :class => "textox"%>
-					<%= password_field_tag :password, nil, placeholder: "Password", required: true, :class => "textox" %>
-					<%= submit_tag "Sign in", :class => "Button" %>
-				<%end%>
-				<%if flash[:bad_login]%>
-					<b>Wrong login or password, please try again.</b>
-				<%end%>
+				
 		</div>
 
 		<div class="register">
