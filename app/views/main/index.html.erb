@@ -1,33 +1,41 @@
 <style>
 	.login_form {
-	  width: 420px;
-	  height: 56px;
-	  padding-top: 30px;
-	  position:absolute;
-	  left: 837px;
-	  top: 137px;
-	  border: double;
-	  -webkit-border-radius: 12px 21px 32px 12px;
-	  border-radius: 12px 21px 32px 12px;
-	  text-align: center ;
+		display: none;
+	   width: 420px;
+	   height: 56px;
+	   padding-top: 30px;
+	   position:absolute;
+	   left: 837px;
+	   top: 137px;
+	   border: double;
+	   -webkit-border-radius: 12px 21px 32px 12px;
+	   border-radius: 12px 21px 32px 12px;
+	   text-align: center ;
 	}
 
 	.register {
-	  width: 141px;
-	  height: 263px;
-	  padding-top:60px;
-	  position:absolute;
-	  left: 837px;
-	  top: 257px;
-	  border: double;
-	  -webkit-border-radius: 12px 21px 32px 12px;
-	  border-radius: 12px 21px 32px 12px;
-	  padding: 40px;
-	  text-align: center ;
+		display: none;
+	   width: 141px;
+	   height: 263px;
+	   padding-top:60px;
+	   position:absolute;
+	   left: 837px;
+	   top: 257px;
+	   border: double;
+	   -webkit-border-radius: 12px 21px 32px 12px;
+	   border-radius: 12px 21px 32px 12px;
+	   padding: 40px;
+	   text-align: center ;
 	}
-	.body
+	.content{
+		border:solid;
+	}
 </style>
+
 <html>
+	<center>
+	<div class="content">here<div>
+
 	<body bgcolor="#7F577A">
 		<div class="login_form">
 				<%= form_tag('/sessions', :action => "create") do %>
@@ -58,4 +66,5 @@
 			<%end%>
 		</div>
 	<body>
+	</center>	
 </html>
