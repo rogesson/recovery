@@ -1,13 +1,13 @@
 <ul id="list">
 	<% @notes.each do |note|%>
 	    <li> 
-	    	<a href="#" value="/notes/<%= note.id%>"> <%= note.short_title %> </a>
+	    	<a href="#" value="/notes/<%= note.id%>" class="notes_a"> <%= note.short_title %> </a>
 	    </li>
     <% end %>
 </ul>
 
 <script>
-	$("a").on("click", function(){
+	$(".notes_a").on("click", function(){
 		var url = $(this).attr("value");
 		coloboxHTML(url);
 	});
