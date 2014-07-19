@@ -1,13 +1,13 @@
 <ul id="list">
 	<% @notes.each do |note|%>
 	    <li> 
-	    	<a href="/notes/<%= note.id %>"><%= note.short_title %></a>
+	    	<a href="#" onclick="coloboxHtml('/notes/<%= note.id %>')"><%= note.short_title %></a>
 	    </li>
     <% end %>
 </ul>
 
 <script>
-	$(document).ready(function(){
-		$.colorbox({href:"/notes/12"});
-	});
+	function coloboxHtml(url) {
+		$.colorbox({href:url});
+	}
 </script>
