@@ -7,16 +7,22 @@ class NotesController < ApplicationController
    # GET /notes/1
    # GET /notes/1.json
    def show
+
+   
+      
       @note = Note.where(
          id:      params[:id],
          user_id: session[:user_id]
       )[0]
 
       if @note
+
          @note
       else
          redirect_to "/notes"
       end
+
+      render layout: false
   end
 
    # GET /notes/new
