@@ -58,12 +58,16 @@ class CredentialsController < ApplicationController
 	end
 
 	def show
+
+
 		credential = Credential.where(id: params[:id])[0]
 		if credential.user.id == session[:user_id]
 			@credential = credential
 		else
 			redirect_to "/credentials"
 		end	
+
+		render layout: false
 	end
 
 	private
