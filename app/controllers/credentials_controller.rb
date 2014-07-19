@@ -5,7 +5,6 @@ class CredentialsController < ApplicationController
 	end
 
 	def create
-
 		credential = Credential.new(params[:credential].except(:password, :user_id))
 
 		credential.password = digest_secure.enc(params[:credential][:password])
