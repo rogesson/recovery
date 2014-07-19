@@ -87,9 +87,10 @@ function verifyNewMsg()
 	    	$("#messages").text("Messages"+new_messages)
         }
 	})
+}
 
-	
-	
+function coloboxHTML(url) {
+	$.colorbox({href:url});
 }
 
 $( document ).ready(function() {

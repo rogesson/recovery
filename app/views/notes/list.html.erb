@@ -7,10 +7,6 @@
 </ul>
 
 <script>
-	function coloboxHTML(url) {
-		$.colorbox({href:url});
-	}
-
 	$("a").on("click", function(){
 		var url = $(this).attr("value");
 		coloboxHTML(url);
