@@ -34,11 +34,10 @@ function alterPassword(id_password){
 	  	url: "/credentials/"+ id_password,
 	  	data: value,
 	    success: function (data) {
-	    	alert(data.message)
+	    	alert(data.message);
 	    	console.log(data);
         }
 	})
-
 }
 
 function deleteData(id_password){
@@ -69,7 +68,6 @@ function switchPass(id_password){
 
 function logout(){
 	$("#logout")[0].click();
-	
 }
 
 function verifyNewMsg()
@@ -86,7 +84,7 @@ function verifyNewMsg()
 	    	}
 	    	$("#messages").text("Messages"+new_messages)
         }
-	})
+	});
 }
 
 function coloboxHTML(url) {
