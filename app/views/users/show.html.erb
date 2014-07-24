@@ -7,7 +7,8 @@ Email: <b><%= @user.email %></b>
 
 <br />
 <br />
-<a href="/messages/new?to=<%= @user.id %>">Send Message</a>
 
-
-<%= image_tag "images/msg.png" %>
+<%if @user.id != session[:user_id] %>
+	<a href="/messages/new?to=<%= @user.id %>">Send Message</a>
+	<%= image_tag "images/msg.png" %>
+<% end %>
