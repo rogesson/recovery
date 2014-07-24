@@ -1,7 +1,7 @@
 <ul id="list">
 	<% @notes.each do |note|%>
 	    <li> 
-	    	<a href="#" value="/notes/<%= note.id%>" class="notes_a"> <%= note.short_title %> </a>
+	    	<a href="#" value="/notes/<%= note.id%>" class="notes_a"> <%= note.title %> </a>
 	    </li>
     <% end %>
 </ul>

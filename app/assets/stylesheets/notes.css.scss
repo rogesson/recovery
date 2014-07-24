@@ -2,19 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 #list{
     background: #f7f7f7;   
     padding: 8px;
+    text-decoration: none;
 }
 
-#list > li {
-    display: inline-block;
-    /* You can also add some margins here to make it look prettier */
-    zoom:1;
-    *display:inline;
-    /* this fix is needed for IE7- */
-}
-
+//#list > li {
+//    display: inline-block;
+//    /* You can also add some margins here to make it look prettier */
+//    zoom:1;
+//    *display:inline;
+//    /* this fix is needed for IE7- */
+//}
+//
 #list > li > a{
     color: #666666;
     text-decoration: none;
