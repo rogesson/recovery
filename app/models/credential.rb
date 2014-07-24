@@ -3,9 +3,9 @@ class Credential < ActiveRecord::Base
 
 	belongs_to :user
 
-	validates :login, presence: true 
+	validates :login,    presence: true 
 	validates :password, presence: true 
-	validates :site, presence: true 
+	validates :site,     presence: true 
 
 
 	attr_accessible :login, :password, :site, :user_id
@@ -17,11 +17,11 @@ class Credential < ActiveRecord::Base
 	def change_password  new_password
    		status = false
 
-   		if self.tainted? == true
+   		if self.tainted? 
 
 	   		if self.user_id == session[:user_id]
 	   			self.untaint
-	   			if self.tainted? == false
+	   			if !self.tainted?
 		   			self.password = new_password
 		   			self.save
 		   			status = true
@@ -35,9 +35,6 @@ class Credential < ActiveRecord::Base
 	def safe_delete
 		if self.user_id == session[:user_id]
 			self.delete
-			true
-		else
-			false
 		end
 	end
 
@@ -50,5 +47,4 @@ class Credential < ActiveRecord::Base
 	def digest_secure
 		Gibberish::AES.new(session[:c_key])
 	end
-
 end
