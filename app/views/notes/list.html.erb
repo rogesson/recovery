@@ -1,6 +1,6 @@
 <style>
 .notes_content{
-	background-color: #DCDDD7;
+	background-color: #FFFFFF;
 	width: 600px;
 	margin-top: 1px;
 	padding-top: 22px;
@@ -8,7 +8,7 @@
 }
 
 .notes_item{
-	background-color: #7F577A;
+	background-color: #DCDDD7;
 	width: 400px;
 	margin-left: 30px;
 	margin-top: 6px;
@@ -17,23 +17,21 @@
 .notes_item p {
 	color: white;
 	margin-left: 10px; 
+	box-shadow:         7px 7px 5px 0px rgba(50, 50, 50, 0.75);
 }
 </style>
 
 <div class="notes_content">
-
-	<div class="notes_item">
-		<p>item</p>
-	</div>
-	<div class="notes_item">
-		<p>item</p>
-	</div>
+	All Notes
+	<% @notes.each do |note|%>
+		<div class="notes_item">
+    		<p><a href="#" value="/notes/<%= note.id%>" class="notes_a"> <%= note.title %></a><p>
+    	</div>
+	<% end %>
 </div>
 
 
-<% @notes.each do |note|%>
-    	<a href="#" value="/notes/<%= note.id%>" class="notes_a"> <%= note.title %> </a>
-<% end %>
+
 
 
 <script>
