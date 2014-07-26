@@ -1,10 +1,33 @@
-<ul id="list">
-	<% @notes.each do |note|%>
-	    <li> 
-	    	<a href="#" value="/notes/<%= note.id%>" class="notes_a"> <%= note.title %> </a>
-	    </li>
-    <% end %>
-</ul>
+<style>
+.notes_content{
+	background-color: blue;
+	width: 600px;
+	margin-top: 1px;
+}
+
+.notes_item{
+	background-color: red;
+	width: 350px;
+	margin-left: 30px;
+	margin-top: 6px;
+}
+</style>
+
+<div class="notes_content">
+	content
+	<div class="notes_item">
+		item
+	</div>
+	<div class="notes_item">
+		item
+	</div>
+</div>
+
+
+<% @notes.each do |note|%>
+    	<a href="#" value="/notes/<%= note.id%>" class="notes_a"> <%= note.title %> </a>
+<% end %>
+
 
 <script>
 	$(".notes_a").on("click", function(){
