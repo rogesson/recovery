@@ -91,6 +91,11 @@ function coloboxHTML(url) {
 	$.colorbox({href:url});
 }
 
+
+function editNote(id){
+	alert(id);
+}
+
 $( document ).ready(function() {
 	//logout 5min 
 	setTimeout("logout()",  5 * 60 * 1000);
@@ -98,4 +103,5 @@ $( document ).ready(function() {
 	//Verify msg
 	setInterval(function(){verifyNewMsg()}, 3000);
 });
+
 
