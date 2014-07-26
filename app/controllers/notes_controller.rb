@@ -60,6 +60,7 @@ class NotesController < ApplicationController
    # PUT /notes/1
    # PUT /notes/1.json
    def update
+      debugger
       @note = Note.where(
          id:      params[:id],
          user_id: session[:user_id]

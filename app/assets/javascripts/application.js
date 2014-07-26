@@ -93,7 +93,14 @@ function coloboxHTML(url) {
 
 
 function editNote(id){
-	alert(id);
+	$.ajax({
+		type: "PUT",
+	  	url: "/notes/"+ id,
+	  	data: "ioqjweoiqjweoiqjwoijeqw",
+	    success: function (data) {
+	    	console.log(data);
+        }
+	});
 }
 
 $( document ).ready(function() {
