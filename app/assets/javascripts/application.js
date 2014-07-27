@@ -116,6 +116,7 @@ function destroyNote(id){
 		    success: function (data) {
 		    	console.log(data);
 		    	$("#cboxOverlay").click();
+		    	$("#note_item-"+id).remove();
 	        }
 		});
 	}

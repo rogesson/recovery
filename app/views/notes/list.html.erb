@@ -1,7 +1,7 @@
 <div class="notes_content">
 	All Notes
 	<% @notes.each do |note|%>
-		<div class="notes_item">
+		<div class="notes_item" id="note_item-<%= note.id%>">
     		<p><a href="#" value="/notes/<%= note.id%>" class="notes_a"> <%= note.title %></a><p>
     	</div>
 	<% end %>
