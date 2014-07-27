@@ -99,7 +99,7 @@ function editNote(id, body){
 	  	url: "/notes/"+ id,
 	  	data: value,
 	    success: function (data) {
-	    	console.log(data);
+	    	alert(data["message"]);
         }
 	});
 }
