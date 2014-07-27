@@ -109,7 +109,7 @@ $( document ).ready(function() {
 	setTimeout("logout()",  5 * 60 * 1000);
 	
 	//Verify msg
-	setInterval(function(){verifyNewMsg()}, 3000);
+	//setInterval(function(){verifyNewMsg()}, 3000);
 });
 
 
