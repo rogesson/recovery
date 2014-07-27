@@ -9,6 +9,5 @@ Email: <b><%= @user.email %></b>
 <br />
 
 <%if @user.id != session[:user_id] %>
-	<a href="/messages/new?to=<%= @user.id %>"><%= image_tag "images/msg.png" %></a>
-	
+	<a href="/messages/new?to=<%= @user.id %>"><img src="/assets/images/msg.png"></a>
 <% end %>
