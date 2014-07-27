@@ -122,6 +122,11 @@ function destroyNote(id){
 	}
 }
 
+$("#new_note_button").on("click", function(){
+    var url = "/notes/new";
+    $.colorbox({href:url});
+});
+
 $( document ).ready(function() {
 	//logout 5min 
 	setTimeout("logout()",  5 * 60 * 1000);
