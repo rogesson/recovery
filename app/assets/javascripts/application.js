@@ -95,13 +95,26 @@ function coloboxHTML(url) {
 function editNote(id, body){
 	value = { body: body }
 
-	if (window.confirm("Do you really want to update this note?")) { 
+	if (window.confirm("Do you really want to UPDATE this note?")) { 
 		$.ajax({
 			type: "PUT",
 		  	url: "/notes/"+ id,
 		  	data: value,
 		    success: function (data) {
 		    	alert(data["message"]);
+	        }
+		});
+	}
+}
+
+function destroyNote(id){
+	if (window.confirm("Do you really want to DELETE this note?")) { 
+		$.ajax({
+			type: "DELETE",
+		  	url: "/notes/"+ id,
+		  	data: null,
+		    success: function (data) {
+		    	console.log(data);
 	        }
 		});
 	}

@@ -80,9 +80,13 @@ class NotesController < ApplicationController
          user_id: session[:user_id]
       ).first
 
-      @note.destroy if @note
+      if @note.destroy
+         response = {:message => "Note updated!", code: 200}
+      else
+         response = {:message => "Note cannot be updated", code: 500}
+      end
 
-      redirect_to "/notes/list"
+      render :json => response.to_json
    end
 
    private

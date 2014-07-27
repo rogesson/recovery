@@ -1,5 +1,6 @@
 
 <img src="/assets/images/edit.png" onclick="editNote('<%= @note.id%>', $('#note_body').val())">
+<img src="/assets/images/delete.png" onclick="destroyNote('<%= @note.id%>')">
 
 <br /><br />
 <h4><%= @note.title.capitalize %></h4>
