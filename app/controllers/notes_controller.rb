@@ -33,11 +33,6 @@ class NotesController < ApplicationController
       end
    end
 
-   # GET /notes/1/edit
-   def edit
-      @note = Note.find(params[:id])
-   end
-
    #GET /notes/list
    def list
       @notes = Note.where user_id: session[:user_id]
