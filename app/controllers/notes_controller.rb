@@ -27,10 +27,7 @@ class NotesController < ApplicationController
    def new
       @note = Note.new
 
-      respond_to do |format|
-         format.html # new.html.erb
-         format.json { render json: @note }
-      end
+      render layout: false
    end
 
    #GET /notes/list
