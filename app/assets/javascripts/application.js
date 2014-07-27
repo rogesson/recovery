@@ -92,11 +92,12 @@ function coloboxHTML(url) {
 }
 
 
-function editNote(id){
+function editNote(id, body){
+	value = { body: body }
 	$.ajax({
 		type: "PUT",
 	  	url: "/notes/"+ id,
-	  	data: "ioqjweoiqjweoiqjwoijeqw",
+	  	data: value,
 	    success: function (data) {
 	    	console.log(data);
         }

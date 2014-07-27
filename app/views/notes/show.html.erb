@@ -1,4 +1,4 @@
-<a href="#" onclick="editNote('<%= @note.id%>')">Edit</a>
+<a href="#" onclick="editNote('<%= @note.id%>', $('#note_body').val())">Edit</a>
 
 <br /><br />
 <h4><%= @note.title.capitalize %></h4>
@@ -7,7 +7,7 @@
 	<br />
 	<center>
 		<div>
-			<textarea rows=12 cols=60><%= @note.safe_body %></textarea>
+			<textarea id="note_body" rows=12 cols=60><%= @note.safe_body %></textarea>
 		</div>
 	</center>
 </fieldset>

@@ -60,23 +60,21 @@ class NotesController < ApplicationController
    # PUT /notes/1
    # PUT /notes/1.json
    def update
-      debugger
       @note = Note.where(
          id:      params[:id],
          user_id: session[:user_id]
-      )[0]
+      ).first
 
       if @note
-         @note.update_attributes(
-            title:   params[:note][:title],
-            body:    digest_secure.enc(params[:note][:body]),
-            user_id: session[:user_id]
-         )
-         
-         redirect_to @note
+         @note.body = digest_secure.enc(params[:body]),
+         @note.save
+         response = {:message => "Note updated!", code: 200}
       else
-         redirect_to "/home"
+         response = {:message => "Note cannot be updated", code: 500}
       end
+     
+     render :json => response.to_json
+
    end
 
    # DELETE /notes/1
