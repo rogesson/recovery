@@ -16,9 +16,15 @@
                 <h4>Notes</h4>
                 <ul>
                     <li><a href="/notes/list">All Notes</a></li>
-                    <li><a href="/notes/new">+ Create Note</a></li>
+                    <li><a href="#" id="new_note_button">+ Create Note</a></li>
                 <!--<li><a href="examples.html">+ Create Category</a></li>-->
                 </ul>
+                <script>
+                    $("#new_note_button").on("click", function(){
+                        var url = "/notes/new";
+                        $.colorbox({href:url});
+                    });
+                </script>
             </li>
         <% end %>
 
