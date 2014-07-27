@@ -11,7 +11,7 @@ class CredentialsController < ApplicationController
 		credential.user_id  = session[:user_id]
 		
 		if credential.save
-			response = credential
+			response = "/credentials/list"
 		else
 			response = credential.errors.full_messages[0] ||= "Credential Created!"
 		end
