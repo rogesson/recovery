@@ -48,7 +48,7 @@ class NotesController < ApplicationController
       )
 
       if @note.save
-         redirect_to @note
+         redirect_to "/notes/list"
       end
    end
 
