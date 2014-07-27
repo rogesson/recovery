@@ -66,7 +66,8 @@ class NotesController < ApplicationController
       ).first
 
       if @note
-         @note.body = digest_secure.enc(params[:body]),
+         @note.body = digest_secure.enc(params[:body])
+         
          @note.save
          response = {:message => "Note updated!", code: 200}
       else
