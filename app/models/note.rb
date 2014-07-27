@@ -3,6 +3,8 @@ class Note < ActiveRecord::Base
 
    attr_accessible :title, :body, :user_id
 
+   default_scope order("id desc")
+
    def short_title
    	if self.title.size < 10
    		"#{self.title}".capitalize[0..9]
