@@ -67,7 +67,7 @@ class NotesController < ApplicationController
 
       if @note
          @note.body = digest_secure.enc(params[:body])
-         
+
          @note.save
          response = {:message => "Note updated!", code: 200}
       else
@@ -75,7 +75,6 @@ class NotesController < ApplicationController
       end
      
      render :json => response.to_json
-
    end
 
    # DELETE /notes/1
@@ -84,7 +83,7 @@ class NotesController < ApplicationController
       @note = Note.where(
          id: params[:id],
          user_id: session[:user_id]
-      )[0]
+      ).first
 
       @note.destroy if @note
 
