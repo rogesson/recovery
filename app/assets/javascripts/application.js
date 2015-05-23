@@ -34,7 +34,6 @@ function alterPassword(id_password){
 	  	url: "/credentials/"+ id_password,
 	  	data: value,
 	    success: function (data) {
-	    	alert(data.message);
 	    	console.log(data);
         }
 	})
@@ -101,7 +100,7 @@ function editNote(id, body){
 		  	url: "/notes/"+ id,
 		  	data: value,
 		    success: function (data) {
-		    	alert(data["message"]);
+		    	alert('Note Updated')
 	        }
 		});
 	}
