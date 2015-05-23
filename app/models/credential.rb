@@ -9,9 +9,6 @@ class Credential < ActiveRecord::Base
 
 
 	attr_accessible :login, :password, :site, :user_id
-
-	default_scope order "id desc"
-	default_scope limit 10
 	
 
 	def change_password  new_password
@@ -39,12 +36,7 @@ class Credential < ActiveRecord::Base
 	end
 
 	def unsafe_password
-		digest_secure = Gibberish::AES.new(session[:c_key])
-		digest_secure.dec(self.password)		
+		DigestManager.dec(self.password, session[:c_key])		
 	end
-
-	private
-	def digest_secure
-		Gibberish::AES.new(session[:c_key])
-	end
+	
 end

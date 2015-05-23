@@ -32,8 +32,4 @@ class UsersController < ApplicationController
 		@users = User.where("id != ?", session[:user_id])
 	end  
 	
-	private
-	def digest_secure
-		Gibberish::AES.new(session[:c_key])
-	end
 end

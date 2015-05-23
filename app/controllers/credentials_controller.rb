@@ -7,7 +7,7 @@ class CredentialsController < ApplicationController
 	def create
 		credential = Credential.new(params[:credential].except(:password, :user_id))
 
-		credential.password = digest_secure.enc(params[:credential][:password])
+		credential.password = DigestManager.enc(params[:credential][:password], session[:c_key])
 		credential.user_id  = session[:user_id]
 		
 		if credential.save
@@ -24,7 +24,7 @@ class CredentialsController < ApplicationController
 	def update
 		credential = Credential.find(params[:id]).taint
 
-		if credential.change_password digest_secure.enc(params[:password])
+		if credential.change_password(DigestManager.enc(params[:password], session[:c_key]))
 			response = {:message => "Password Changed!", code: 200}
 		else
 			response = {:message => "Password not changed", code: 500}
@@ -53,25 +53,15 @@ class CredentialsController < ApplicationController
   			#type 2 is search by login
   			@passwords = Credential.where("user_id = ? AND login LIKE ?", session[:user_id], "%#{params[:search]}%")
 	  	else
-	  		@passwords = Credential.where("user_id = ?", session[:user_id])
+	  		@passwords = Credential.where(user_id: session[:user_id])
 	  	end
 	end
 
 	def show
-
-
-		credential = Credential.where(id: params[:id])[0]
-		if credential.user.id == session[:user_id]
-			@credential = credential
-		else
-			redirect_to "/credentials"
-		end	
-
 		render layout: false
+		@credential = Credential.where(id: params[:id], user_id: session[:user_id]).first
+		
+		redirect_to @credential ||= "/"
 	end
 
-	private
-	def digest_secure
-		Gibberish::AES.new(session[:c_key])
-	end
 end
