@@ -9,8 +9,10 @@ group :production do
   gem 'pg'
 end        
 
+
 group :development, :test do
   gem 'sqlite3'
+  gem 'rubocop'
 end
 
 # Gems used only for assets and not required
