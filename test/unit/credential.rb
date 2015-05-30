@@ -1,24 +1,8 @@
-require File.expand_path("../../test_helper", __FILE__)
+require File.expand_path('../../test_helper', __FILE__)
 
+# Class for credential test
 class CredentialTest < ActiveSupport::TestCase
-
-
-	test "the truth" do
- 	    assert true
-	end
-
-	test "should change password" do
-		
-		rand_pass = Random.rand 92983
-
-		Credential.where(:user_id => 5).last.change_password "#{rand_pass.to_s}", 5
-		
-		assert_equal Credential.where(:user_id => 5).last.password, rand_pass.to_s
-	end
-
-   test "should not change my password" do
-		rand_pass = Random.rand 92983
-		Credential.where(:user_id => 1).last.change_password "#{rand_pass.to_s}", 5   		
-		assert_equal Credential.where(:user_id => 5).last.password, Credential.where(:user_id => 5).last.password	
-	end
+  test 'the truth' do
+    assert true
+  end
 end
