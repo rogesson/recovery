@@ -26,16 +26,15 @@ class CredentialsController < ApplicationController
 		render json: { response: response }
 	end
 
-	# TODO refatorar
 	def destroy
-		credenetial = Credential.find(params[:id])
-		if credenetial.safe_delete 
-			response = {:message => "success", code: 200}
-		else
-			response = {:message => "error", code: 500}
-		end
+		response = 
+			if @credential.safe_delete 
+				response = 'success'
+			else
+				response = 'error'
+			end
 
-		render :json => response.to_json
+		render json: { :response => response }
 	end
 
 	# TODO refatorar
