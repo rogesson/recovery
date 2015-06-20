@@ -15,17 +15,15 @@ class CredentialsController < ApplicationController
 		end
 	end
 
-	# TODO refatorar
 	def update
-		credential = Credential.find(params[:id]).taint
+		response = 
+			if params[:password].present? and @credential.change_password(DigestManager.enc(params[:password], session[:c_key]))
+				response = 'success'
+			else
+				response = 'error'
+			end
 
-		if credential.change_password(DigestManager.enc(params[:password], session[:c_key]))
-			response = {:message => "Password Changed!", code: 200}
-		else
-			response = {:message => "Password not changed", code: 500}
-		end
-
-		render :json => response.to_json
+		render json: { response: response }
 	end
 
 	# TODO refatorar

@@ -10,8 +10,9 @@ class Credential < ActiveRecord::Base
 
 	attr_accessible :login, :password, :site, :user_id
 	
-
+	#TODO Refatorar
 	def change_password  new_password
+   		self.taint
    		status = false
 
    		if self.tainted? 
