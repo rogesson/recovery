@@ -2,11 +2,10 @@ class Credential < ActiveRecord::Base
 	self.table_name = "credentials"
 
 	belongs_to :user
-
+	# TODO Refatorar
 	validates :login,    presence: true 
 	validates :password, presence: true 
 	validates :site,     presence: true 
-
 
 	attr_accessible :login, :password, :site, :user_id
 	
@@ -49,7 +48,7 @@ class Credential < ActiveRecord::Base
 		else
 			""
 		end
-		
+
 		self.where("#{column} LIKE ?", "%#{params[:search]}%")
 	end
 end
