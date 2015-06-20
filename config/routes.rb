@@ -17,6 +17,8 @@ Recovery::Application.routes.draw do
     get 'verify_new_msg', on: :collection
   end
 
+  root :to => 'main#index'
+
   match 'home' => 'main#home'
   # The priority is based upon order of creation:
   # first created -> highest priority.
