@@ -1,22 +1,18 @@
 class CredentialsController < ApplicationController
+	before_filter :enc_password, only: [:create]
+	before_filter :set_user
 	
 	def new
 		@credential = Credential.new
 	end
 
 	def create
-		credential = Credential.new(params[:credential].except(:password, :user_id))
-
-		credential.password = DigestManager.enc(params[:credential][:password], session[:c_key])
-		credential.user_id  = session[:user_id]
-		
-		if credential.save
-			response = "/credentials/list"
+		if @user.credential.create(params[:credential])
+			redirect_to list_credentials_path
+			#response = "/credentials/list"
 		else
-			response = credential.errors.full_messages[0] ||= "Credential Created!"
+			redirect_to :back, flash: credential.errors.full_messages.first
 		end
-		
-		redirect_to response
 	end
 
 
@@ -62,6 +58,19 @@ class CredentialsController < ApplicationController
 		@credential = Credential.where(id: params[:id], user_id: session[:user_id]).first
 		
 		redirect_to @credential ||= "/"
+	end
+
+	private
+
+	def enc_password
+		return if params[:credential][:password].blank?
+
+		params[:credential][:password] = 
+			DigestManager.enc(params[:credential][:password], session[:c_key]) 
+	end
+
+	def set_user
+		@user = User.where(id: session[:user_id]).first
 	end
 
 end
