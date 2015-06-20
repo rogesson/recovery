@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
 	skip_before_filter :verify_active_session, only: :create
 
-	#post /users
+	# TODO refatorar
 	def create
-
 		user = User.new(
 			:login 	  => params[:login],
 		 	:password => Digest::SHA256.hexdigest(params[:password]).reverse[5..-1],
@@ -19,17 +18,18 @@ class UsersController < ApplicationController
 		redirect_to :back, :flash => {:notice => notice}
 	end
 
-	#get /users/:id
+	# TODO refatorar
 	def show
 		@user = User.find(params[:id])
 	end
 
+	# TODO refatorar
 	def edit
 		@user = User.find(session[:user_id])
 	end
 
+	# TODO refatorar
 	def index
 		@users = User.where("id != ?", session[:user_id])
-	end  
-	
+	end
 end

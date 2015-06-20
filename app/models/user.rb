@@ -9,6 +9,4 @@ class User < ActiveRecord::Base
 	has_private_messages
 
 	has_many :credential
-	
-
 end

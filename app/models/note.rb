@@ -3,6 +3,7 @@ class Note < ActiveRecord::Base
 
    attr_accessible :title, :body, :user_id
 
+   # TODO refatorar
    def short_title
    	if self.title.size < 10
    		"#{self.title}".capitalize[0..9]

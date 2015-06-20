@@ -15,6 +15,7 @@ class CredentialsController < ApplicationController
 		end
 	end
 
+	# TODO refatorar
 	def update
 		credential = Credential.find(params[:id]).taint
 
@@ -27,7 +28,7 @@ class CredentialsController < ApplicationController
 		render :json => response.to_json
 	end
 
-	#DELETE credential/:id
+	# TODO refatorar
 	def destroy
 		credenetial = Credential.find(params[:id])
 		if credenetial.safe_delete 
@@ -39,6 +40,7 @@ class CredentialsController < ApplicationController
 		render :json => response.to_json
 	end
 
+	# TODO refatorar
 	def list
 		if params[:type] == "1"
 	  		#type 1 is search by site name

@@ -1,9 +1,11 @@
 class MessagesController < ApplicationController
+	# TODO refatorar
 	def new
 		@recipient = User.find(params[:to])
 		@message = Message.new
 	end
 
+	# TODO refatorar
 	def create 
 		@message = Message.new
 		@message.subject   = params[:message][:subject]
@@ -17,6 +19,7 @@ class MessagesController < ApplicationController
 		end
 	end
 
+	# TODO refatorar
 	def show
 		@message = Message.find(params[:id])
 
@@ -28,11 +31,13 @@ class MessagesController < ApplicationController
 		end
 	end
 
+	# TODO refatorar
 	def index
 		user = User.find(session[:user_id])
 		@received_messages = user.received_messages
 	end
 
+	# TODO refatorar
 	def destroy
 		message = Message.find(params[:id])
 
@@ -40,8 +45,8 @@ class MessagesController < ApplicationController
 		redirect_to "/messages"
 	end
 
+	# TODO refatorar
 	def verify_new_msg
-
 		user = User.find(session[:user_id])
 		unread_count = user.unread_message_count if user.unread_message_count > 0
 		if unread_count

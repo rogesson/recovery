@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
-  #[Desabled to use global session]
-  #protect_from_forgery
+  protect_from_forgery
   
   before_filter :_set_current_session, :verify_active_session
 

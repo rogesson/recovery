@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 	skip_before_filter :verify_active_session
 
+	# TODO refatorar
 	def create
 		user = User.where(:login => params[:login], :password => encoded_password).first
 
@@ -16,7 +17,7 @@ class SessionsController < ApplicationController
 		end
 	end
 
-	
+	# TODO refatorar
 	def logout
 		session.delete :session_id 
 		session.delete :user_id
