@@ -1,6 +1,7 @@
 class CredentialsController < ApplicationController
 	before_filter :enc_password, only: [:create]
 	before_filter :set_user
+	before_filter :set_credential, only: [:update, :destroy, :show]
 	
 	def new
 		@credential = Credential.new
@@ -9,14 +10,11 @@ class CredentialsController < ApplicationController
 	def create
 		if @user.credential.create(params[:credential])
 			redirect_to list_credentials_path
-			#response = "/credentials/list"
 		else
-			redirect_to :back, flash: credential.errors.full_messages.first
+			redirect_to :back
 		end
 	end
 
-
-	#PUT credential/:id
 	def update
 		credential = Credential.find(params[:id]).taint
 
@@ -54,10 +52,9 @@ class CredentialsController < ApplicationController
 	end
 
 	def show
-		render layout: false
-		@credential = Credential.where(id: params[:id], user_id: session[:user_id]).first
-		
-		redirect_to @credential ||= "/"
+		render :status => 404
+				
+		@credential
 	end
 
 	private
@@ -71,6 +68,12 @@ class CredentialsController < ApplicationController
 
 	def set_user
 		@user = User.where(id: session[:user_id]).first
+	end
+
+	def set_credential
+		@credential = @user.credential.where(id: params[:id]).first
+
+		render :text => 'Not Found', :status => '404' unless @credential
 	end
 
 end
