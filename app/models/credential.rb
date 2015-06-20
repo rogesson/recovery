@@ -39,5 +39,17 @@ class Credential < ActiveRecord::Base
 	def unsafe_password
 		DigestManager.dec(self.password, session[:c_key])		
 	end
-	
+
+	def self.search_by(params)
+		column = case params[:type]
+		when "1"
+			"site"
+		when "2"
+			"login"
+		else
+			""
+		end
+		
+		self.where("#{column} LIKE ?", "%#{params[:search]}%")
+	end
 end

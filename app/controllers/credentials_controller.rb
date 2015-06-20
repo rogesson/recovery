@@ -39,19 +39,14 @@ class CredentialsController < ApplicationController
 
 	# TODO refatorar
 	def list
-		if params[:type] == "1"
-	  		#type 1 is search by site name
-	  		@passwords = Credential.where("user_id = ? AND site LIKE ?", session[:user_id], "%#{params[:search]}%")
-  		elsif params[:type] == "2"
-  			#type 2 is search by login
-  			@passwords = Credential.where("user_id = ? AND login LIKE ?", session[:user_id], "%#{params[:search]}%")
-	  	else
-	  		@passwords = Credential.where(user_id: session[:user_id])
-	  	end
+		credentials  = @user.credential
+		search_credential = credentials.search_by(type: params[:type], search: params[:search])
+
+		@credentials = params[:type] == "0" ? credentials : search_credential
 	end
 
 	def show
-		render :status => 404
+		render layout: false
 				
 		@credential
 	end
