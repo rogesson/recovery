@@ -1,7 +1,8 @@
-require File.expand_path("../../test_helper", __FILE__)
+require 'test_helper'
 
+# MainControllerTest
 class MainControllerTest < ActionController::TestCase
-   test "the truth" do
-     assert true
-   end
+  test 'the truth' do
+    assert true
+  end
 end

@@ -13,18 +13,18 @@
 
 ActiveRecord::Schema.define(:version => 20140629152007) do
 
-  create_table "credentials", :force => true do |t|
-    t.string  "login",    :limit => 100
-    t.string  "password", :limit => 500
-    t.string  "site",     :limit => 200
-    t.integer "user_id",  :limit => 15
+  create_table "credentials", force: true do |t|
+    t.string  "login",    limit: => 100
+    t.string  "password", limit: => 500
+    t.string  "site",     limit: => 200
+    t.integer "user_id",  limit: => 15
   end
 
-  create_table "messages", :force => true do |t|
+  create_table "messages", force: true do |t|
     t.integer  "sender_id"
     t.integer  "recipient_id"
-    t.boolean  "sender_deleted",    :default => false
-    t.boolean  "recipient_deleted", :default => false
+    t.boolean  "sender_deleted",    default: false
+    t.boolean  "recipient_deleted", default: false
     t.string   "subject"
     t.text     "body"
     t.datetime "read_at"
@@ -50,15 +50,15 @@ ActiveRecord::Schema.define(:version => 20140629152007) do
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
-  create_table "tasks", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "tasks", force: true do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", :force => true do |t|
     t.string   "login"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "password",   :limit => 200
     t.string   "email",      :limit => 100, :null => false
   end
