@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
 
 			redirect_to "/home"
 		else
-			redirect_to '/main', :flash => {:bad_login => "invalid login"}
+			redirect_to '/main', :flash => { :bad_login => "invalid login" }
 		end
 	end
 

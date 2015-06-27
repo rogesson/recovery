@@ -4,6 +4,7 @@ class CredentialsControllerTest < ActionController::TestCase
 
   setup do
     @controller = CredentialsController.new
+
     @request.session[:user_id] = 1
     session[:session_id] = Random.rand(19999283)
     session[:c_key] = "aoskdopakspodkaspokdpaoskdpoaksd"
@@ -18,7 +19,13 @@ class CredentialsControllerTest < ActionController::TestCase
   test "should update credential" do
     put(:update, id: 44, :password => "newpass")
     
-    assert_equal @response.body, {response: 'success'}.to_json
+    assert_equal @response.body, { response: 'success' }.to_json
+  end
+
+  test "should delete credential" do
+    delete(:destroy, id: 44)
+
+    assert_equal @response.body, { response: 'success' }.to_json
   end
 
   private
