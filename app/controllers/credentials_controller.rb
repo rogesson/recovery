@@ -41,8 +41,9 @@ class CredentialsController < ApplicationController
 	def list
 		credentials  = @user.credential
 		search_credential = credentials.search_by(type: params[:type], search: params[:search])
+		default = true if params[:type] == "0" || params[:type].nil?
 
-		@credentials = params[:type] == "0" ? credentials : search_credential
+		@credentials = default ? credentials : search_credential
 	end
 
 	def show
