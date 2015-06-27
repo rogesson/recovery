@@ -15,11 +15,11 @@ class CredentialsControllerTest < ActionController::TestCase
     assert_equal @request.env["rack.session"]["flash"][:notice], 'Successfully created!'
   end
 
-  #test "should update credential" do
-  #  put(:update, id: 56, :password => "newpass")
+  test "should update credential" do
+    put(:update, id: 44, :password => "newpass")
     
-  #  assert_equal @response.body, {response: 200}.to_json
-  #end
+    assert_equal @response.body, {response: 'success'}.to_json
+  end
 
   private
 
