@@ -9,15 +9,18 @@ class CredentialsController < ApplicationController
 
 	def create
 		if @user.credential.create(params[:credential])
+			flash[:notice] = "Successfully created!"
 			redirect_to list_credentials_path
 		else
+			flash[:notice] = "Error"
 			redirect_to :back
 		end
 	end
 
 	def update
 		response = 
-			if params[:password].present? and @credential.change_password(DigestManager.enc(params[:password], session[:c_key]))
+			if params[:password].present? and 
+					@credential.change_password(DigestManager.enc(params[:password], session[:c_key]))
 				response = 'success'
 			else
 				response = 'error'
@@ -39,7 +42,7 @@ class CredentialsController < ApplicationController
 
 	# TODO refatorar
 	def list
-		credentials  = @user.credential
+		credentials = @user.credential
 		search_credential = credentials.search_by(type: params[:type], search: params[:search])
 		default = true if params[:type] == "0" || params[:type].nil?
 
