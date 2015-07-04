@@ -44,7 +44,7 @@ class UsersControllerTest < ActionController::TestCase
     assert_difference('User.count') do
       post :create, user_params
     end
-    assert_response :redirect 
+    assert_response :redirect
     assert_redirected_to main_index_path
   end
 end
