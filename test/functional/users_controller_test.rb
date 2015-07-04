@@ -14,7 +14,7 @@ class UsersControllerTest < ActionController::TestCase
     assert_not_nil assigns(:users)
   end
 
-  test 'should get user' do
+  test 'should show user' do
     login_as(:rogesson)
     get :show, id: @user.to_param
 
@@ -22,5 +22,13 @@ class UsersControllerTest < ActionController::TestCase
     assert_template 'show'
     assert_not_nil assigns(:user)
     assert assigns(:user).valid?
+  end
+
+  test 'should get new' do
+    get :new
+
+    assert_response :success
+    assert_template 'new'
+    assert_not_nil assigns(:user)
   end
 end
