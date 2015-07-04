@@ -1,3 +1,4 @@
+=begin
 require File.expand_path("../../test_helper", __FILE__)
 
 class CredentialsControllerTest < ActionController::TestCase
@@ -42,3 +43,4 @@ class CredentialsControllerTest < ActionController::TestCase
     }
   end
 end
+=end
