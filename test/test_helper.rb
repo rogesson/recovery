@@ -9,5 +9,9 @@ class ActiveSupport::TestCase
   # -- they do not yet inherit this setting
   fixtures :all
 
-  # Add more helper methods to be used by all tests here...
+  def login_as(user)
+    @request.session[:session_id] = Random.rand(19999283)
+    @request.session[:user_id] = users(user).id
+    @request.session[:c_key] = "OPQWKEPOQKWPEOKQWPOEKQWPOEKQPOWKE"
+  end
 end

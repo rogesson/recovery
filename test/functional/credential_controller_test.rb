@@ -1,4 +1,7 @@
 =begin
+
+TODO REFATORAR TUDO 
+
 require File.expand_path("../../test_helper", __FILE__)
 
 class CredentialsControllerTest < ActionController::TestCase

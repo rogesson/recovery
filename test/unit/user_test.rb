@@ -26,7 +26,7 @@ class UserTest < ActiveSupport::TestCase
     assert_raise(ActiveRecord::RecordNotFound) { User.find(user.id) }
   end
 
-  test 'should validate attributes' do
+  test 'should validate presence of attributes' do
     user = User.new
 
     assert !user.valid?
