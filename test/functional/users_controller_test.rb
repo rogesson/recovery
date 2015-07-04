@@ -31,4 +31,20 @@ class UsersControllerTest < ActionController::TestCase
     assert_template 'new'
     assert_not_nil assigns(:user)
   end
+
+  test 'should create user' do
+    user_params = {
+                    user: {
+                      login: 'newuser2',
+                      password: 'newpassword2',
+                      email: 'newemail2@email.com'
+                    }
+                  }
+
+    assert_difference('User.count') do
+      post :create, user_params
+    end
+    assert_response :redirect 
+    assert_redirected_to main_index_path
+  end
 end

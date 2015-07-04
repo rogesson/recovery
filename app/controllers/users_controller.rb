@@ -3,19 +3,18 @@ class UsersController < ApplicationController
 
 	# TODO refatorar
 	def create
-		user = User.new(
-			:login 	  => params[:login],
-		 	:password => Digest::SHA256.hexdigest(params[:password]).reverse[5..-1],
-		 	:email    => params[:email]
-		)
+		
+		#user = User.new(
+		#	:login 	  => params[:login],
+		# 	:password => Digest::SHA256.hexdigest(params[:password]).reverse[5..-1],
+		# 	:email    => params[:email]
+		#)
 
-		if user.save
-			notice = "User created!"
+	 	if user = User.create(params[:user])
+			redirect_to main_index_path
 		else
-			notice = user.errors.full_messages[0]
+			redirect_to main_home_path , :flash => { :errors => user.erros }
 		end
-
-		redirect_to :back, :flash => {:notice => notice}
 	end
 
 	# TODO refatorar  #teste criado
