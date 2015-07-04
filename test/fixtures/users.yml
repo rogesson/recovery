@@ -1,9 +1,9 @@
 rogesson:
-  login: rogesson
-  password: his_password
-  email: his_email
+  login: 'rogesson'
+  password: 'his_password'
+  email: 'his_email'
 
 lucas:
-  login: another_login
-  password: another_password
-  email: another_email
+  login: 'another_login'
+  password: 'another_password'
+  email: 'another_email'

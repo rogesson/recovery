@@ -1,8 +1,14 @@
-require File.expand_path('../../test_helper', __FILE__)
+require 'test_helper'
 
 # Class for credential test
 class CredentialTest < ActiveSupport::TestCase
-  test 'the truth' do
-    assert true
+  test 'should create credential' do
+    credential = Credential.new
+    credential.user = users(:rogesson)
+    credential.login = 'fake_login'
+    credential.password = 'fake_password'
+    credential.site = 'fake_site'
+
+    assert credential.save
   end
 end
