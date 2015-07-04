@@ -25,4 +25,17 @@ class UserTest < ActiveSupport::TestCase
 
     assert_raise(ActiveRecord::RecordNotFound) { User.find(user.id) }
   end
+
+  test 'should validate attributes' do
+    user = User.new
+
+    assert !user.valid?
+    assert user.errors[:login].any?
+    assert user.errors[:email].any?
+    assert user.errors[:password].any?
+
+    assert_equal ["can't be blank"], user.errors[:login]
+    assert_equal ["can't be blank"], user.errors[:email]
+    assert_equal ["can't be blank"], user.errors[:password]
+  end
 end
