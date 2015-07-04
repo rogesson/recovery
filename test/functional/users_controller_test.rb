@@ -45,6 +45,6 @@ class UsersControllerTest < ActionController::TestCase
       post :create, user_params
     end
     assert_response :redirect 
-    assert_redirected_to main_index_path
+    assert_redirected_to "/home"
   end
 end

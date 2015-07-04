@@ -11,9 +11,9 @@ class UsersController < ApplicationController
 		#)
 
 	 	if user = User.create(params[:user])
-			redirect_to main_index_path
+			redirect_to "/home"
 		else
-			redirect_to main_home_path , :flash => { :errors => user.erros }
+			redirect_to main_index_path , :flash => { :errors => user.erros }
 		end
 	end
 

@@ -9,4 +9,13 @@ class User < ActiveRecord::Base
 	has_private_messages
 
 	has_many :credential
+
+  before_create :encrypt_password
+
+
+  private
+
+  def encrypt_password
+    self.password = Digest::SHA256.hexdigest(self.password).reverse[5..-1]
+  end
 end
