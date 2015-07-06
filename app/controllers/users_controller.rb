@@ -12,17 +12,14 @@ class UsersController < ApplicationController
 		redirect_to main_index_path, flash: flash
 	end
 
-	# TODO refatorar  #teste criado
 	def show
 		@user = User.find(params[:id])
 	end
-
-	# TODO refatorar   
+  
 	def edit
 		@user = User.find(session[:user_id])
 	end
 
-	# TODO refatorar   #teste criado
 	def index
 		@users = User.where("id != ?", session[:user_id])
 	end
@@ -32,7 +29,7 @@ class UsersController < ApplicationController
 	end
 
 	def update
-		user = User.find(params[:id])
+		user = User.find(session[:user_id])
 
 		response = 
 	 		if user.update_attributes(params[:user])
