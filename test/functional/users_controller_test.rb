@@ -50,7 +50,6 @@ class UsersControllerTest < ActionController::TestCase
 
   test 'should update user' do
     login_as(:rogesson)
-    
     put :update, :id => users(:rogesson).to_param, user: { login: 'newuser2' }    
     
     assert_response :success
