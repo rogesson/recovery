@@ -2,14 +2,14 @@ class UsersController < ApplicationController
 	skip_before_filter :verify_active_session, only: [:new, :create]
 
 	def create
-	 	flash = 
+	 	response = 
 	 		if user = User.create(params[:user])
-				{ :notice => 'User createad!' } 
+				'success'
 			else
-				{ :errors => user.errors }
+				user.errors
 			end
 
-		redirect_to main_index_path, flash: flash
+		render js: { response: response }
 	end
 
 	def show
@@ -33,11 +33,11 @@ class UsersController < ApplicationController
 
 		response = 
 	 		if user.update_attributes(params[:user])
-					{ response: 'success' }
+				'success'
 			else
-					{ response: 'erro', errors: user.errors }
+				user.errors
 			end
 
-			render js: response
+			render js: { response: response }
 	end
 end
