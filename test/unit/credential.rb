@@ -1,14 +1,44 @@
 require 'test_helper'
 
-# Class for credential test
 class CredentialTest < ActiveSupport::TestCase
   test 'should create credential' do
-    credential = Credential.new
-    credential.user = users(:rogesson)
-    credential.login = 'fake_login'
-    credential.password = 'fake_password'
-    credential.site = 'fake_site'
+    assert user.credential.create(login: 'fake_login', password: 'fake_password', site: 'fake_site')
+  end
 
-    assert credential.save
+  test 'should get credential' do
+    credential_id = user.credential.first.id
+
+    assert_nothing_raised { Credential.find(credential_id) }
+  end
+
+
+  test 'should update credential' do
+    assert user.credential.first.update_attributes(login: 'log', password: 'pas', site: 'sit')
+  end
+
+  test 'should destroy credential' do
+    credential = user.credential.first
+    credential.destroy
+
+    assert_raise(ActiveRecord::RecordNotFound) { Credential.find(credential.id) }
+  end
+
+  test 'should validate attributes' do
+    credential = Credential.new
+
+    assert !credential.valid?
+    assert credential.errors[:login].any?
+    assert credential.errors[:password].any?
+    assert credential.errors[:site].any?
+
+    assert_equal ["can't be blank"], credential.errors[:login]
+    assert_equal ["can't be blank"], credential.errors[:password]
+    assert_equal ["can't be blank"], credential.errors[:site]
+  end
+
+  private
+
+  def user
+    users(:rogesson)
   end
 end

@@ -51,7 +51,7 @@ class CredentialsController < ApplicationController
 
 	def show
 		render layout: false
-				
+
 		@credential
 	end
 
