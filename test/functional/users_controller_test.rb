@@ -14,6 +14,22 @@ class UsersControllerTest < ActionController::TestCase
     assert_not_nil assigns(:users)
   end
 
+  test 'should create user' do
+    user_params = {
+                    user: {
+                      login: 'newuser2',
+                      password: 'newpassword2',
+                      email: 'newemail2@email.com'
+                    }
+                  }
+
+    assert_difference('User.count') do
+      post :create, user_params
+    end
+    assert_response :redirect
+    assert_redirected_to main_index_path
+  end
+
   test 'should show user' do
     login_as(:rogesson)
     get :show, id: @user.to_param
@@ -32,19 +48,11 @@ class UsersControllerTest < ActionController::TestCase
     assert_not_nil assigns(:user)
   end
 
-  test 'should create user' do
-    user_params = {
-                    user: {
-                      login: 'newuser2',
-                      password: 'newpassword2',
-                      email: 'newemail2@email.com'
-                    }
-                  }
-
-    assert_difference('User.count') do
-      post :create, user_params
-    end
-    assert_response :redirect
-    assert_redirected_to main_index_path
+  test 'should update user' do
+    login_as(:rogesson)
+    
+    put :update, :id => users(:rogesson).to_param, user: { login: 'newuser2' }    
+    
+    assert_response :success
   end
 end

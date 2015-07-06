@@ -4,16 +4,12 @@ class UsersController < ApplicationController
 	def create
 	 	flash = 
 	 		if user = User.create(params[:user])
-				{ 
-					:flash => { :notice => 'User createad!' } 
-				}
+				{ :notice => 'User createad!' } 
 			else
-				{ 
-					:flash => { :errors => user.errors }
-				}
+				{ :errors => user.errors }
 			end
 
-		redirect_to main_index_path, flash
+		redirect_to main_index_path, flash: flash
 	end
 
 	# TODO refatorar  #teste criado
@@ -33,5 +29,18 @@ class UsersController < ApplicationController
 
 	def new
 		@user = User.new
+	end
+
+	def update
+		user = User.find(params[:id])
+
+		response = 
+	 		if user.update_attributes(params[:user])
+					{ response: 'success' }
+			else
+					{ response: 'erro', errors: user.errors }
+			end
+
+			render js: response
 	end
 end
