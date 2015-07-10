@@ -38,4 +38,13 @@ class CredentialsControllerTest < ActionController::TestCase
 
     assert_response :success
   end
+
+  test 'should destroy credential' do
+    login_as(:rogesson)
+    
+    assert_difference('Credential.count', -1) do
+      delete :destroy, id: credentials(:gmail_login).to_param
+    end
+    assert_response :success
+  end
 end

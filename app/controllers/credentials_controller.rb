@@ -25,12 +25,7 @@ class CredentialsController < ApplicationController
 
 		#TODO	REFATORAR
 	def destroy
-		response = 
-			if @credential.safe_delete 
-				response = 'success'
-			else
-				response = 'error'
-			end
+		response = @credential.destroy ? 'success' : 'error'
 
 		render json: { :response => response }
 	end
