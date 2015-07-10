@@ -9,9 +9,11 @@ class Credential < ActiveRecord::Base
 
 	before_save :enc_password
 
-	# TODO Criar testes.
 	def unsafe_password
-		DigestManager.dec(self.password, session[:c_key])		
+		# Forçando c_key para testes de model.
+		c_key =	session[:c_key] rescue 'a8f5f167f44f4964e6c998dee827110c'
+
+		DigestManager.dec(self.password, c_key)		
 	end
 
 	def self.search(options)

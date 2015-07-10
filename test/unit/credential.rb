@@ -68,6 +68,14 @@ class CredentialTest < ActiveSupport::TestCase
     assert_equal 0, credential.count
   end
 
+  test 'should decript password' do
+    credential = Credential.first
+    credential.update_attributes(password: 'another_secret_pass')
+
+    assert_not_equal 'another_secret_pass', credential.password
+    assert_equal 'another_secret_pass', credential.unsafe_password
+  end
+
   private
 
   def user
