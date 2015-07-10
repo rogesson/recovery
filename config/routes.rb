@@ -3,14 +3,15 @@ Recovery::Application.routes.draw do
     get "list", on: :collection
   end
 
-  resources :credentials do
-    get "list", on: :collection
-  end
+  resources :credentials
+
   resources :users
+  
   resources :sessions do
     post "create"
     get 'logout', on: :collection
   end
+  
   resources :main
 
   resources :messages do

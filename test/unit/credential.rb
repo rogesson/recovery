@@ -39,14 +39,17 @@ class CredentialTest < ActiveSupport::TestCase
   test 'should search by site' do
     options = { column: 'site', term: 'www.hotmail.com' }
     credential = Credential.search(options)
-
+    
     assert_present credential
+    assert_equal 1, credential.count
   end
 
   test 'should not find by site' do
     options =  { column: 'site', term: 'www.nosite.com' }
-
-    assert_empty credential = Credential.search(options)
+    credential = Credential.search(options)
+    
+    assert_empty credential
+    assert_equal 0, credential.count
   end
 
   private

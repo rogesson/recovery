@@ -7,17 +7,15 @@ class CredentialsControllerTest < ActionController::TestCase
 
   test 'should get index' do
     login_as(:rogesson)
-
     get :index
 
     assert_response :success
     assert_template 'index'
-    assert_not_nil assigns(:credentials)
+    assert_empty assigns(:credentials_result)
   end
 
   test 'should create credential' do
     login_as(:rogesson)
-
     credential_params = { 
                           credential: {
                             login: 'loginfake123',
@@ -35,7 +33,6 @@ class CredentialsControllerTest < ActionController::TestCase
 
   test 'should not create credential' do
     login_as(:rogesson)
-
     credential_params = { 
                           credential: {
                             login: 'loginfake123'
@@ -61,5 +58,21 @@ class CredentialsControllerTest < ActionController::TestCase
       delete :destroy, id: credentials(:gmail_login).to_param
     end
     assert_response :success
+  end
+
+  test 'should search by site' do
+    login_as(:rogesson)
+    get :index, { column: 'site', term: 'www.hotmail.com' }
+
+    assert_present assigns(:credentials_result)
+    assert_equal 1, assigns(:credentials_result).count
+  end
+
+  test 'should not search by site' do
+    login_as(:rogesson)
+    get :index, { column: 'site', term: 'www.nosite.com' }
+
+    assert_empty assigns(:credentials_result)
+    assert_equal 0, assigns(:credentials_result).count
   end
 end

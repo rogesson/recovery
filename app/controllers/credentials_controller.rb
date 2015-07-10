@@ -29,13 +29,8 @@ class CredentialsController < ApplicationController
 		render json: { response: response }
 	end
 
-	# TODO refatorar
 	def index
-		#credentials = @user.credential
-		#search_credential = credentials.search_by(type: params[:type], search: params[:search])
-		#default = true if params[:type] == "0" || params[:type].nil?
-
-		#@credentials = default ? credentials : search_credential
+		@credentials_result = params[:term] ? Credential.search(params) : []
 	end
 
 	def show
@@ -53,5 +48,4 @@ class CredentialsController < ApplicationController
 	def set_credential
 		@credential = @user.credential.where(id: params[:id]).first
 	end
-
 end
