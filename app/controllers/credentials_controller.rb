@@ -1,10 +1,6 @@
 class CredentialsController < ApplicationController
 	before_filter :set_user
 	before_filter :set_credential, only: [:update, :destroy, :show]
-	
-	def index
-		@credentials = @user.credential
-	end
 
 	def new
 		@credential = Credential.new
@@ -30,7 +26,7 @@ class CredentialsController < ApplicationController
 	end
 
 	def index
-		@credentials_result = params[:term] ? Credential.search(params) : []
+		@credentials_result = params[:term] ? Credential.search(params) : @user.credential
 	end
 
 	def show

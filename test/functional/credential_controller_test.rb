@@ -11,7 +11,7 @@ class CredentialsControllerTest < ActionController::TestCase
 
     assert_response :success
     assert_template 'index'
-    assert_empty assigns(:credentials_result)
+    assert_present assigns(:credentials_result)
   end
 
   test 'should create credential' do

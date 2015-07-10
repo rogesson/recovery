@@ -15,7 +15,7 @@ class Credential < ActiveRecord::Base
 	end
 
 	def self.search(options)
-		column = options[:column] == "site" ? "site" : "login"
+		column = options[:column] == 'site' ? 'site' : 'login'
 
 		self.where("#{column} LIKE ?", "%#{options[:term]}%")
 	end
@@ -24,7 +24,7 @@ class Credential < ActiveRecord::Base
 
 	def enc_password
 		# Forçando c_key para testes de model.
-		c_key =	session[:c_key] rescue 'aosjdoiajsdoiajsodijaosidjasd'
+		c_key =	session[:c_key] rescue 'a8f5f167f44f4964e6c998dee827110c'
 
 		self.password = DigestManager.enc(self.password, c_key)
 	end
