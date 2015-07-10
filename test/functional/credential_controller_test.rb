@@ -75,4 +75,20 @@ class CredentialsControllerTest < ActionController::TestCase
     assert_empty assigns(:credentials_result)
     assert_equal 0, assigns(:credentials_result).count
   end
+
+  test 'should search by login' do
+    login_as(:rogesson)
+    get :index, { column: 'login', term: 'rogesson@hotmail.com' }
+
+    assert_present assigns(:credentials_result)
+    assert_equal 1, assigns(:credentials_result).count
+  end
+
+  test 'should not search by login' do
+    login_as(:rogesson)
+    get :index, { column: 'login', term: 'xxxxxx@hotmail.com' }
+
+    assert_empty assigns(:credentials_result)
+    assert_equal 0, assigns(:credentials_result).count
+  end
 end

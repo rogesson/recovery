@@ -52,6 +52,22 @@ class CredentialTest < ActiveSupport::TestCase
     assert_equal 0, credential.count
   end
 
+  test 'should search by login' do
+    options = { column: 'login', term: 'rogesson@hotmail.com' }
+    credential = Credential.search(options)
+    
+    assert_present credential
+    assert_equal 1, credential.count
+  end
+
+  test 'should not find by login' do
+    options =  { column: 'login', term: 'xxxxxx@hotmail.com' }
+    credential = Credential.search(options)
+    
+    assert_empty credential
+    assert_equal 0, credential.count
+  end
+
   private
 
   def user
