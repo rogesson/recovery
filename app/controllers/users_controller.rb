@@ -2,12 +2,7 @@ class UsersController < ApplicationController
 	skip_before_filter :verify_active_session, only: [:new, :create]
 
 	def create
-	 	response = 
-	 		if user = User.create(params[:user])
-				'success'
-			else
-				user.errors
-			end
+	 	response = user = User.create(params[:user]) ? 'success' : user.errors
 
 		render js: { response: response }
 	end
@@ -31,13 +26,8 @@ class UsersController < ApplicationController
 	def update
 		user = User.find(session[:user_id])
 
-		response = 
-	 		if user.update_attributes(params[:user])
-				'success'
-			else
-				user.errors
-			end
+		response = user = User.create(params[:user]) ? 'success' : user.errors
 
-			render js: { response: response }
+		render js: { response: response }
 	end
 end
