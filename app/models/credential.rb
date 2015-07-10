@@ -6,33 +6,8 @@ class Credential < ActiveRecord::Base
 	validates :login, :password, :site, presence: true 
 
 	attr_accessible :login, :password, :site, :user_id
-	
-	# TODO DELETAR
-	def change_password  new_password
-   		self.taint
-   		status = false
 
-   		if self.tainted? 
-
-	   		if self.user_id == session[:user_id]
-	   			self.untaint
-	   			if !self.tainted?
-		   			self.password = new_password
-		   			self.save
-		   			status = true
-	   			end
-	   		end
-   		end
-	    
-	    status
-	end
-	
-	# TODO DELETAR
-	def safe_delete
-		if self.user_id == session[:user_id]
-			self.delete
-		end
-	end
+	before_save :enc_password
 
 	# TODO Criar testes.
 	def unsafe_password
@@ -51,5 +26,14 @@ class Credential < ActiveRecord::Base
 		end
 
 		self.where("#{column} LIKE ?", "%#{params[:search]}%")
+	end
+
+	private 
+
+	def enc_password
+		# Forçando c_key para testes de model.
+		c_key =	session[:c_key] rescue 'aosjdoiajsdoiajsodijaosidjasd'
+
+		self.password = DigestManager.enc(self.password, c_key)
 	end
 end

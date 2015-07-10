@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
 	has_many :credential
 
-  before_create :encrypt_password
+  before_save :encrypt_password
 
   private
 
