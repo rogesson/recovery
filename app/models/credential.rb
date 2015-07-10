@@ -14,18 +14,10 @@ class Credential < ActiveRecord::Base
 		DigestManager.dec(self.password, session[:c_key])		
 	end
 
-	# TODO Rafatorar
-	def self.search_by(params)
-		column = case params[:type]
-		when "1"
-			"site"
-		when "2"
-			"login"
-		else
-			""
-		end
+	def self.search(options)
+		column = options[:column] == "site" ? "site" : "login"
 
-		self.where("#{column} LIKE ?", "%#{params[:search]}%")
+		self.where("#{column} LIKE ?", "%#{options[:term]}%")
 	end
 
 	private 

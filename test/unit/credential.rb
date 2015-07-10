@@ -36,6 +36,19 @@ class CredentialTest < ActiveSupport::TestCase
     assert_equal ["can't be blank"], credential.errors[:site]
   end
 
+  test 'should search by site' do
+    options = { column: 'site', term: 'www.hotmail.com' }
+    credential = Credential.search(options)
+
+    assert_present credential
+  end
+
+  test 'should not find by site' do
+    options =  { column: 'site', term: 'www.nosite.com' }
+
+    assert_empty credential = Credential.search(options)
+  end
+
   private
 
   def user
