@@ -3,32 +3,27 @@ class CredentialsController < ApplicationController
 	before_filter :set_user
 	before_filter :set_credential, only: [:update, :destroy, :show]
 	
+	def index
+		@credentials = @user.credential
+	end
+
 	def new
 		@credential = Credential.new
 	end
 
 	def create
-		if @user.credential.create(params[:credential])
-			flash[:notice] = "Successfully created!"
-			redirect_to list_credentials_path
-		else
-			flash[:notice] = "Error"
-			redirect_to :back
-		end
+		response = @user.credential.create(params[:credential]) ? 'success' : 'error'
+
+		render js: { response: response }
 	end
 
 	def update
-		response = 
-			if params[:password].present? and 
-					@credential.change_password(DigestManager.enc(params[:password], session[:c_key]))
-				response = 'success'
-			else
-				response = 'error'
-			end
+		response = @credential.update_attributes(params[:credential]) ? 'success' : 'error'
 
 		render json: { response: response }
 	end
 
+		#TODO	REFATORAR
 	def destroy
 		response = 
 			if @credential.safe_delete 

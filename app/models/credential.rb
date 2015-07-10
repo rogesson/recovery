@@ -7,7 +7,7 @@ class Credential < ActiveRecord::Base
 
 	attr_accessible :login, :password, :site, :user_id
 	
-	#TODO Refatorar
+	# TODO DELETAR
 	def change_password  new_password
    		self.taint
    		status = false
@@ -26,17 +26,20 @@ class Credential < ActiveRecord::Base
 	    
 	    status
 	end
-
+	
+	# TODO DELETAR
 	def safe_delete
 		if self.user_id == session[:user_id]
 			self.delete
 		end
 	end
 
+	# TODO Criar testes.
 	def unsafe_password
 		DigestManager.dec(self.password, session[:c_key])		
 	end
 
+	# TODO Rafatorar
 	def self.search_by(params)
 		column = case params[:type]
 		when "1"

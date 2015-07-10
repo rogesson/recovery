@@ -1,49 +1,41 @@
-=begin
-
-TODO REFATORAR TUDO 
-
-require File.expand_path("../../test_helper", __FILE__)
+require 'test_helper'
 
 class CredentialsControllerTest < ActionController::TestCase
-
   setup do
-    @controller = CredentialsController.new
-
-    @request.session[:user_id] = 1
-    session[:session_id] = Random.rand(19999283)
-    session[:c_key] = "aoskdopakspodkaspokdpaoskdpoaksd"
+    @user = users(:rogesson)
   end
 
-  test "sound create credential" do
-    post(:create, create_params)
+  test 'should get index' do
+    login_as(:rogesson)
 
-    assert_equal @request.env["rack.session"]["flash"][:notice], 'Successfully created!'
+    get :index
+
+    assert_response :success
+    assert_template 'index'
+    assert_not_nil assigns(:credentials)
   end
 
-  test "should update credential" do
-    put(:update, id: 44, :password => "newpass")
-    
-    assert_equal @response.body, { response: 'success' }.to_json
+  test 'should create credential' do
+    login_as(:rogesson)
+
+    credential_params = { 
+                          credential: {
+                            login: 'loginfake123',
+                            password: 'passwordfake123',
+                            site: 'sitefake123'
+                          }
+                        }
+
+    assert_difference('Credential.count') do
+      post :create, credential_params
+    end
+    assert_response :success
   end
 
-  test "should delete credential" do
-    delete(:destroy, id: 44)
+  test 'should update credential' do
+    login_as(:rogesson)
+    put :update, id: credentials(:gmail_login).to_param, credential: { password: 'newpassword!222' }
 
-    assert_equal @response.body, { response: 'success' }.to_json
-  end
-
-  private
-
-  def create_params
-    {
-     "authenticity_token"=>"ZlSQnOw0x/zm/KqL+tIF5zWdEnd+gzEQaCoaAIw9r6s=",
-     "credential"=>{
-      "site"=>"somesite",
-      "login"=>"somelogin",
-      "password"=>"somepassword"
-      },
-    "commit"=>"Create Credential"
-    }
+    assert_response :success
   end
 end
-=end
