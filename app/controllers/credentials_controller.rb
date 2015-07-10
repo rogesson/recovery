@@ -12,21 +12,22 @@ class CredentialsController < ApplicationController
 	end
 
 	def create
-		response = @user.credential.create(params[:credential]) ? 'success' : 'error'
+		credential = @user.credential.new(params[:credential])
+		response = credential.save ? 'success' : credential.errors
 
 		render js: { response: response }
 	end
 
-	def update
-		response = @credential.update_attributes(params[:credential]) ? 'success' : 'error'
+	def update 
+		response = @credential.update_attributes(params[:credential]) ? 'success' : @credential.errors
 
 		render json: { response: response }
 	end
 
 	def destroy
-		response = @credential.destroy ? 'success' : 'error'
+		response = @credential.destroy ? 'success' : @credential.errors
 
-		render json: { :response => response }
+		render json: { response: response }
 	end
 
 	# TODO refatorar

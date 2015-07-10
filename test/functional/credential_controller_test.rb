@@ -32,6 +32,21 @@ class CredentialsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+
+  test 'should not create credential' do
+    login_as(:rogesson)
+
+    credential_params = { 
+                          credential: {
+                            login: 'loginfake123'
+                          }
+                        }
+
+    assert_no_difference('Credential.count') do
+      post :create, credential_params
+    end
+  end
+
   test 'should update credential' do
     login_as(:rogesson)
     put :update, id: credentials(:gmail_login).to_param, credential: { password: 'newpassword!222' }
