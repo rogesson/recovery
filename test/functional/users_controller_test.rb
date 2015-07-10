@@ -30,6 +30,20 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test 'should not create user' do
+    user_params = {
+                    user: {
+                      login: 'newuser2'
+                    }
+                  }
+
+    assert_no_difference('User.count') do
+      post :create, user_params
+    end
+    
+    assert_response :success
+  end
+
   test 'should show user' do
     login_as(:rogesson)
     get :show, id: @user.to_param
@@ -50,7 +64,7 @@ class UsersControllerTest < ActionController::TestCase
 
   test 'should update user' do
     login_as(:rogesson)
-    put :update, :id => users(:rogesson).to_param, user: { login: 'newuser2' }    
+    put :update, id: users(:rogesson).to_param, user: { login: 'newuser2' }    
     
     assert_response :success
   end

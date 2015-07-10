@@ -23,7 +23,6 @@ class CredentialsController < ApplicationController
 		render json: { response: response }
 	end
 
-		#TODO	REFATORAR
 	def destroy
 		response = @credential.destroy ? 'success' : 'error'
 
