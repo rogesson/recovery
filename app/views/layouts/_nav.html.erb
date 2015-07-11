@@ -1,7 +1,7 @@
 <nav>
 	<div class="width">
-		<% if session[:user_id] %>
-      <%= render 'nav_item' %>
+    <% if session[:user_id] %>
+      <%= render '/layouts/nav_item', arr_url_nav: ApplicationHelper::nav_item(session[:user_id]) %>
     <% else %>
       <%= render '/users/login_form' %>
     <% end %>

@@ -1,12 +1,12 @@
 <%= form_for(@user) do |f| %>
-		<b>Login</b><br />
-		<%= f.text_field :login, :placeholder => "Login", required: true, :class => "textox" %><br /><br />
-		<b>Email</b><br />
-		<%= f.text_field  :email, :placeholder => "Email", required: true, :class => "textox" %><br /><br />
-		<b>Password</b><br />
-		<%= f.password_field  :password, :placeholder => "Password", required: true, :class => "textox" %><br /><br />
+  Login<br />
+  <%= f.text_field :login, :placeholder => "Login", required: true %><br /><br />
+  Email<br />
+  <%= f.text_field  :email, :placeholder => "Email", required: true %><br /><br />
+  Password<br />
+  <%= f.password_field  :password, :placeholder => "Password", required: true %><br /><br />
 
-	<%= f.submit "Save", :class => "Button"%>
+  <%= f.submit "Create account", :class => "Button"%>
 <%end%>
 
 <%= flash[:notice] if flash[:notice]%>
