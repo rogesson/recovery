@@ -7,15 +7,27 @@ class Note < ActiveRecord::Base
 
    belongs_to :user
 
+   before_save :encrypt_note
+
    def short_title
       return if self.title.size < 10
 
       self.title[0..9] + "..."
    end
 
-   # TODO refatorar
-   def safe_body
-   	digest_secure = Gibberish::AES.new(session[:c_key])
-		digest_secure.dec(self.body)	
+   def unsafe_body
+      # Forçando c_key para testes de model.
+      c_key =  session[:c_key] rescue 'a8f5f167f44f4964e6c998dee827110c'
+
+      DigestManager.dec(self.body, c_key)      
+   end
+
+   private
+
+   def encrypt_note
+      # Forçando c_key para testes de model.
+      c_key =  session[:c_key] rescue 'a8f5f167f44f4964e6c998dee827110c'
+
+      self.body = DigestManager.enc(self.body, c_key)
    end
 end

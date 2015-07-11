@@ -41,6 +41,14 @@ class NoteTest < ActiveSupport::TestCase
     assert_equal 'Looooooooo...', note.short_title
   end
 
+  test 'should decrypt body' do
+    note = Note.first
+    note.update_attributes(body: 'secret body')
+
+    assert_not_equal 'secret body', note.body
+    assert_equal 'secret body', note.unsafe_body
+  end
+
   private
 
   def user
