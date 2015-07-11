@@ -1,12 +1,12 @@
 class DigestManager
 
 	def self.enc(content, c_key)
-    #
-		Gibberish::AES.new(c_key).encrypt(content)
+		cipher = Gibberish::AES.new(c_key)
+    cipher.encrypt(content)
 	end
 
 	def self.dec(content, c_key)
-    #
-		Gibberish::AES.new(c_key).decrypt(content)
+    cipher = Gibberish::AES.new(c_key)
+    cipher.decrypt(content)
 	end
 end
