@@ -28,7 +28,12 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
 gem "awesome_print"
+
+gem 'debugger'
+
+gem 'gibberish'
 
 
 # To use ActiveModel has_secure_password
@@ -42,10 +47,3 @@ gem "awesome_print"
 
 # Deploy with Capistrano
 # gem 'capistrano'
-
-# To use debugger
- gem 'debugger'
-
- gem 'gibberish'
-
- gem 'simple-private-messages', '0.0.0', :git => 'git://github.com/jongilbraith/simple-private-messages.git'

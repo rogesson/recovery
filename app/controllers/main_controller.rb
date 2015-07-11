@@ -5,6 +5,5 @@ class MainController < ApplicationController
 		render layout: false
 	end
 
-  def home
-  end
+  def home;end
 end

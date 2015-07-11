@@ -69,22 +69,7 @@ function logout(){
 	$("#logout")[0].click();
 }
 
-function verifyNewMsg()
-{	
-	var new_messages = "";
-	$.ajax({
-		type: "GET",
-	  	url: "/messages/verify_new_msg/",
-	  	data: null,
-	    success: function (data) {
-	    	console.log(data["news"]);
-	    	if (data["news"] != 0){
-	    		new_messages = " ("+data["news"]+")";	
-	    	}
-	    	$("#messages").text("Messages"+new_messages)
-        }
-	});
-}
+
 
 function coloboxHTML(url) {
 	$.colorbox({href:url});
@@ -129,9 +114,6 @@ $("#new_note_button").on("click", function(){
 $( document ).ready(function() {
 	//logout 5min 
 	setTimeout("logout()",  5 * 60 * 1000);
-	
-	//Verify msg
-	//setInterval(function(){verifyNewMsg()}, 3000);
 });
 
 

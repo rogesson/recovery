@@ -13,10 +13,6 @@ Recovery::Application.routes.draw do
   
   resources :main
 
-  resources :messages do
-    get 'verify_new_msg', on: :collection
-  end
-
   root :to => 'main#index'
 
   match 'home' => 'main#home'
