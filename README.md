@@ -6,8 +6,7 @@ Recovery is a Password Manager
 **Features**
 * Login and Session
 * Credentials management with high encryption level 
-* Notes Management with high encryption level 
-* Private Messaging
+* Notes Management with high encryption level
 
 **View Demo**
 
@@ -32,8 +31,6 @@ Layout by ZyPOP
 * Groups
 
 Fork it!
-
-Send a pull request!!
 
 **License**
 
