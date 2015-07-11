@@ -34,7 +34,6 @@ GEM
       parser (>= 2.2.0.pre.3, < 3.0)
     awesome_print (1.2.0)
     builder (3.0.4)
-    clipboard (1.0.6)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -57,17 +56,11 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     multi_json (1.8.4)
-    paint (1.0.0)
     parser (2.2.2.5)
       ast (>= 1.1, < 3.0)
-    pbkdf2-ruby (0.2.1)
     pg (0.17.1-x86-mingw32)
     polyglot (0.3.3)
     powerpack (0.1.1)
-    pws (1.0.6)
-      clipboard (~> 1.0.5)
-      paint (>= 0.8.7)
-      pbkdf2-ruby
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -133,10 +126,9 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   coffee-rails (~> 3.2.1)
-  gibberish
+  gibberish (= 1.4.0)
   jquery-rails
   pg
-  pws
   rails (= 3.2.13)
   rubocop
   sass-rails (~> 3.2.3)

@@ -33,11 +33,10 @@ gem "awesome_print"
 
 # gem 'debugger'
 
-gem 'gibberish'
+gem 'gibberish', "1.4.0"
 
 gem 'strong_parameters'
 
-gem 'pws'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
