@@ -1,14 +1,22 @@
+<%= stylesheet_link_tag "application", :media => "all" %>
 
-<html>
-	<center>
-		<div class="content">
-			<div class="login">
-				
-				
-			<%= render '/users/login_form' %>
+
+
+
+</head>
+	<body>
+		<div id="container">
+			<%= render "/layouts/header" %>
+			<%= render "/layouts/nav", arr_url_nav: [] %>
+			<div id="body" class="width">
+				<section id="content">
+					<article>
+						<%= render '/users/form'%>
+					</article>
+				</section>
+				<%= render "layouts/sidebar" %>
+				<%= render "/layouts/footer" %>
 			</div>
-			
-		<%= render '/users/form'%>
-		<div>
-	</center>	
+		</div>
+	</body>
 </html>

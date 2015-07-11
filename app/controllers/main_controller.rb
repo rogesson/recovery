@@ -4,6 +4,7 @@ class MainController < ApplicationController
 	def index
     @user = User.new
     @session = Session.new
+    
 		render layout: false
 	end
 
