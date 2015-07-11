@@ -2,6 +2,10 @@ class CredentialsController < ApplicationController
 	before_filter :set_user
 	before_filter :set_credential, only: [:update, :destroy, :show]
 
+	def index
+		@credentials_result = params[:term] ? Credential.search(params) : @user.credential
+	end
+
 	def new
 		@credential = Credential.new
 	end
@@ -11,6 +15,12 @@ class CredentialsController < ApplicationController
 		response = credential.save ? 'success' : credential.errors
 
 		render js: { response: response }
+	end
+
+	def show
+		render layout: false
+
+		@credential
 	end
 
 	def update 
@@ -23,16 +33,6 @@ class CredentialsController < ApplicationController
 		response = @credential.destroy ? 'success' : @credential.errors
 
 		render json: { response: response }
-	end
-
-	def index
-		@credentials_result = params[:term] ? Credential.search(params) : @user.credential
-	end
-
-	def show
-		render layout: false
-
-		@credential
 	end
 
 	private

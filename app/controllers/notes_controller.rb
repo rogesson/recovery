@@ -1,64 +1,40 @@
 class NotesController < ApplicationController
    before_filter :set_user
    before_filter :set_note, only: [:update, :destroy, :show]
-
+   
    def index
-
+      @notes_result = @user.note
    end
 
-   # TODO refatorar
-   def show
-      #@note = Note.where(id: params[:id], user_id: session[:user_id]).first
-      #render layout: false
-   end
-
-   # TODO refatorar
    def new
-      #@note = Note.new
-      #render layout: false
+      @note = Note.new
+      
+      render layout: false
    end
 
-   # TODO refatorar
-   def list
-      #@notes = Note.where(user_id: session[:user_id]).order("id desc")
-   end
-
-   # TODO refatorar
    def create
-      #body = DigestManager.enc(params[:note][:body], session[:c_key])
-      
-      #@note = Note.create(title: params[:note][:title], body: body, user_id: session[:user_id])
-      
-      #redirect_to "/notes/list"
+      note = @user.note.new(params[:note])
+      response = note.save ? 'success' : note.errors
+
+      render js: { response: response }
    end
 
-   # TODO refatorar
-   def update
-      #@note = Note.where(id: params[:id], user_id: session[:user_id]).first
-      #@note.body = DigestManager.enc(params[:body], session[:c_key])
+   def show
+      @note
 
-      #response = 
-      #   if @note.save
-      #      "success"
-      #   else
-      #      "error"
-      #   end
-     
-     #render :json => { :response => response }.to_json
+      render layout: false
    end
 
-   # TODO refatorar
+   def update 
+      response = @note.update_attributes(params[:note]) ? 'success' : @note.errors
+
+      render json: { response: response }
+   end
+
    def destroy
-      @note = Note.where(id: params[:id], user_id: session[:user_id]).first
+      response = @note.destroy ? 'success' : @note.errors
 
-      response =
-         if @note.destroy
-            "success"
-         else
-            "error" 
-         end
-
-      render :json => { :response => response }.to_json
+      render json: { response: response }
    end
 
    private
