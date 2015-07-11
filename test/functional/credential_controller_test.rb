@@ -30,7 +30,6 @@ class CredentialsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-
   test 'should not create credential' do
     login_as(:rogesson)
     credential_params = { 
