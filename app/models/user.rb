@@ -6,8 +6,6 @@ class User < ActiveRecord::Base
 	validates :login, :password, :email, presence: true
 	validates :login, :email, uniqueness: true
 
-	has_private_messages
-
 	has_many :credential
   has_many :note
 

@@ -1,9 +1,3 @@
-GIT
-  remote: git://github.com/jongilbraith/simple-private-messages.git
-  revision: 7ba7d3c9f7670ef3bddfc90390a49556a94f7013
-  specs:
-    simple-private-messages (0.0.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -141,6 +135,5 @@ DEPENDENCIES
   rails (= 3.2.13)
   rubocop
   sass-rails (~> 3.2.3)
-  simple-private-messages (= 0.0.0)!
   sqlite3
   uglifier (>= 1.0.3)
