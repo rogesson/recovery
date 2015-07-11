@@ -24,9 +24,9 @@ class CredentialsController < ApplicationController
 	end
 
 	def update
-		response = @credential.update_attributes(credential_params) ? 'success' : @credential.errors
+		@response = @credential.update_attributes(credential_params) ? 'success' : @credential.errors
 
-		render json: { response: response }
+		respond_to :js
 	end
 
 	def destroy
