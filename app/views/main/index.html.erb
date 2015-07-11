@@ -1,78 +1,14 @@
-<style>
-	.login_form {
-	   display: none;
-	   width: 420px;
-	   height: 56px;
-	   padding-top: 30px;
-	   position:absolute;
-	   left: 837px;
-	   top: 137px;
-	   border: double;
-	   -webkit-border-radius: 12px 21px 32px 12px;
-	   border-radius: 12px 21px 32px 12px;
-	   text-align: center ;
-	}
 
-	.register {
-	   display: none;
-	   width: 141px;
-	   height: 263px;
-	   padding-top:60px;
-	   position:absolute;
-	   left: 837px;
-	   top: 257px;
-	   border: double;
-	   -webkit-border-radius: 12px 21px 32px 12px;
-	   border-radius: 12px 21px 32px 12px;
-	   padding: 40px;
-	   text-align: center ;
-	}
-	.content{
-		min-height: 95%;
-		background-color: #7F577A;
-	}
-	.login{
-		margin: 40px;
-		text-align: -webkit-right;
-		padding: 50px;
-	}
-
-	.register1{
-		text-align: -webkit-left;
-		margin-left: 45px;
-	}
-</style>
 <html>
 	<center>
 		<div class="content">
 			<div class="login">
-				<%= form_tag('/sessions', :action => "create") do %>
-						<%= text_field_tag :login, nil, :placeholder => "Login", required: true, :class => "textox"%>
-						<%= password_field_tag :password, nil, placeholder: "Password", required: true, :class => "textox" %>
-						<%= submit_tag "Sign in", :class => "Button" %>
-				<%end%>
 				
-				<%if flash[:bad_login]%>
-					<b>Wrong login or password, please try again.</b>
-				<%end%>
+				
+			<%= render '/users/login_form' %>
 			</div>
 			
-			<div class="register1">
-				<%= form_for(User.new) do |f| %>
-						<b>Login</b><br />
-						<%= f.text_field :login, :placeholder => "Login", required: true, :class => "textox" %><br /><br />
-						<b>Email</b><br />
-						<%= f.text_field  :email, :placeholder => "Email", required: true, :class => "textox" %><br /><br />
-						<b>Password</b><br />
-						<%= f.password_field  :password, :placeholder => "Password", required: true, :class => "textox" %><br /><br />
-						<b>Confirm Password</b><br />
-	
-					<%= f.submit "Save", :class => "Button"%>
-				<%end%>
-				<%if flash[:notice] %>
-					<%= flash[:notice]%>
-				<%end%>
-			</div>
+		<%= render '/users/form'%>
 		<div>
 	</center>	
 </html>
