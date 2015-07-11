@@ -1,7 +1,6 @@
 Recovery::Application.routes.draw do
-  resources :notes do
-    get "list", on: :collection
-  end
+  
+  resources :notes
 
   resources :credentials
 
