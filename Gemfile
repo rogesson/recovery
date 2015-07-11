@@ -31,7 +31,7 @@ gem 'jquery-rails'
 
 gem "awesome_print"
 
-gem 'debugger'
+# gem 'debugger'
 
 gem 'gibberish'
 
