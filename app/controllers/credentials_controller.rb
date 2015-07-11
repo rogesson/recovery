@@ -23,8 +23,8 @@ class CredentialsController < ApplicationController
 		@credential
 	end
 
-	def update 
-		response = @credential.update_attributes(params[:credential]) ? 'success' : @credential.errors
+	def update
+		response = @credential.update_attributes(credential_params) ? 'success' : @credential.errors
 
 		render json: { response: response }
 	end
@@ -43,5 +43,9 @@ class CredentialsController < ApplicationController
 
 	def set_credential
 		@credential = @user.credential.where(id: params[:id]).first
+	end
+
+	def credential_params
+		params.require(:credential).permit(:password)
 	end
 end

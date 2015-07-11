@@ -35,6 +35,7 @@ gem 'debugger'
 
 gem 'gibberish'
 
+gem 'strong_parameters'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
