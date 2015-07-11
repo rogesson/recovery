@@ -1,6 +1,5 @@
-
-<img src="/assets/images/edit.png" onclick="editNote('<%= @note.id%>', $('#note_body').val())">
-<img src="/assets/images/delete.png" onclick="destroyNote('<%= @note.id%>')">
+<a href='#' onclick="updateNote('<%= @note.id%>', $('#note_body').val())">Save</a>
+<a href='#' onclick="deleteNote('<%= @note.id%>')">Delete</a>
 
 <br /><br />
 <h4><%= @note.title.capitalize %></h4>
@@ -9,7 +8,7 @@
 	<br />
 	<center>
 		<div>
-			<textarea id="note_body" rows=12 cols=60><%= @note.safe_body %></textarea>
+			<textarea id="note_body" rows=12 cols=60><%= @note.unsafe_body %></textarea>
 		</div>
 	</center>
 </fieldset>

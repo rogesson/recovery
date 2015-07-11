@@ -1,0 +1,10 @@
+if('<%= @response %>' == "success"){
+  $.colorbox.close() 
+  appendHTML();
+} else {
+  alert('Error');
+}
+
+function appendHTML(){
+	$('.notes_content').prepend("<div class='notes_item' id='note_item-<%= @new_note.id%>'><p class='notes_a' value='/notes/<%= @new_note.id %>' onclick='showNote(this);'><%= @new_note.title %><p></div>");
+}

@@ -1,13 +1,8 @@
-// Place all the styles related to the Notes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-
 .notes_content{
 	background-color: #DCDDD7;
 	width: 600px;
 	margin-top: 1px;
-	padding-top: 22px;
+	padding-top: 20px;
 	padding-bottom: 5px;
 	border-bottom: 3px solid #D1D3C5;
 }
@@ -17,10 +12,12 @@
 	width: 400px;
 	margin-left: 30px;
 	margin-top: 6px;
+	cursor: pointer
 }
 
 .notes_item p {
 	color: white;
+	font-weight: bold;
 	margin-left: 10px;
 	text-transform: capitalize; 
 	box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);

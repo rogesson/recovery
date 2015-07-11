@@ -13,10 +13,10 @@ class NotesController < ApplicationController
   end
 
   def create
-    note = @user.note.new(params[:note])
-    response = note.save ? 'success' : note.errors
+    @new_note = @user.note.new(params[:note])
+    @response = @new_note.save ? 'success' : @new_note.errors
 
-    render js: { response: response }
+    respond_to :js
   end
 
   def show
