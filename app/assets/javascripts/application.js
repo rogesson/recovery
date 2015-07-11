@@ -14,11 +14,6 @@
 //= require jquery_ujs
 //= require_tree .
 
-
-function getValue(id){
-	return $("#"+id)[0].value 
-}
-
 function responseForm(msg){
   $("#response_form")[0].style.display = "block"
   $("#response_form").append("<br /> "+ msg);
@@ -27,54 +22,13 @@ function responseForm(msg){
   });
 }
 
-function alterPassword(id_password){
-	var value = { password: getValue('password'+ id_password) }
-	$.ajax({
-		type: "PUT",
-	  	url: "/credentials/"+ id_password,
-	  	data: value,
-	    success: function (data) {
-	    	console.log(data);
-        }
-	})
-}
-
-function deleteData(id_password){
-	var value = { password: getValue('password'+ id_password) }
-	if (window.confirm("Are you sure?")) { 
-		$.ajax({
-		  	type: "DELETE",
-		  	url: "/credentials/"+ id_password,
-		  	data: value,
-		  	success: function (data) {
-		    	$("#cred-"+ id_password)[0].remove();
-		    	console.log(data);
-	      	}
-		})
-	}
-}
-
-function switchPass(id_password){
-	if ($("#spassword-"+id_password+"")[0].value == "Show") {
-		$("#spassword-"+id_password+"")[0].value = "Hide";
-		$("#password"+id_password+"").attr("type","text")
-	} else {
-		$("#password"+id_password+"").attr("type","password")
-		$("#spassword-"+id_password+"")[0].value = "Show";
-	}
-}
-
-
 function logout(){
 	$("#logout")[0].click();
 }
 
-
-
 function coloboxHTML(url) {
 	$.colorbox({href:url});
 }
-
 
 function editNote(id, body){
 	value = { body: body }
