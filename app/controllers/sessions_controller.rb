@@ -12,7 +12,6 @@ class SessionsController < ApplicationController
 		end
 	end
 
-	# TODO refatorar
 	def logout
 		session.delete :session_id 
 		session.delete :user_id

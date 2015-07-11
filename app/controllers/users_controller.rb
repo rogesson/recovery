@@ -3,9 +3,12 @@ class UsersController < ApplicationController
 
 	def create
 	 	user = User.new(params[:user])
-	 	response = user.save ? 'success' : user.errors
-
-		render js: { response: response }
+	 	if user.save
+		 	create_session_for(user)
+			redirect_to "/home"
+		else
+			redirect_to "/"
+		end
 	end
 
 	def show
@@ -29,5 +32,18 @@ class UsersController < ApplicationController
 		response = user.update_attributes(params[:user]) ? 'success' : user.errors
 
 		render js: { response: response }
+	end
+
+	private
+
+	def generate_c_key
+		safe_credential = "#{params[:password]}#{params[:login]}^]+^@".reverse[1..-1]
+		safe_credential = Digest::SHA256.hexdigest safe_credential
+	end
+
+	def create_session_for(user)
+		session[:session_id] = Random.rand(19999283)
+		session[:user_id]    = user.id
+		session[:c_key]      = generate_c_key
 	end
 end

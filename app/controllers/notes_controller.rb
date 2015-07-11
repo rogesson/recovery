@@ -3,7 +3,7 @@ class NotesController < ApplicationController
   before_filter :set_note, only: [:update, :destroy, :show]
    
   def index
-    @notes_result = @user.note
+    @notes_result = @user.note.order('id desc')
   end
 
   def new
