@@ -8,13 +8,15 @@ class CredentialsController < ApplicationController
 
 	def new
 		@credential = Credential.new
+
+		render layout: false
 	end
 
 	def create
-		credential = @user.credential.new(params[:credential])
-		response = credential.save ? 'success' : credential.errors
+		@new_credential = @user.credential.new(params[:credential])
+		@response = @new_credential.save ? 'success' : @new_credential.errors
 
-		render js: { response: response }
+		respond_to :js
 	end
 
 	def show

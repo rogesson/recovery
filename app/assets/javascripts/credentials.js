@@ -37,3 +37,8 @@ function deletePassword(id){
 		})
 	}
 }
+
+function createCredential(){
+	var url = "/credentials/new";
+	$.colorbox({href:url});
+}
