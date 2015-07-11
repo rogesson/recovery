@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 	has_private_messages
 
 	has_many :credential
+  has_many :note
 
   before_save :encrypt_password
 

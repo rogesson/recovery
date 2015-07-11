@@ -1,17 +1,19 @@
 class Note < ActiveRecord::Base
    self.table_name = "notes"
 
-   attr_accessible :title, :body, :user_id
+   attr_accessible :title, :body
 
-   # TODO refatorar
+   validates :title, :body, presence: true
+
+   belongs_to :user
+
    def short_title
-   	if self.title.size < 10
-   		"#{self.title}".capitalize[0..9]
-   	else
-   		"#{self.title.capitalize[0..9]}..."
-   	end 
+      return if self.title.size < 10
+
+      self.title[0..9] + "..."
    end
 
+   # TODO refatorar
    def safe_body
    	digest_secure = Gibberish::AES.new(session[:c_key])
 		digest_secure.dec(self.body)	
