@@ -1,41 +1,41 @@
 class NotesController < ApplicationController
-  before_filter :set_user
-  before_filter :set_note, only: [:update, :destroy, :show]
+   before_filter :set_user
+   before_filter :set_note, only: [:update, :destroy, :show]
    
-  def index
-    @notes_result = @user.note.order('id desc')
-  end
+   def index
+      @notes_result = @user.note.order('id desc')
+   end
 
-  def new
-    @note = Note.new
+   def new
+      @note = Note.new
       
-    render layout: false
-  end
+      render layout: false
+   end
 
-  def create
-    @new_note = @user.note.new(params[:note])
-    @response = @new_note.save ? 'success' : @new_note.errors
+   def create
+      @new_note = @user.note.new(params[:note])
+      @response = @new_note.save ? 'success' : @new_note.errors
 
-    respond_to :js
-  end
+      respond_to :js
+   end
 
   def show
-    @note
+      @note
 
-    render layout: false
+      render layout: false
   end
 
   def update
-    response = @note.update_attributes(params[:note]) ? 'success' : @note.errors
+      response = @note.update_attributes(params[:note]) ? 'success' : @note.errors
 
-    render json: { response: response }
+      render json: { response: response }
   end
 
   def destroy
-    @note_id = @note.id.to_s
-    @response = @note.destroy ? 'success' : @note.errors
+      @note_id = @note.id.to_s
+      @response = @note.destroy ? 'success' : @note.errors
 
-    respond_to :js
+      respond_to :js
   end
 
   private

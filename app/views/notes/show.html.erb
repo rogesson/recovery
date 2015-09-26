@@ -4,7 +4,7 @@
 <%= link_to 'Delete', @note, method: :delete, remote: true, :data => { :confirm => "You Sure?" } %>
 
 <br /><br />
-<h4><%= @note.title.capitalize %></h4>
+<h4><%= @note.formatted_title %></h4>
 
 <fieldset>
   <br />
