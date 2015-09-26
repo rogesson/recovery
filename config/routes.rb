@@ -1,5 +1,8 @@
 Recovery::Application.routes.draw do
   
+  resources :categories
+
+
   resources :notes
 
   resources :credentials
