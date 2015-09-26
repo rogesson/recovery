@@ -1,2 +1,6 @@
-$.colorbox.close();
-$("#note_item-"+ <%= @note_id %>).remove();
+if('<%= @response %>' == "success"){
+  $.colorbox.close();
+  $("#note_item-"+ <%= @note_id %>).remove();
+} else {
+  alert('Error');
+}
