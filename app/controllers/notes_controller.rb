@@ -32,9 +32,10 @@ class NotesController < ApplicationController
   end
 
   def destroy
-    response = @note.destroy ? 'success' : @note.errors
+    @note_id = @note.id.to_s
+    @response = @note.destroy ? 'success' : @note.errors
 
-    render json: { response: response }
+    respond_to :js
   end
 
   private

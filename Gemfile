@@ -9,10 +9,10 @@ group :production do
   gem 'pg'
 end        
 
-
 group :development, :test do
   gem 'sqlite3'
   gem 'rubocop'
+  gem 'debugger'
 end
 
 # Gems used only for assets and not required
@@ -30,8 +30,6 @@ end
 gem 'jquery-rails'
 
 gem "awesome_print"
-
-# gem 'debugger'
 
 gem 'gibberish', "1.4.0"
 
