@@ -1,0 +1,14 @@
+<li>
+  <h4>Notes</h4>
+  <ul>
+    <li><a href="#" id="new_note_button">+ Create Note</a></li>
+    <li><%= link_to "Categories", categories_path %></li>
+  </ul>
+</li>
+
+<script>
+  $("#new_note_button").on("click", function(){
+      var url = "/notes/new";
+      $.colorbox({href:url});
+  });
+</script>

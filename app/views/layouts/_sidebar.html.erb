@@ -1,40 +1,7 @@
- <aside class="sidebar">
- 	<ul>
-    <% if request.fullpath.match /credentials/  %>	
-    	<li>
-    		<h4>Credentials</h4>
-          <ul>
-            <li><a href="#" onclick="createCredential();">+ Create Credential</a></li>
-          </ul>
-        </li>
-    <% end %>
+<aside class="sidebar">
+	<ul>
+    <%= render "/#{@sidebar}/sidebar" if @sidebar  %>	
+  </ul>
+</aside>
 
-    <% if request.fullpath.match /notes/  %> 
-        <li>
-            <h4>Notes</h4>
-            <ul>
-                <li><a href="#" id="new_note_button">+ Create Note</a></li>
-                <li><%= link_to "Categories", categories_path %></li>
-            </ul>
-            <script>
-                $("#new_note_button").on("click", function(){
-                    var url = "/notes/new";
-                    $.colorbox({href:url});
-                });
-            </script>
-        </li>
-    <% end %>
-
-         <% if request.fullpath.match /users/  %> 
-            <li>
-                <h4>Users</h4>
-                <ul>
-                    <li><a href="/users/<%= session[:user_id] %>">My Profile</a></li>
-                    <li><a href="/users/<%= session[:user_id] %>/edit">Edit Profile</a></li>
-                </ul>
-            </li>
-        <% end %>
-
-    </ul>
- </aside>
 <div class="clear"></div>
