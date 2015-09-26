@@ -1,21 +1,24 @@
-<h1>Listing categories</h1>
+<h3>Categories</h3>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<fieldset>
+  <div class="center-content-credentials" style="margin-top: 100px;">
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>Created At</th>
+        <th>Action</th>
+      </tr>
 
-<% @categories.each do |category| %>
-  <tr>
-    <td><%= link_to 'Show', category %></td>
-    <td><%= link_to 'Edit', edit_category_path(category) %></td>
-    <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Category', new_category_path %>
+      <% @categories.each do |category| %>
+        <tr>
+          <td><%= category.title %></td>
+          <td><%= category.created_at_formatted %></td>
+          <td>
+              <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= link_to 'Update', category, method: :put, data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</fieldset>

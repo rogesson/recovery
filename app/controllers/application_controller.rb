@@ -16,6 +16,8 @@ class ApplicationController < ActionController::Base
                   'notes'
                 elsif request.fullpath.match /users/
                   'users'
+                elsif request.fullpath.match /categories/
+                  'categories'
                 else
                   nil
                 end
