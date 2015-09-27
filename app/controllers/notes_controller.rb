@@ -13,7 +13,7 @@ class NotesController < ApplicationController
    end
 
    def create
-      @new_note = @user.note.new(params[:note])
+      @new_note = @user.note.build(note_params)
       @response = @new_note.save ? 'success' : @new_note.errors
 
       respond_to :js
@@ -26,9 +26,9 @@ class NotesController < ApplicationController
   end
 
   def update
-      response = @note.update_attributes(params[:note]) ? 'success' : @note.errors
+      @response = @note.update_attributes(note_params) ? 'success' : @note.errors
 
-      render json: { response: response }
+      respond_to :js
   end
 
   def destroy
@@ -39,6 +39,10 @@ class NotesController < ApplicationController
   end
 
   private
+
+  def note_params
+    params.require(:note).permit(:title, :body, :category_id)
+  end
 
   def set_user
     @user = User.where(id: session[:user_id]).first

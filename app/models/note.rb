@@ -1,7 +1,7 @@
 class Note < ActiveRecord::Base
   self.table_name = "notes"
 
-  attr_accessible :title, :body
+  attr_accessible :title, :body, :category_id
 
   validates :title, :body, presence: true
 
