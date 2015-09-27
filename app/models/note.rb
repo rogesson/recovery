@@ -19,6 +19,10 @@ class Note < ActiveRecord::Base
     title.capitalize
   end
 
+  def formatted_created_At
+    created_at.strftime("%d/%m/%Y")
+  end
+
   def unsafe_body
     # Forçando c_key para testes de model.
     c_key =  session[:c_key] rescue 'a8f5f167f44f4964e6c998dee827110c'
