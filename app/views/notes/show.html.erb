@@ -5,25 +5,3 @@
 		<%= render 'form' %>
 	</center>
 </fieldset>
-
-
-<%if false%>
-<a href='#' onclick="updateNote('<%= @note.id%>', $('#note_body').val())">Save</a>
-
-
-<%= link_to 'Delete', @note, method: :delete, remote: true, :data => { :confirm => "You Sure?" } %>
-
-
-<br /><br />
-<h4><%= @note.formatted_title %></h4>
-
-<fieldset>
-  <br />
-  <center>
-    <div>
-      <textarea id="note_body" rows=12 cols=60><%= @note.unsafe_body %></textarea>
-    </div>
-  </center>
-</fieldset>
-
-<%end%>
