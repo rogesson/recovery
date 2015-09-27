@@ -1,8 +1,14 @@
 <%= form_for(@note, remote: true) do |f| %>
+	
+
   <%= f.label :title %><br />
   <%= f.text_field :title, placeholder: "Title", required: true %><br /><br />
 
   <%= f.label :body %><br />
   <%= f.text_area :body, value: @note.unsafe_body, placeholder: "Body", :cols => "60", :rows => "10", required: true %><br /><br />
+
+  <%= f.label :category %>
+	<%= f.select :category, CategoriesHelper::options_for_select %><br />
+	
   <%= f.submit%>
 <% end %>
