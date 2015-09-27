@@ -22,9 +22,10 @@ function coloboxHTML(url) {
 	$.colorbox({href:url});
 }
 
+/*
 $( document ).ready(function() {
 	//logout 5min 
 	setTimeout("logout()",  5 * 60 * 1000);
 });
-
+*/
 

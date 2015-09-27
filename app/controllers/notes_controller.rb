@@ -27,7 +27,8 @@ class NotesController < ApplicationController
 
   def update
       @response = @note.update_attributes(note_params) ? 'success' : @note.errors
-
+      @note
+      
       respond_to :js
   end
 

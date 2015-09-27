@@ -1,5 +1,6 @@
 if('<%= @response %>' == "success"){
   $.colorbox.close();
+  $("#note_category-<%= @note.id %>").html("<%= @note.category.title %>")
   alert("Note updated");
 } else {
   alert('Error');

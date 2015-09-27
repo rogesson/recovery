@@ -4,6 +4,6 @@
 
 <tr id="note_line-<%= note.id%>" >
   <td style="cursor: pointer" id="note_item-<%= note.id%>" onclick="showNote(this)" value="<%= note_path(note) %>"><%= note.title %></td>
-  <td><%= note.category_title %></td>
+  <td id="note_category-<%= note.id%>" ><%= note.category_title %></td>
   <td><%= note.formatted_created_At %></td>
 </tr>
