@@ -2,8 +2,8 @@
 	note = @new_note if @new_note
 %>
 
-<tr id="note_line-<%= note.id%>">
-  <td id="note_item-<%= note.id%>" onclick="showNote(this)" value="<%= note_path(note) %>"><%= note.title %></td>
+<tr id="note_line-<%= note.id%>" >
+  <td style="cursor: pointer" id="note_item-<%= note.id%>" onclick="showNote(this)" value="<%= note_path(note) %>"><%= note.title %></td>
   <td><%= note.category_title %></td>
   <td><%= note.formatted_created_At %></td>
 </tr>

@@ -30,6 +30,8 @@ class Note < ActiveRecord::Base
   end
 
   def unsafe_body
+    return if new_record?
+
     # Forçando c_key para testes de model.
     c_key =  session[:c_key] rescue 'a8f5f167f44f4964e6c998dee827110c'
 
