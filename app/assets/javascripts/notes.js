@@ -1,20 +1,3 @@
-/*
-function deleteNote(id){
-  if (window.confirm("Do you really want to DELETE this note?")) { 
-    $.ajax({
-      type: "DELETE",
-      url: "/notes/"+ id,
-      data: null,
-      success: function (data) {
-        console.log(data);
-          $("#cboxOverlay").click();
-          $("#note_item-"+id).remove();
-      }
-    });
-  }
-}
-*/
-
 function updateNote(id, body){
   value = { note: { body: body } }
 

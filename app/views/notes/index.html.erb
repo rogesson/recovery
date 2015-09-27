@@ -1,10 +1,16 @@
 <h3>Notes</h3>
 <fieldset>
-  <div class="notes_content" style="margin-top: 100px;">
-	<% @notes_result.each do |note|%>
-		<div class="notes_item" id="note_item-<%= note.id%>">
-    		<p class="notes_a" value="/notes/<%= note.id%>" onclick="showNote(this);"><%= note.title %> <p>
-    	</div>
-	<% end %>
-</div>
+  <div  style="margin-top: 100px;">
+		<table>
+      <tr>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Action</th>
+      </tr>
+
+      <% @notes_result.each do |note| %>
+        <%= render "note_grid", note: note %>
+      <% end %>
+  	</table>
+	</div>
 </fieldset>

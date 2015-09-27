@@ -1,0 +1,9 @@
+<%
+	note = @new_note if @new_note
+%>
+
+<tr>
+  <td id="note_item-<%= note.id%>" onclick="showNote(this)" value="<%= note_path(note) %>"><%= note.title %></td>
+  <td  id="note_item-<%= note.id%>" ><%= note.title %></td>
+  <td  id="note_item-<%= note.id%>" ><%= note.title %></td>
+</tr>
