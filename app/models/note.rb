@@ -7,6 +7,8 @@ class Note < ActiveRecord::Base
 
   belongs_to :user
 
+  belongs_to :category
+
   before_save :encrypt_note
 
   def short_title
@@ -17,6 +19,10 @@ class Note < ActiveRecord::Base
 
   def formatted_title
     title.capitalize
+  end
+
+  def category_title
+    category ? category.title : "Empty"
   end
 
   def formatted_created_At
