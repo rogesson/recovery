@@ -5,6 +5,8 @@ class Note < ActiveRecord::Base
 
   validates :title, :body, presence: true
 
+  validates_numericality_of :category_id, greater_than: 0
+
   belongs_to :user
 
   belongs_to :category

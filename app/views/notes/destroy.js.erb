@@ -1,6 +1,6 @@
-if('<%= @response %>' == "success"){
-  $.colorbox.close();
+<% if @response == 'success' %>
+  $.colorbox.close() 
   $("#note_line-"+ <%= @note_id %>).remove();
-} else {
+<% else %>
   alert('Error');
-}
+<% end %>
