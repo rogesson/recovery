@@ -9,6 +9,12 @@ class CategoryTest < ActiveSupport::TestCase
     assert Category.create(title: 'Music')
   end
 
+   test 'should get category' do
+    category_id = category.id
+
+    assert_nothing_raised { Category.find(category_id) }
+  end
+
   test 'should update category' do
     assert category.update_attributes(title: 'Series')
   end
