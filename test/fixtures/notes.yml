@@ -2,13 +2,16 @@ phone_number:
   title: 'My phone number'
   body: '(11) 95299-5055'
   user: rogesson
+  category: study
 
 ruby_guide:
   title: 'Ruby Guide'
   body: 'www.somerubysite.com.br'
   user: lucas
+  category: study
 
 playlist:
   title: 'My playlist <3'
   body: 'Best songs'
   user: rogesson
+  category: study

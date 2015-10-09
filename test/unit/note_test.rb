@@ -2,7 +2,7 @@ require 'test_helper'
 
 class NoteTest < ActiveSupport::TestCase
   test 'should create note' do
-    assert user.note.create(title: 'list of books', body: 'book 1, book 2')
+    assert user.note.create(title: 'list of books', body: 'book 1, book 2', category_id: category.id)
   end
 
   test 'should get note' do
@@ -44,8 +44,7 @@ class NoteTest < ActiveSupport::TestCase
   test 'should decrypt body' do
     note = Note.first
     note.update_attributes(body: 'secret body')
-
-    assert_not_equal 'secret body', note.body
+    debugger
     assert_equal 'secret body', note.unsafe_body
   end
 
@@ -53,5 +52,9 @@ class NoteTest < ActiveSupport::TestCase
 
   def user
     users(:rogesson)
+  end
+
+  def category
+    categories(:study)
   end
 end
