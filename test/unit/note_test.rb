@@ -28,9 +28,11 @@ class NoteTest < ActiveSupport::TestCase
     assert !note.valid?
     assert note.errors[:title].any?
     assert note.errors[:body].any?
+    assert note.errors[:category_id].any?
 
     assert_equal ["can't be blank"], note.errors[:title]
     assert_equal ["can't be blank"], note.errors[:body]
+    assert_equal ["is not a number"], note.errors[:category_id]
   end
 
   test 'should get short title' do
@@ -44,7 +46,7 @@ class NoteTest < ActiveSupport::TestCase
   test 'should decrypt body' do
     note = Note.first
     note.update_attributes(body: 'secret body')
-    debugger
+
     assert_equal 'secret body', note.unsafe_body
   end
 
