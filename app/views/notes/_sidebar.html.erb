@@ -8,7 +8,7 @@
 
 <script>
   $("#new_note_button").on("click", function(){
-      var url = "/notes/new";
-      $.colorbox({href:url});
+      var url = "<%= new_note_path %>";
+      $.colorbox({ href:url });
   });
 </script>

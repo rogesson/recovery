@@ -26,10 +26,7 @@ class CategoriesController < ApplicationController
   def new
     @category = Category.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @category }
-    end
+    render layout: false
   end
 
   # GET /categories/1/edit

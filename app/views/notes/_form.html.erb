@@ -7,6 +7,6 @@
   <%= f.text_area :body, value: @note.unsafe_body, placeholder: "Body", :cols => "60", :rows => "10", required: true %><br /><br />
   <%= f.label :category_id %>
 	<%= f.select :category_id, CategoriesHelper::options_for_select %><br />
-	
+	<br>
   <%= f.submit%>
 <% end %>
