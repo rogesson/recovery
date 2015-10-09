@@ -19,14 +19,16 @@ class NotesControllerTest < ActionController::TestCase
     note_params = { 
                     note: {
                       title: 'My Title',
-                      body: 'My body'
+                      body: 'My body',
+                      category_id: category.to_param
                     }
                   }
 
     assert_difference('Note.count') do
       post :create, note_params
     end
-    assert_response :success
+
+    assert_equal "success", assigns(:response)
   end
 
   test 'should not create note' do
@@ -46,7 +48,7 @@ class NotesControllerTest < ActionController::TestCase
     login_as(:rogesson)
     put :update, id: notes(:phone_number).to_param, note: { body: '(11) 92831222' }
 
-    assert_response :success
+    assert_equal "success", assigns(:response)
   end
 
   test 'should destroy note' do
@@ -55,6 +57,12 @@ class NotesControllerTest < ActionController::TestCase
     assert_difference('Note.count', -1) do
       delete :destroy, id: notes(:phone_number).to_param
     end
-    assert_response :success
+    assert_equal "success", assigns(:response)
+  end
+
+  private
+
+  def category
+    categories(:study)
   end
 end
