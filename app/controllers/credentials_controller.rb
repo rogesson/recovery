@@ -32,9 +32,9 @@ class CredentialsController < ApplicationController
 	end
 
 	def destroy
-		response = @credential.destroy ? 'success' : @credential.errors
+		@response = @credential.destroy ? 'success' : @credential.errors
 
-		render json: { response: response }
+		respond_to :js
 	end
 
 	private

@@ -27,7 +27,7 @@ class CredentialsControllerTest < ActionController::TestCase
     assert_difference('Credential.count') do
       post :create, credential_params
     end
-    assert_response :success
+    assert_equal "success", assigns(:response)
   end
 
   test 'should not create credential' do
@@ -47,7 +47,7 @@ class CredentialsControllerTest < ActionController::TestCase
     login_as(:rogesson)
     put :update, id: credentials(:gmail_login).to_param, credential: { password: 'newpassword!222' }
 
-    assert_response :success
+    assert_equal "success", assigns(:response)
   end
 
   test 'should destroy credential' do
@@ -56,7 +56,7 @@ class CredentialsControllerTest < ActionController::TestCase
     assert_difference('Credential.count', -1) do
       delete :destroy, id: credentials(:gmail_login).to_param
     end
-    assert_response :success
+    assert_equal "success", assigns(:response)
   end
 
   test 'should search by site' do

@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(:version => 20150926230955) do
   create_table "categories", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "title",      :null => false
   end
 
   create_table "credentials", :force => true do |t|
@@ -39,11 +40,12 @@ ActiveRecord::Schema.define(:version => 20150926230955) do
   end
 
   create_table "notes", :force => true do |t|
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
-    t.string   "title",      :limit => 50,   :null => false
-    t.text     "body",       :limit => 1000
-    t.integer  "user_id",    :limit => 19,   :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+    t.string   "title",       :limit => 50,   :null => false
+    t.text     "body",        :limit => 1000
+    t.integer  "user_id",     :limit => 19,   :null => false
+    t.integer  "category_id", :limit => 19
   end
 
   create_table "sessions", :force => true do |t|
